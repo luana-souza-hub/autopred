@@ -1,0 +1,4 @@
+,"Pearson SHAP×LIME, dissertação (Fig. 20)","Pearson, NB09 com LIME corrigido","Spearman estabilidade SHAP (mediana), dissertação",Pearson v2 (limpo),Spearman SHAP×LIME v2 (limpo),Spearman estabilidade SHAP v2 (mediana),Spearman estabilidade SHAP v2 (média [IC])
+RandomForest,0.959,0.992,0.572,0.997,0.954,0.584,0.561 [0.480; 0.632]
+GradientBoosting,0.952,0.994,0.344,0.996,0.907,0.405,0.436 [0.372; 0.500]
+SVR,0.908,0.98,0.52,0.993,0.946,0.63,0.616 [0.528; 0.695]

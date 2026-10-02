@@ -1,0 +1,17 @@
+xai_m4_limpo: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=False
+xai_m4_limpo: 30 séries, 5400 linhas em 1.5 min -> results\v2\m4\xai\xai_m4_limpo_pontos.csv
+xai_m4_ruido30: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=False
+xai_m4_ruido30: 30 séries, 5400 linhas em 2.7 min -> results\v2\m4\xai\xai_m4_ruido30_pontos.csv
+xai_m4_limpo_lag24: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=True
+xai_m4_limpo_lag24: 30 séries, 5316 linhas em 1.5 min -> results\v2\m4\xai\xai_m4_limpo_lag24_pontos.csv
+xai_m4_ruido30_lag24: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=True
+xai_m4_ruido30_lag24: 30 séries, 5316 linhas em 2.4 min -> results\v2\m4\xai\xai_m4_ruido30_lag24_pontos.csv
+xai_m4_limpo_lime1000: 30 séries | métodos=('lime',) | lime_samples=1000 | lag24=False
+xai_m4_limpo_lime1000: 30 séries, 2700 linhas em 0.2 min -> results\v2\m4\xai\xai_m4_limpo_lime1000_pontos.csv
+xai_m4_ruido30_lime1000: 30 séries | métodos=('lime',) | lime_samples=1000 | lag24=False
+xai_m4_ruido30_lime1000: 30 séries, 2700 linhas em 0.2 min -> results\v2\m4\xai\xai_m4_ruido30_lime1000_pontos.csv
+xai_m4_limpo_lime5000: 30 séries | métodos=('lime',) | lime_samples=5000 | lag24=False
+xai_m4_limpo_lime5000: 30 séries, 2700 linhas em 0.4 min -> results\v2\m4\xai\xai_m4_limpo_lime5000_pontos.csv
+xai_m4_ruido30_lime5000: 30 séries | métodos=('lime',) | lime_samples=5000 | lag24=False
+xai_m4_ruido30_lime5000: 30 séries, 2700 linhas em 0.5 min -> results\v2\m4\xai\xai_m4_ruido30_lime5000_pontos.csv
+FIM
