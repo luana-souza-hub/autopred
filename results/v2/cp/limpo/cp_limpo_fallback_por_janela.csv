@@ -4,6 +4,7 @@ Holt-Winters,0.0,0.0,0.0
 Média histórica,0.0,0.0,0.0
 Persistência,0.0,0.0,0.0
 Random Forest,0.0,0.0,0.0
+SARIMA automático,12.8,4.3,1.0
 SARIMA heurístico,100.0,100.0,1.2
 Sazonal ingênuo,0.0,0.0,0.0
 SES,0.0,0.0,0.0

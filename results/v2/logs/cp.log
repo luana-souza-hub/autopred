@@ -27,3 +27,10 @@ XAI_FIM
 FIM
 --- retomada 17:11 a partir do checkpoint
 [sarima_auto] retomando: 1800/2674 séries no parcial
+[sarima_auto] 2000/2674 séries | 11.2 min | ETA 37.8 min
+[sarima_auto] 2200/2674 séries | 22.7 min | ETA 26.9 min
+[sarima_auto] 2400/2674 séries | 34.1 min | ETA 15.6 min
+[sarima_auto] 2600/2674 séries | 45.8 min | ETA 4.2 min
+[sarima_auto] 2674/2674 séries | 50.5 min | ETA 0.0 min
+[sarima_auto] concluído em 50.5 min: results\v2\cp\limpo\cp_limpo_sarima_auto_by_window.csv | {'OK': 7537, 'FALLBACK_SNAIVE': 485}
+FIM
