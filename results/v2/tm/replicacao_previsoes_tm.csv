@@ -1,0 +1,5 @@
+hipotese,previsao,status,evidencia,parte,fonte
+H1,"Pearson SHAP×LIME agregado > 0,90; Spearman por série entre 0,65 e 0,85",pendente (4c),,,
+H2,"estabilidade (Spearman) < 0,80 em todos; lag_1 perde e médias móveis ganham em RF e GB",pendente (4c),,,
+H3,lag_12 no top-3 de uma fração maior das séries do que no M4 (17% a 30%),pendente (4c),,,
+H4,a hierarquia entre famílias difere da do M4 e da do Car Parts,confirmou parcialmente,"ordem TM: Suavização exponencial > ARIMA > Baseline > ML; M4: ML > Suavização exponencial > Baseline > ARIMA; CP: Baseline > ML > Suavização exponencial > ARIMA; IC separado vs M4: [], vs CP: ['ARIMA', 'ML']",4a,tm/limpo/familias_tres_bases_mase_tm.csv

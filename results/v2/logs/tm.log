@@ -9,3 +9,15 @@ base=tm etapa=limpo alvo_ruidoso=False séries=200 H=24 min_train=24 modelos=['p
 [gbt] concluído em 0.1 min: results\v2\tm\limpo\tm_limpo_gbt_by_window.csv | {'OK': 600}
 [svr] concluído em 0.0 min: results\v2\tm\limpo\tm_limpo_svr_by_window.csv | {'OK': 600}
 RAPIDOS_FIM
+[sarima_auto] 20/200 séries | 3.6 min | ETA 32.8 min
+[sarima_auto] 40/200 séries | 7.0 min | ETA 28.0 min
+[sarima_auto] 60/200 séries | 10.3 min | ETA 24.1 min
+[sarima_auto] 80/200 séries | 13.6 min | ETA 20.4 min
+[sarima_auto] 100/200 séries | 16.7 min | ETA 16.7 min
+[sarima_auto] 120/200 séries | 20.0 min | ETA 13.3 min
+[sarima_auto] 140/200 séries | 23.4 min | ETA 10.0 min
+[sarima_auto] 160/200 séries | 26.6 min | ETA 6.7 min
+[sarima_auto] 180/200 séries | 30.1 min | ETA 3.3 min
+[sarima_auto] 200/200 séries | 33.2 min | ETA 0.0 min
+[sarima_auto] concluído em 33.2 min: results\v2\tm\limpo\tm_limpo_sarima_auto_by_window.csv | {'OK': 600}
+FIM

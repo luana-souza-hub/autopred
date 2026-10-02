@@ -84,3 +84,19 @@ Mudanças de protocolo: RF com 100 árvores (antes 30, C15), features sem duplic
 | (Car Parts) estabilidade sob ruído σ=30% | n/a | Spearman SHAP 0,17 / 0,20 / 0,47 (médias); Jaccard top-3 de 0,24 a 0,38 | novo: muito menor que no M4 | `cp/xai/xai_cp_estabilidade.csv` |
 | (Car Parts) lag sazonal | n/a | lag_12 em 7º a 9º (limpo); a top-1 é roll_mean_6 (RF, GB) ou lag_1 (SVR) | novo | `cp/xai/xai_cp_posicao_lag12.csv` |
 | (Car Parts) redistribuição sob ruído | n/a | não reproduz o padrão do M4: roll_mean_6 **perde** importância em RF e GB (−0,10 e −0,06 no SHAP) e os modelos passam a usar lags isolados (lag_10, lag_6, lag_9) | novo: não replica (o ruído proporcional em série intermitente cria estrutura artificial) | `cp/xai/xai_cp_redistribuicao_ruido.csv` |
+
+---
+
+## Fase 4a: Tourism Monthly, desempenho em dados limpos (terceira base, não está na dissertação)
+
+Base nova, avaliada com o mesmo protocolo v2 (H = 24). Previsões registradas antes da execução em `PREVISOES_tourism.md` (commit 1a08fa1); os 10 caches foram gerados pelo pipeline desse commit (sha256 bbe78767…, sem alteração desde ba7a8d6). A coluna "valor antigo" traz o achado correspondente no M4 e no Car Parts (v2).
+
+| Achado da dissertação / previsão | Valor nas outras bases (v2) | Valor Tourism v2 | Situação | Arquivo-fonte |
+|---|---|---|---|---|
+| Holt-Winters é o melhor em dados limpos (M4) | M4: 1º por MAPE, 2º por MASE; CP: último | 1º por MAPE (21,61%) e por MASE (1,349); 4º por MAE | mantém no Tourism (o regime sazonal favorece o HW; no CP ele era o último) | `tm/limpo/tabela_desempenho_v2_tm.csv` |
+| Persistência competitiva (M4 na dissertação; CP 1º) | M4: 6º; CP: 1º | 9º por MAPE (37,47%), 10º por MAE | não se sustenta no Tourism (sazonalidade forte penaliza a persistência) | `tm/limpo/tabela_desempenho_v2_tm.csv` |
+| SES como padrão para portfólios heterogêneos | M4: 4º; CP: 4º | 8º (33,34%), à frente só dos baselines triviais de nível | não se sustenta no Tourism | `tm/limpo/tabela_desempenho_v2_tm.csv` |
+| ML competitivo em dados limpos | M4: GB 3º; CP: SVR 2º e RF 3º | SVR 5º, RF 6º, GB 7º por MAPE | muda (ML fica atrás de todos os modelos sazonais) | `tm/limpo/tabela_desempenho_v2_tm.csv` |
+| Fallback do SARIMA heurístico na 1ª janela | M4: 33%; CP: 67% | 33% (toda a 1ª janela, verossimilhança degenerada); SARIMA automático: 0% de fallback e 8 janelas explosivas (1,3%) | mantém | `tm/limpo/tm_limpo_fallback_por_janela.csv` |
+| Rankings dos modelos entre bases (mesma métrica) | M4 x CP: MASE −0,20 [−0,69; +0,25] | TM x M4: MASE +0,19 [−0,18; +0,64]; TM x CP: MASE −0,77 [−0,87; −0,66] | novo: o Tourism se parece mais com o M4 (sem diferença significativa) e é o oposto do Car Parts | `tm/limpo/ranks_tres_bases_tm.csv` |
+| H4 (previsão registrada): hierarquia entre famílias difere da do M4 e da do Car Parts | M4: ML > Suavização > Baseline > ARIMA; CP: Baseline > ML > Suavização > ARIMA (MASE) | Suavização > ARIMA > Baseline > ML (MASE); IC separado vs CP em ARIMA e ML, nenhum vs M4 | **confirmou parcialmente** (difere das duas nas estimativas pontuais; a separação de IC só ocorre contra o Car Parts). MAE, secundária: também parcial | `tm/limpo/familias_tres_bases_mase_tm.csv`, `tm/replicacao_previsoes_tm.csv` |
