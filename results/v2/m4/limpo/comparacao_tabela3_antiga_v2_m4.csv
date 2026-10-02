@@ -1,0 +1,11 @@
+,MAPE antigo,Rank antigo,Amostra antiga,MAPE v2,Rank v2,Δ MAPE (p.p.),Δ rank,Mudou de posição
+Holt-Winters,8.26,1,NB01 a 04b (alfabética),8.36,1.0,0.1,0.0,
+Gradient Boosting,9.9,5,NB05 a 07 (= v2),9.06,2.0,-0.84,-3.0,SIM
+SES,8.78,3,NB01 a 04b (alfabética),9.68,3.0,0.9,0.0,
+SARIMA heurístico,10.1,6,NB01 a 04b (alfabética),9.72,4.0,-0.38,-2.0,SIM
+Persistência,8.7,2,NB01 a 04b (alfabética),9.75,5.0,1.05,3.0,SIM
+Random Forest,10.59,7,NB05 a 07 (= v2),10.13,6.0,-0.46,-1.0,SIM
+SVR,11.13,9,NB05 a 07 (= v2),11.52,7.0,0.39,-2.0,SIM
+Sazonal ingênuo,11.06,8,NB01 a 04b (alfabética),11.77,8.0,0.71,0.0,
+Média histórica,18.6,10,NB01 a 04b (alfabética),21.82,9.0,3.22,-1.0,SIM
+SARIMA automático,9.12,4,NB01 a 04b (alfabética),,,,,

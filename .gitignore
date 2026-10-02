@@ -48,3 +48,6 @@ backup_pre_correcoes/
 
 # Bases públicas brutas (M4 e Monash/Zenodo): baixar das fontes com DOI
 data/raw/
+
+# Checkpoints em andamento do scripts/run_v2.py
+*.parcial.csv

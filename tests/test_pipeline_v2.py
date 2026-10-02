@@ -317,12 +317,17 @@ class TestSarimaDegenerado(unittest.TestCase):
 class TestMeta(unittest.TestCase):
     def test_meta_json(self):
         with tempfile.TemporaryDirectory() as d:
-            df = pv.cache_csv(Path(d) / 'x.csv', lambda: pd.DataFrame({'a': [1]}), {'etapa': 'teste'})
+            dado = Path(d) / 'dado.txt'
+            dado.write_text('abc', encoding='utf-8')
+            df = pv.cache_csv(Path(d) / 'x.csv', lambda: pd.DataFrame({'a': [1]}), {'etapa': 'teste'},
+                              arquivos_dados=[dado])
             meta = json.loads((Path(d) / 'x.csv.meta.json').read_text(encoding='utf-8'))
             self.assertEqual(meta['pipeline_sha256'], pv.hash_pipeline())
             self.assertEqual(meta['sementes']['SEED'], 42)
             self.assertIn('scikit-learn', meta['versoes'])
             self.assertEqual(meta['etapa'], 'teste')
+            self.assertEqual(meta['dados'][0]['sha256'],
+                             'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad')   # SHA-256('abc')
             self.assertEqual(len(df), 1)
 
 

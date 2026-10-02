@@ -1,0 +1,55 @@
+base=m4 etapa=limpo alvo_ruidoso=False séries=200 H=18 min_train=24 modelos=['persistence', 'mean', 'seasonal_naive', 'ses', 'holt_winters', 'sarima_heuristic', 'random_forest', 'gbt', 'svr'] n_jobs=5
+[persistence] 40/200 séries | 0.1 min | ETA 0.2 min
+[persistence] 80/200 séries | 0.1 min | ETA 0.1 min
+[persistence] 120/200 séries | 0.1 min | ETA 0.0 min
+[persistence] 160/200 séries | 0.1 min | ETA 0.0 min
+[persistence] 200/200 séries | 0.1 min | ETA 0.0 min
+[persistence] concluído em 0.1 min: results\v2\m4\limpo\m4_limpo_persistence_by_window.csv | {'OK': 600}
+[mean] 40/200 séries | 0.0 min | ETA 0.0 min
+[mean] 80/200 séries | 0.0 min | ETA 0.0 min
+[mean] 120/200 séries | 0.0 min | ETA 0.0 min
+[mean] 160/200 séries | 0.0 min | ETA 0.0 min
+[mean] 200/200 séries | 0.0 min | ETA 0.0 min
+[mean] concluído em 0.0 min: results\v2\m4\limpo\m4_limpo_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] 40/200 séries | 0.0 min | ETA 0.0 min
+[seasonal_naive] 80/200 séries | 0.0 min | ETA 0.0 min
+[seasonal_naive] 120/200 séries | 0.0 min | ETA 0.0 min
+[seasonal_naive] 160/200 séries | 0.0 min | ETA 0.0 min
+[seasonal_naive] 200/200 séries | 0.0 min | ETA 0.0 min
+[seasonal_naive] concluído em 0.0 min: results\v2\m4\limpo\m4_limpo_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] 40/200 séries | 0.0 min | ETA 0.0 min
+[ses] 80/200 séries | 0.0 min | ETA 0.0 min
+[ses] 120/200 séries | 0.0 min | ETA 0.0 min
+[ses] 160/200 séries | 0.0 min | ETA 0.0 min
+[ses] 200/200 séries | 0.0 min | ETA 0.0 min
+[ses] concluído em 0.0 min: results\v2\m4\limpo\m4_limpo_ses_by_window.csv | {'OK': 600}
+[holt_winters] 40/200 séries | 0.1 min | ETA 0.6 min
+[holt_winters] 80/200 séries | 0.3 min | ETA 0.4 min
+[holt_winters] 120/200 séries | 0.4 min | ETA 0.3 min
+[holt_winters] 160/200 séries | 0.6 min | ETA 0.1 min
+[holt_winters] 200/200 séries | 0.7 min | ETA 0.0 min
+[holt_winters] concluído em 0.7 min: results\v2\m4\limpo\m4_limpo_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] 40/200 séries | 0.1 min | ETA 0.3 min
+[sarima_heuristic] 80/200 séries | 0.1 min | ETA 0.2 min
+[sarima_heuristic] 120/200 séries | 0.2 min | ETA 0.1 min
+[sarima_heuristic] 160/200 séries | 0.3 min | ETA 0.1 min
+[sarima_heuristic] 200/200 séries | 0.4 min | ETA 0.0 min
+[sarima_heuristic] concluído em 0.4 min: results\v2\m4\limpo\m4_limpo_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] 40/200 séries | 0.1 min | ETA 0.6 min
+[random_forest] 80/200 séries | 0.3 min | ETA 0.5 min
+[random_forest] 120/200 séries | 0.4 min | ETA 0.3 min
+[random_forest] 160/200 séries | 0.6 min | ETA 0.1 min
+[random_forest] 200/200 séries | 0.7 min | ETA 0.0 min
+[random_forest] concluído em 0.7 min: results\v2\m4\limpo\m4_limpo_random_forest_by_window.csv | {'OK': 600}
+[gbt] 40/200 séries | 0.0 min | ETA 0.1 min
+[gbt] 80/200 séries | 0.1 min | ETA 0.1 min
+[gbt] 120/200 séries | 0.1 min | ETA 0.1 min
+[gbt] 160/200 séries | 0.1 min | ETA 0.0 min
+[gbt] 200/200 séries | 0.2 min | ETA 0.0 min
+[gbt] concluído em 0.2 min: results\v2\m4\limpo\m4_limpo_gbt_by_window.csv | {'OK': 600}
+[svr] 40/200 séries | 0.0 min | ETA 0.0 min
+[svr] 80/200 séries | 0.0 min | ETA 0.0 min
+[svr] 120/200 séries | 0.0 min | ETA 0.0 min
+[svr] 160/200 séries | 0.0 min | ETA 0.0 min
+[svr] 200/200 séries | 0.0 min | ETA 0.0 min
+[svr] concluído em 0.0 min: results\v2\m4\limpo\m4_limpo_svr_by_window.csv | {'OK': 597, 'FALLBACK_MEAN': 3}

@@ -446,11 +446,11 @@ def avaliar_serie(series, unique_id, serie_idx, modelos, h, cenario=None, alvo_r
             'alvo_ruidoso': bool(alvo_ruidoso)}
     origens = make_rolling_windows(len(series), h, min_train, n_origins)
     if not origens:
-        return [{**base, 'model': m, 'origin': None, 'n_train': None, 'n_train_efetivo': None,
+        return [{**base, 'model': m, 'janela': None, 'origin': None, 'n_train': None, 'n_train_efetivo': None,
                  'mape': np.nan, 'mae': np.nan, 'r2': np.nan, 'exec_time_s': np.nan,
                  'status': SEM_JANELA, 'info': ''} for m in fns]
     regs = []
-    for o in origens:
+    for k, o in enumerate(origens, start=1):
         train, test = series[:o], series[o:o + h]
         if cenario is not None:
             rng = rng_janela(serie_idx, o, cenario)
@@ -468,7 +468,7 @@ def avaliar_serie(series, unique_id, serie_idx, modelos, h, cenario=None, alvo_r
                 met = calc_metrics(test, pred)
             except Exception as e:
                 met, status, info = {'mape': np.nan, 'mae': np.nan, 'r2': np.nan}, ERRO, {'erro': str(e)[:120]}
-            regs.append({**base, 'model': nome, 'origin': o, 'n_train': o, 'n_train_efetivo': len(train),
+            regs.append({**base, 'model': nome, 'janela': k, 'origin': o, 'n_train': o, 'n_train_efetivo': len(train),
                          **met, 'exec_time_s': time.perf_counter() - t0, 'status': status,
                          'info': json.dumps(info, ensure_ascii=False) if info else ''})
     return regs
@@ -505,6 +505,13 @@ def taxas_status(df):
         if c not in t:
             t[c] = 0.0
     return t[[OK, FB_SNAIVE, FB_MEAN, ERRO, SEM_JANELA]]
+
+
+def taxas_fallback_por_janela(df):
+    """Proporção de janelas em fallback por modelo e janela (1ª, 2ª, 3ª)."""
+    d = df[df['status'] != SEM_JANELA].copy()
+    d['fallback'] = d['status'].isin([FB_SNAIVE, FB_MEAN])
+    return d.pivot_table(index='model', columns='janela', values='fallback', aggfunc='mean')
 
 
 def tabela_delta(by_series_base, by_series_adv, metrica='mape'):
@@ -639,8 +646,27 @@ def versoes():
     return v
 
 
-def write_meta(path, extra=None):
-    """Grava <arquivo>.meta.json ao lado do cache."""
+_HASH_CACHE = {}
+
+
+def info_arquivos(paths):
+    """Nome, tamanho e SHA-256 dos arquivos de dados (calculado uma vez por processo)."""
+    out = []
+    for p in paths or []:
+        p = Path(p)
+        chave = (str(p.resolve()), p.stat().st_mtime, p.stat().st_size)
+        if chave not in _HASH_CACHE:
+            h = hashlib.sha256()
+            with open(p, 'rb') as f:
+                for bloco in iter(lambda: f.read(1 << 20), b''):
+                    h.update(bloco)
+            _HASH_CACHE[chave] = h.hexdigest()
+        out.append({'arquivo': p.name, 'bytes': p.stat().st_size, 'sha256': _HASH_CACHE[chave]})
+    return out
+
+
+def write_meta(path, extra=None, arquivos_dados=None):
+    """Grava <arquivo>.meta.json ao lado do cache (inclui SHA-256 dos dados usados)."""
     path = Path(path)
     meta = {
         'arquivo'       : path.name,
@@ -656,6 +682,7 @@ def write_meta(path, extra=None):
                            'hiperparametros': {k: {kk: str(vv) for kk, vv in v.items()}
                                                for k, v in HIPERPARAMETROS.items()},
                            'outlier_k': OUTLIER_K, 'lime_num_samples': LIME_NUM_SAMPLES},
+        'dados'         : info_arquivos(arquivos_dados),
         **(extra or {}),
     }
     meta_path = path.with_name(path.name + '.meta.json')
@@ -663,7 +690,7 @@ def write_meta(path, extra=None):
     return meta_path
 
 
-def cache_csv(path, gerar, extra_meta=None, force=False):
+def cache_csv(path, gerar, extra_meta=None, force=False, arquivos_dados=None):
     """Lê o CSV se existir; senão chama gerar(), salva CSV e .meta.json."""
     path = Path(path)
     if path.exists() and not force:
@@ -672,5 +699,6 @@ def cache_csv(path, gerar, extra_meta=None, force=False):
     t0 = time.time()
     df = gerar()
     df.to_csv(path, index=False)
-    write_meta(path, {**(extra_meta or {}), 'linhas': len(df), 'duracao_s': round(time.time() - t0, 1)})
+    write_meta(path, {**(extra_meta or {}), 'linhas': len(df), 'duracao_s': round(time.time() - t0, 1)},
+               arquivos_dados)
     return df
