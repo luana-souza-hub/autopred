@@ -489,17 +489,43 @@ def flag_explosiva(df):
     return df['info'].fillna('').astype(str).str.contains('"explosiva": true', regex=False)
 
 
+def escala_mase(train, season=SEASON):
+    """Escala do MASE: média de |y_t - y_(t-season)| no treino da janela (erro in-sample do
+    sazonal ingênuo). NaN quando indefinida (treino curto ou diferenças sazonais todas nulas)."""
+    t = np.asarray(train, dtype=float)
+    if len(t) <= season:
+        return np.nan
+    d = float(np.mean(np.abs(t[season:] - t[:-season])))
+    return d if d > 0 else np.nan
+
+
+def adicionar_mase(df, series_por_id, season=SEASON):
+    """Acrescenta escala_mase e mase (= mae / escala) a um DataFrame de janelas, a partir das séries
+    originais e da origem de cada janela (treino = série[:origem])."""
+    esc = {}
+    for u, o in set(zip(df['unique_id'], df['origin'])):
+        esc[(u, o)] = escala_mase(np.asarray(series_por_id[u])[:int(o)], season) if pd.notna(o) else np.nan
+    out = df.copy()
+    out['escala_mase'] = [esc[(u, o)] for u, o in zip(out['unique_id'], out['origin'])]
+    out['mase'] = out['mae'] / out['escala_mase']
+    return out
+
+
+def _metricas_presentes(df):
+    return [c for c in ['mape', 'mae', 'mase', 'r2', 'exec_time_s'] if c in df.columns]
+
+
 def agregar_por_serie(df, incluir_fallback=True, excluir_explosivas=False):
     """Mediana das janelas por (série, modelo). ERRO e SEM_JANELA ficam fora."""
     validos = [OK, FB_SNAIVE, FB_MEAN] if incluir_fallback else [OK]
     d = df[df['status'].isin(validos)]
     if excluir_explosivas:
         d = d[~flag_explosiva(d)]
-    return d.groupby(['model', 'unique_id'])[['mape', 'mae', 'r2', 'exec_time_s']].median().reset_index()
+    return d.groupby(['model', 'unique_id'])[_metricas_presentes(d)].median().reset_index()
 
 
 def resumo_modelos(by_series, ordenar_por='mape'):
-    r = by_series.groupby('model')[['mape', 'mae', 'r2', 'exec_time_s']].median()
+    r = by_series.groupby('model')[_metricas_presentes(by_series)].median()
     r['familia'] = r.index.map(FAMILIA)
     r['n_series'] = by_series.groupby('model')['unique_id'].nunique()
     return r.sort_values(ordenar_por)

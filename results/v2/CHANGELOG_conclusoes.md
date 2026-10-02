@@ -2,7 +2,7 @@
 
 Registro, por fase, de como cada achado da dissertação (`Dissertacao_PPGI_AutoPred_2.docx`) se comporta quando refeito com o protocolo único v2 (`src/pipeline_v2.py`). Situação: **mantém** (direção e magnitude compatíveis), **muda** (direção mantida, mas magnitude, posição ou rótulo diferentes) ou **não se sustenta** (o achado deixa de valer).
 
-Convenções: MAPE e ΔMAPE em medianas entre séries; "Δ%" é relativo e "p.p." é absoluto; IC = intervalo de 95% por bootstrap pareado por série (2000 reamostragens). Atualizado em 2026-10-02.
+Convenções: MAPE e ΔMAPE em medianas entre séries; "Δ%" é relativo e "p.p." é absoluto; IC = intervalo de 95% por bootstrap pareado por série (2000 reamostragens). Atualizado em 2026-10-02 (Fase 3 revisada: inversão com a mesma métrica nas duas bases).
 
 ---
 
@@ -69,15 +69,16 @@ Mudanças de protocolo: RF com 100 árvores (antes 30, C15), features sem duplic
 |---|---|---|---|---|
 | Persistência é a melhor no Car Parts (MAE) | 0,333 (1º) | 0,333 (1º), rank IC [1; 1] | mantém | `cp/limpo/tabela7_v2_cp.csv` |
 | Persistência domina na faixa Extremo de zeros | 0,111 | 0,111 | mantém | `cp/limpo/tabela7_v2_cp.csv` |
-| RF em 2º e SVR em 3º | RF 0,485 (2º); SVR 0,488 (3º) | SVR 0,459 (2º); RF 0,500 (3º). Sem fallback: RF 0,500 e SVR 0,507 | muda (o 2º lugar do SVR depende dos 13% de janelas em que ele cai na média do treino) | `cp/limpo/tabela7_v2_cp.csv` |
+| RF em 2º e SVR em 3º | RF 0,485 (2º); SVR 0,488 (3º) | SVR 0,459 (2º) com fallback e 0,507 sem fallback (13,1% das janelas); RF 0,500 (3º) | muda (o 2º lugar do SVR depende das janelas em que ele cai na média do treino) | `cp/limpo/tabela7_v2_cp.csv` |
 | GB à frente do SES | 0,499 (4º) | 0,556 (5º, empatado com o sazonal ingênuo) | muda | `cp/limpo/comparacao_tabela7_antiga_v2_cp.csv` |
 | Holt-Winters é o penúltimo (8º de 9) | 0,741 (8º) | 0,741 (10º de 10, último), rank IC [10; 10] | mantém (fica ainda pior em posição; o MAE é idêntico) | `cp/limpo/tabela7_v2_cp.csv` |
 | SARIMA heurístico é o último | 0,885 (9º) | 0,611 (8º) com fallback; 0,826 sem; 67% das janelas em fallback (janelas de 24 e 28 obs) | muda (o MAE antigo vinha de ajustes degenerados) | `cp/limpo/cp_limpo_fallback_por_janela.csv` |
 | SARIMA automático | não avaliado | 0,650 (9º); 0,692 sem fallback (6%); 0,630 sem as 246 janelas explosivas (3,1%) | novo | `cp/limpo/tabela7_v2_cp.csv` |
 | MAPE indefinido em 15,8% das janelas; cobertura de 89% | "Cob. MAPE = proporção de janelas" (89%) | 84,2% das janelas e 89,0% das séries | muda (rótulo corrigido) | `cp/limpo/tabela7_v2_cp.csv` |
 | R² inadequado no Car Parts | medianas de −0,09 a −1,67 | R² indefinido em 15,8% das janelas (teste constante); medianas de −0,13 a −1,18 | muda | `cp/limpo/tabela7_v2_cp.csv` |
-| H4: reversão de hierarquia M4 → Car Parts (HW de 1º a penúltimo) | HW 1º → 8º | HW 1º [1; 3] no M4 → 10º [10; 10] no Car Parts; Spearman entre rankings −0,48 [−0,66; −0,15] | mantém (agora com IC: a inversão é estatisticamente sustentada) | `cp/limpo/reversao_hierarquia_m4_cp.csv` |
-| ML mais estável entre regimes que os estatísticos (5ª–9ª no M4 → 2ª–4ª no CP) | ML 5º–9º → 2º–4º | ML 3º/7º/8º → 2º/3º/5º; famílias: Suavização 1º → 3º, ARIMA 2º → 4º, ML 3º → 2º, Baseline 4º → 1º | muda (a família ML é a que menos muda de posição, mas dentro dela GB cai e SVR sobe) | `cp/limpo/reversao_familias_m4_cp.csv` |
+| H4: queda do Holt-Winters do M4 para o Car Parts | HW 1º → 8º (MAPE no M4, MAE no CP) | mesma métrica nas duas bases: MAE 3º [1; 7] → 10º [10; 10]; MASE 2º [1; 6] → 10º [10; 10]; ICs separados em todas as versões, com e sem fallback de SVR e SARIMA | mantém (robusto à métrica) | `cp/limpo/reversao_hierarquia_m4_cp_mesma_metrica.csv` |
+| H4: a hierarquia é "inteiramente revertida" entre os regimes | não testado | com métricas diferentes (referência), Spearman entre rankings −0,48 [−0,66; −0,15]; com a mesma métrica, MAE +0,07 [−0,59; +0,27] e MASE −0,20 [−0,69; +0,25]; sem fallback de SVR e SARIMA, MAE +0,31 e MASE −0,19, com ICs incluindo zero | muda (os rankings são pouco correlacionados, mas a inversão global não é estatisticamente sustentada; o −0,48 vinha em parte da troca de métrica) | `cp/limpo/reversao_hierarquia_m4_cp_mesma_metrica.csv` |
+| ML mais estável entre regimes que os estatísticos (5ª–9ª no M4 → 2ª–4ª no CP) | ML 5º–9º → 2º–4º | famílias com a mesma métrica (MAE e MASE iguais): ML 1º → 2º, Suavização 2º → 3º, Baseline 3º → 1º, ARIMA 4º → 4º; dentro de ML, GB 1º → 5º a 7º e SVR 8º a 9º → 2º | muda (a família ML é a melhor no M4 com MAE ou MASE e a 2ª no CP; os membros trocam de posição) | `cp/limpo/reversao_familias_m4_cp_mesma_metrica.csv` |
 | Explicabilidade não conduzida no Car Parts (limitação, 6.4) | não conduzida | EXPLORATÓRIA: 30 séries (de 2.505 elegíveis; 169 descartadas por alvo constante), 21 linhas de treino, 22 pontos explicados | novo | `cp/xai/` |
 | (Car Parts) concordância SHAP x LIME | n/a | Pearson 0,91 / 0,71 / 0,79 (RF/GB/SVR); Spearman por série 0,84 / 0,79 / 0,66 | novo: H1 replica só parcialmente (GB e SVR abaixo de 0,90) | `cp/xai/xai_cp_concordancia_shap_lime.csv` |
 | (Car Parts) estabilidade sob ruído σ=30% | n/a | Spearman SHAP 0,17 / 0,20 / 0,47 (médias); Jaccard top-3 de 0,24 a 0,38 | novo: muito menor que no M4 | `cp/xai/xai_cp_estabilidade.csv` |

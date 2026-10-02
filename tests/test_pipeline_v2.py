@@ -383,6 +383,20 @@ class TestBootstrapRanks(unittest.TestCase):
         self.assertEqual(boot.shape, (300, 3))
 
 
+class TestMase(unittest.TestCase):
+    def test_escala_e_mase(self):
+        s = np.r_[np.arange(12.0), np.arange(12.0) + 2, np.arange(12.0) + 4]   # diferença sazonal = 2
+        self.assertAlmostEqual(pv.escala_mase(s[:24]), 2.0)
+        self.assertTrue(np.isnan(pv.escala_mase(np.tile(np.arange(12.0), 2))))   # sazonalidade perfeita: escala 0
+        self.assertTrue(np.isnan(pv.escala_mase(np.zeros(30))))
+        self.assertTrue(np.isnan(pv.escala_mase(np.arange(12.0))))
+        df = pd.DataFrame({'unique_id': ['a', 'a'], 'origin': [24, 30], 'mae': [4.0, 1.0], 'model': 'm',
+                           'status': pv.OK, 'mape': 1.0, 'r2': 0.0, 'exec_time_s': 0.0})
+        out = pv.adicionar_mase(df, {'a': s})
+        self.assertEqual(out['mase'].tolist(), [2.0, 0.5])
+        self.assertIn('mase', pv.agregar_por_serie(out).columns)
+
+
 class TestMeta(unittest.TestCase):
     def test_meta_json(self):
         with tempfile.TemporaryDirectory() as d:
