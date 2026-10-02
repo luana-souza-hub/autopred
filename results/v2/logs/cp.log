@@ -15,3 +15,11 @@ xai_cp_limpo: 30 séries, 3960 linhas em 0.3 min -> results\v2\cp\xai\xai_cp_lim
 xai_cp_ruido30: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=False
 xai_cp_ruido30: 30 séries, 3960 linhas em 0.3 min -> results\v2\cp\xai\xai_cp_ruido30_pontos.csv
 XAI_FIM
+[sarima_auto] 200/2674 séries | 12.3 min | ETA 151.6 min
+[sarima_auto] 400/2674 séries | 24.7 min | ETA 140.5 min
+[sarima_auto] 600/2674 séries | 36.9 min | ETA 127.6 min
+[sarima_auto] 800/2674 séries | 49.7 min | ETA 116.4 min
+[sarima_auto] 1000/2674 séries | 62.4 min | ETA 104.4 min
+[sarima_auto] 1200/2674 séries | 74.4 min | ETA 91.4 min
+[sarima_auto] 1400/2674 séries | 85.5 min | ETA 77.8 min
+[sarima_auto] 1600/2674 séries | 96.7 min | ETA 64.9 min
