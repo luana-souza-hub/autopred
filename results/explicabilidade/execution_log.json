@@ -1,0 +1,46 @@
+{
+  "notebook": "09_explicabilidade.ipynb",
+  "objetivo_especifico": "OE4",
+  "data_execucao": "2026-10-02T10:13:25.578499",
+  "python": "3.11.0",
+  "sklearn": "1.8.0",
+  "shap": "0.51.0",
+  "seed": 42,
+  "n_series_piloto": 200,
+  "n_series_expl": 30,
+  "h": 18,
+  "n_features": 17,
+  "feature_names": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_4",
+    "lag_5",
+    "lag_6",
+    "lag_7",
+    "lag_8",
+    "lag_9",
+    "lag_10",
+    "lag_11",
+    "lag_12",
+    "roll_mean_3",
+    "roll_std_3",
+    "roll_mean_6",
+    "lag_season",
+    "lag_season2"
+  ],
+  "modelos_analisados": [
+    "RandomForest",
+    "GradientBoosting",
+    "SVR"
+  ],
+  "metodos_xai": [
+    "SHAP-TreeExplainer",
+    "SHAP-KernelExplainer",
+    "LIME"
+  ],
+  "perturbacao_estabilidade": "ruido_sigma_30pct",
+  "lime_associacao_features": "por indice via exp.as_map()[1] (corrigido out/2026)",
+  "lime_backup_versao_anterior": "results/explicabilidade_original_bugado/",
+  "referencia_dissertacao": "Secao 4.6 — Analise de explicabilidade"
+}

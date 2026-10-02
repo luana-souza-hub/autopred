@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-05-23T11:40:02.235150",
+  "notebook": "06_gradient_boosting",
+  "model": "gbt",
+  "n_lags": 12,
+  "n_estimators": 100,
+  "learning_rate": 0.1,
+  "max_depth": 3,
+  "subsample": 0.8,
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "n_ok": 600,
+  "n_errors": 0,
+  "taxa_sucesso": 100.0,
+  "mape_median": 9.9031,
+  "mae_median": 321.6768,
+  "r2_median": -1.1837,
+  "time_median_s": 0.0477
+}

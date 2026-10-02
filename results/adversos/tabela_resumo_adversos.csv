@@ -1,0 +1,8 @@
+Modelo,MAPE_limpo,ΔMAPE_A_ruido_10pct,ΔMAPE_A_ruido_30pct,ΔMAPE_B_ausencias_10pct,ΔMAPE_B_ausencias_20pct,ΔMAPE_B_ausencias_30pct,ΔMAPE_C_outliers_2pct,robustez_score
+SARIMA_auto,8.38,3.3,,,,,,3.3
+SES,9.49,0.1,27.9,-0.1,-1.2,-4.7,25.5,9.916666666666666
+SVR,10.71,13.3,32.3,2.7,-0.5,-3.3,18.1,11.699999999999998
+Persistencia,9.99,3.5,32.3,-2.5,-6.2,-10.8,16.3,11.933333333333332
+RandomForest,9.24,12.3,41.1,-1.1,-1.8,-0.3,25.4,13.666666666666666
+GradientBoosting,9.55,8.1,38.7,-4.2,-7.9,-0.7,29.9,14.916666666666666
+HoltWinters,8.26,10.4,49.2,0.2,7.9,8.6,45.7,20.333333333333332

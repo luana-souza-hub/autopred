@@ -1,0 +1,8 @@
+{
+  "modelo": "SARIMA_auto",
+  "motivo_exclusao": "Restrição operacional — custo computacional inviável em cenários adversos",
+  "tempo_estimado_horas": ">7h para 200 series x 9 cenarios",
+  "resultado_oe3": "SARIMA_auto apresenta falha de continuidade operacional (Seção 3.1) sob restrição de tempo, confirmando comportamento Limitado na dimensão Restrição operacional da Figura 2 da dissertação.",
+  "mape_base_limpa": 8.378042221915244,
+  "referencia_dissertacao": "Seção 3.2 — Taxonomia de cenários adversos, Cenário: Restrição operacional"
+}

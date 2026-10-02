@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-05-23T11:54:32.579014",
+  "notebook": "07_svr",
+  "model": "svr",
+  "n_lags": 12,
+  "C": 1.0,
+  "epsilon": 0.1,
+  "kernel": "rbf",
+  "gamma": "scale",
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "n_ok": 600,
+  "n_errors": 0,
+  "taxa_sucesso": 100.0,
+  "mape_median": 11.1325,
+  "mae_median": 371.8824,
+  "r2_median": -1.5001,
+  "time_median_s": 0.0096
+}

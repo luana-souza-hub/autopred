@@ -1,0 +1,50 @@
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Ferramentas / testes
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Variáveis de ambiente (credenciais)
+.env
+.env.local
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Backup anterior às correções (fica fora do repositório)
+backup_pre_correcoes/
+
+# Bases públicas brutas (M4 e Monash/Zenodo): baixar das fontes com DOI
+data/raw/

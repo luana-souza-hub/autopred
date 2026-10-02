@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-05-22T14:32:11.909410",
+  "notebook": "02_baselines_e_holt_winters",
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "min_train": 24,
+  "n_origins": 3,
+  "models": [
+    "persistence",
+    "mean",
+    "seasonal_naive",
+    "holt_winters"
+  ],
+  "summary": {
+    "mape": {
+      "holt_winters": 8.2606,
+      "persistence": 8.6992,
+      "seasonal_naive": 11.0601,
+      "mean": 18.5971
+    },
+    "mae": {
+      "holt_winters": 256.0183,
+      "persistence": 274.1667,
+      "seasonal_naive": 316.8889,
+      "mean": 589.9421
+    },
+    "r2": {
+      "holt_winters": -1.0642,
+      "persistence": -1.2684,
+      "seasonal_naive": -2.1744,
+      "mean": -6.4779
+    },
+    "exec_time_s": {
+      "holt_winters": 0.1852,
+      "persistence": 0.0004,
+      "seasonal_naive": 0.0004,
+      "mean": 0.0004
+    }
+  }
+}

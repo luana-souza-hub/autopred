@@ -1,0 +1,4 @@
+modelo,r_médio,r_std,r_mediana
+GradientBoosting,0.384,0.193,0.344
+RandomForest,0.521,0.192,0.572
+SVR,0.527,0.235,0.52

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-05-11T15:17:42.262799",
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "min_train": 24,
+  "n_origins": 3,
+  "model": "persistence",
+  "n_ok": 600,
+  "n_skip_short": 0,
+  "n_errors": 0,
+  "taxa_sucesso": 100.0,
+  "mape_median": 8.6992,
+  "mae_median": 274.1667,
+  "r2_median": -1.2684
+}

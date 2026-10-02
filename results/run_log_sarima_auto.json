@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-05-22T19:57:38.448566",
+  "notebook": "04b_sarima_auto",
+  "model": "sarima_auto",
+  "search_space": {
+    "p": [
+      0,
+      1,
+      2
+    ],
+    "d": [
+      0,
+      1
+    ],
+    "q": [
+      0,
+      1,
+      2
+    ],
+    "P": [
+      0,
+      1
+    ],
+    "D": [
+      0,
+      1
+    ],
+    "Q": [
+      0,
+      1
+    ],
+    "m": [
+      12
+    ]
+  },
+  "n_combinations": 144,
+  "time_limit_per_series": 300.0,
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "n_ok": 600,
+  "taxa_sucesso": 100.0,
+  "mape_median": 9.1184,
+  "mae_median": 266.3902,
+  "r2_median": -1.2678,
+  "elapsed_total_min": 93.13
+}

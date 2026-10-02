@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-05-22T16:26:41.643098",
+  "notebook": "04_sarima_heuristic",
+  "model": "sarima_heuristic",
+  "order": [
+    1,
+    1,
+    1
+  ],
+  "seasonal_order": [
+    1,
+    1,
+    0,
+    12
+  ],
+  "time_limit_s": 30.0,
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "n_ok": 600,
+  "n_timeout": 0,
+  "n_errors": 0,
+  "taxa_sucesso": 100.0,
+  "mape_median": 10.0628,
+  "mae_median": 284.7858,
+  "r2_median": -2.0551,
+  "time_median_s": 0.099,
+  "elapsed_total_min": 0.95
+}

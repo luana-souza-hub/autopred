@@ -1,0 +1,141 @@
+{
+  "timestamp": "2026-06-05T11:56:44.422590",
+  "notebook": "10_car_parts_pipeline",
+  "dataset": "CarParts_Monash",
+  "n_series_total": 2674,
+  "n_series_valid": 2674,
+  "series_length": 51,
+  "zero_prop_median": 0.8039,
+  "seed": 42,
+  "horizon_H": 18,
+  "min_train": 24,
+  "n_origins": 3,
+  "models": [
+    "persistence",
+    "mean",
+    "seasonal_naive",
+    "holt_winters",
+    "ses",
+    "sarima_heuristic",
+    "random_forest",
+    "gbt",
+    "svr"
+  ],
+  "sarima_auto_excluido": true,
+  "sarima_auto_motivo": "Restri\u00e7\u00e3o operacional: custo computacional excessivo (2674 s\u00e9ries \u00d7 3 origens)",
+  "status_counts": {
+    "persistence": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "mean": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "seasonal_naive": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "holt_winters": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "ses": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "sarima_heuristic": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "random_forest": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "gbt": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    },
+    "svr": {
+      "ok": 8022,
+      "error": 0,
+      "skip": 0
+    }
+  },
+  "results_summary": {
+    "mape_median": {
+      "persistence": 100.0,
+      "random_forest": 78.588,
+      "svr": 80.3236,
+      "gbt": 91.3015,
+      "ses": 75.8281,
+      "seasonal_naive": 100.0,
+      "mean": 78.2468,
+      "holt_winters": 90.3865,
+      "sarima_heuristic": 100.0
+    },
+    "mae_median": {
+      "persistence": 0.3333,
+      "random_forest": 0.4851,
+      "svr": 0.4877,
+      "gbt": 0.4994,
+      "ses": 0.5357,
+      "seasonal_naive": 0.5556,
+      "mean": 0.5758,
+      "holt_winters": 0.7408,
+      "sarima_heuristic": 0.8846
+    },
+    "r2_median": {
+      "persistence": -0.2,
+      "random_forest": -0.1388,
+      "svr": -0.0976,
+      "gbt": -0.2857,
+      "ses": -0.0949,
+      "seasonal_naive": -0.7215,
+      "mean": -0.1111,
+      "holt_winters": -0.8001,
+      "sarima_heuristic": -1.6693
+    },
+    "time_median_s": {
+      "persistence": 0.0004,
+      "random_forest": 0.059,
+      "svr": 0.0091,
+      "gbt": 0.037,
+      "ses": 0.0032,
+      "seasonal_naive": 0.0004,
+      "mean": 0.0004,
+      "holt_winters": 0.0532,
+      "sarima_heuristic": 0.0454
+    },
+    "n_series": {
+      "persistence": 2674,
+      "random_forest": 2674,
+      "svr": 2674,
+      "gbt": 2674,
+      "ses": 2674,
+      "seasonal_naive": 2674,
+      "mean": 2674,
+      "holt_winters": 2674,
+      "sarima_heuristic": 2674
+    },
+    "mape_cov_pct": {
+      "persistence": 89.0,
+      "random_forest": 89.0,
+      "svr": 89.0,
+      "gbt": 89.0,
+      "ses": 89.0,
+      "seasonal_naive": 89.0,
+      "mean": 89.0,
+      "holt_winters": 89.0,
+      "sarima_heuristic": 89.0
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-05-23T11:02:06.612830",
+  "notebook": "05_random_forest",
+  "model": "random_forest",
+  "n_lags": 12,
+  "n_estimators": 100,
+  "min_samples_leaf": 2,
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "n_ok": 600,
+  "n_errors": 0,
+  "taxa_sucesso": 100.0,
+  "mape_median": 10.5861,
+  "mae_median": 341.668,
+  "r2_median": -1.0925,
+  "time_median_s": 0.3364
+}

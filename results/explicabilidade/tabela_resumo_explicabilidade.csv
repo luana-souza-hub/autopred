@@ -1,0 +1,4 @@
+Modelo,Top-1 SHAP,Top-3 SHAP,Top-1 LIME,Top-3 LIME,Concordância SHAP×LIME (r),Estabilidade Spearman (mediana),Posição lag_season SHAP,Posição lag_season LIME,Posição lag_season2 SHAP,Posição lag_season2 LIME
+RandomForest,lag_1,"lag_1, roll_mean_3, lag_3",lag_1,"lag_1, roll_mean_3, roll_mean_6",0.992,0.572,7,8,5,5
+GradientBoosting,lag_1,"lag_1, roll_mean_3, lag_3",lag_1,"lag_1, roll_mean_3, roll_mean_6",0.994,0.344,8,10,6,6
+SVR,lag_1,"lag_1, roll_mean_3, lag_2",lag_1,"lag_1, roll_mean_3, roll_mean_6",0.98,0.52,8,11,6,8

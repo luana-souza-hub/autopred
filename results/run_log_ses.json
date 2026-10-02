@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-05-22T15:16:51.050585",
+  "notebook": "03_ses",
+  "model": "ses",
+  "dataset": "M4_Monthly",
+  "pilot_n": 200,
+  "seed": 42,
+  "horizon_H": 18,
+  "min_train": 24,
+  "n_origins": 3,
+  "n_ok": 600,
+  "n_errors": 0,
+  "taxa_sucesso": 100.0,
+  "mape_median": 8.7764,
+  "mae_median": 253.5196,
+  "r2_median": -1.1898,
+  "time_median_s": 0.003779
+}
