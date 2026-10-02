@@ -1,0 +1,17 @@
+base=cp etapa=limpo alvo_ruidoso=False séries=2674 H=18 min_train=24 modelos=['persistence', 'mean', 'seasonal_naive', 'ses', 'holt_winters', 'sarima_heuristic', 'random_forest', 'gbt', 'svr'] n_jobs=10
+[persistence] concluído em 0.1 min: results\v2\cp\limpo\cp_limpo_persistence_by_window.csv | {'OK': 8022}
+[mean] concluído em 0.0 min: results\v2\cp\limpo\cp_limpo_mean_by_window.csv | {'OK': 8022}
+[seasonal_naive] concluído em 0.0 min: results\v2\cp\limpo\cp_limpo_seasonal_naive_by_window.csv | {'OK': 8022}
+[ses] concluído em 0.1 min: results\v2\cp\limpo\cp_limpo_ses_by_window.csv | {'OK': 8022}
+[holt_winters] concluído em 1.2 min: results\v2\cp\limpo\cp_limpo_holt_winters_by_window.csv | {'OK': 8022}
+[sarima_heuristic] concluído em 1.9 min: results\v2\cp\limpo\cp_limpo_sarima_heuristic_by_window.csv | {'FALLBACK_SNAIVE': 5380, 'OK': 2642}
+[random_forest] concluído em 4.0 min: results\v2\cp\limpo\cp_limpo_random_forest_by_window.csv | {'OK': 8022}
+[gbt] concluído em 0.7 min: results\v2\cp\limpo\cp_limpo_gbt_by_window.csv | {'OK': 8022}
+[svr] concluído em 0.1 min: results\v2\cp\limpo\cp_limpo_svr_by_window.csv | {'OK': 6974, 'FALLBACK_MEAN': 1048}
+{'filtro_elegiveis': True, 'n_series_base': 2674, 'n_elegiveis': 2505, 'n_descartadas': 169, 'descartadas_poucas_linhas': 0, 'descartadas_alvo_constante': 169, 'linhas_treino_sorteadas': [21]}
+xai_cp_limpo: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=False
+xai_cp_limpo: 30 séries, 3960 linhas em 0.3 min -> results\v2\cp\xai\xai_cp_limpo_pontos.csv
+{'filtro_elegiveis': True, 'n_series_base': 2674, 'n_elegiveis': 2505, 'n_descartadas': 169, 'descartadas_poucas_linhas': 0, 'descartadas_alvo_constante': 169, 'linhas_treino_sorteadas': [21]}
+xai_cp_ruido30: 30 séries | métodos=('shap', 'lime') | lime_samples=200 | lag24=False
+xai_cp_ruido30: 30 séries, 3960 linhas em 0.3 min -> results\v2\cp\xai\xai_cp_ruido30_pontos.csv
+XAI_FIM
