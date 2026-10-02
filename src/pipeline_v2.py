@@ -484,10 +484,17 @@ def avaliar_base(series_list, ids, modelos, h, cenario=None, alvo_ruidoso=False,
     return pd.DataFrame([r for regs in res for r in regs])
 
 
-def agregar_por_serie(df, incluir_fallback=True):
+def flag_explosiva(df):
+    """Janelas com previsão explosiva sinalizada no campo info (status continua OK)."""
+    return df['info'].fillna('').astype(str).str.contains('"explosiva": true', regex=False)
+
+
+def agregar_por_serie(df, incluir_fallback=True, excluir_explosivas=False):
     """Mediana das janelas por (série, modelo). ERRO e SEM_JANELA ficam fora."""
     validos = [OK, FB_SNAIVE, FB_MEAN] if incluir_fallback else [OK]
     d = df[df['status'].isin(validos)]
+    if excluir_explosivas:
+        d = d[~flag_explosiva(d)]
     return d.groupby(['model', 'unique_id'])[['mape', 'mae', 'r2', 'exec_time_s']].median().reset_index()
 
 

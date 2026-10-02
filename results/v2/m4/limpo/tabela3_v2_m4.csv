@@ -1,11 +1,11 @@
-,Família,MAPE (%),MAE,R² mediano,Rank,MAPE sem fallback,Rank sem fallback,Séries sem fallback,Fallback (% jan.)
-Holt-Winters,Suavização exponencial,8.36,325.29,-1.22,1,8.36,1,200,0.0
-SARIMA automático,ARIMA,8.91,344.72,-1.33,2,8.91,2,200,0.0
-Gradient Boosting,ML,9.06,290.35,-1.09,3,9.06,3,200,0.0
-SES,Suavização exponencial,9.68,328.89,-1.06,4,9.68,4,200,0.0
-SARIMA heurístico,ARIMA,9.72,354.0,-1.74,5,10.69,7,200,33.3
-Persistência,Baseline,9.75,332.19,-1.29,6,9.75,5,200,0.0
-Random Forest,ML,10.13,323.45,-1.05,7,10.13,6,200,0.0
-SVR,ML,11.52,415.89,-1.68,8,11.52,8,200,0.5
-Sazonal ingênuo,Baseline,11.77,419.45,-2.13,9,11.77,9,200,0.0
-Média histórica,Baseline,21.82,831.59,-9.49,10,21.82,10,200,0.0
+,Família,MAPE (%),MAE,R² mediano,Rank,MAPE sem fallback,Rank sem fallback,Séries sem fallback,Fallback (% jan.),MAPE sem explosivas,Explosivas (n jan.),Explosivas (% jan.)
+Holt-Winters,Suavização exponencial,8.36,325.29,-1.22,1,8.36,1,200,0.0,8.36,0,0.0
+SARIMA automático,ARIMA,8.91,344.72,-1.33,2,8.91,2,200,0.0,8.7,14,2.3
+Gradient Boosting,ML,9.06,290.35,-1.09,3,9.06,3,200,0.0,9.06,0,0.0
+SES,Suavização exponencial,9.68,328.89,-1.06,4,9.68,4,200,0.0,9.68,0,0.0
+SARIMA heurístico,ARIMA,9.72,354.0,-1.74,5,10.69,7,200,33.3,9.72,1,0.2
+Persistência,Baseline,9.75,332.19,-1.29,6,9.75,5,200,0.0,9.75,0,0.0
+Random Forest,ML,10.13,323.45,-1.05,7,10.13,6,200,0.0,10.13,0,0.0
+SVR,ML,11.52,415.89,-1.68,8,11.52,8,200,0.5,11.52,0,0.0
+Sazonal ingênuo,Baseline,11.77,419.45,-2.13,9,11.77,9,200,0.0,11.77,0,0.0
+Média histórica,Baseline,21.82,831.59,-9.49,10,21.82,10,200,0.0,21.82,0,0.0

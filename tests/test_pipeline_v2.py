@@ -314,6 +314,16 @@ class TestSarimaDegenerado(unittest.TestCase):
         self.assertEqual(pv.model_sarima_heuristic(self.s, 18)[1], pv.OK)
 
 
+class TestExplosivas(unittest.TestCase):
+    def test_agregacao_com_e_sem_explosivas(self):
+        df = pd.DataFrame({'model': 'm', 'unique_id': 'u', 'status': pv.OK, 'janela': [1, 2, 3],
+                           'mape': [10.0, 1e20, 30.0], 'mae': 1.0, 'r2': 0.0, 'exec_time_s': 0.0,
+                           'info': ['', json.dumps({'explosiva': True}), '']})
+        self.assertEqual(pv.flag_explosiva(df).tolist(), [False, True, False])
+        self.assertEqual(pv.agregar_por_serie(df)['mape'].iloc[0], 30.0)
+        self.assertEqual(pv.agregar_por_serie(df, excluir_explosivas=True)['mape'].iloc[0], 20.0)
+
+
 class TestMeta(unittest.TestCase):
     def test_meta_json(self):
         with tempfile.TemporaryDirectory() as d:
