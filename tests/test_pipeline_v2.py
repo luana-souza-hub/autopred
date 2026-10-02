@@ -324,6 +324,53 @@ class TestExplosivas(unittest.TestCase):
         self.assertEqual(pv.agregar_por_serie(df, excluir_explosivas=True)['mape'].iloc[0], 20.0)
 
 
+class TestXaiMesmosPontos(unittest.TestCase):
+    def setUp(self):
+        r = np.random.default_rng(11)
+        self.s = 100 + 10 * np.sin(np.arange(160) * 2 * np.pi / 12) + r.normal(0, 2, 160)
+
+    def test_shap_e_lime_explicam_os_mesmos_pontos(self):
+        d = pd.DataFrame(pv.explicar_serie(self.s, 'x', 0, 18, 'limpo'))
+        for m in pv.MODELOS_XAI:
+            sh = d[(d.modelo == m) & (d.metodo == 'shap')][['ponto', 'tipo_ponto']].reset_index(drop=True)
+            li = d[(d.modelo == m) & (d.metodo == 'lime')][['ponto', 'tipo_ponto']].reset_index(drop=True)
+            pd.testing.assert_frame_equal(sh, li)
+            self.assertEqual(len(sh), pv.N_PONTOS_XAI)
+            self.assertEqual(sh['tipo_ponto'].iloc[-1], 'previsao')
+
+    def test_ultimo_ponto_e_o_de_previsao(self):
+        train = self.s[:-18]
+        pts, tipos = pv.pontos_explicados(train)
+        np.testing.assert_array_equal(pts[-1], pv.next_step_features(train)[0])
+        X, _, _ = pv.build_features(train)
+        np.testing.assert_array_equal(pts[:-1], X[-(pv.N_PONTOS_XAI - 1):])
+
+    def test_ruido_depende_so_do_treino(self):
+        outra = self.s.copy()
+        outra[-18:] += 1e6   # muda só o teste
+        np.testing.assert_array_equal(pv.treino_xai(self.s, 18, 'ruido30', 3), pv.treino_xai(outra, 18, 'ruido30', 3))
+        self.assertFalse(np.allclose(pv.treino_xai(self.s, 18, 'ruido30', 3), self.s[:-18]))
+
+
+class TestBootstrap(unittest.TestCase):
+    def test_ic_deterministico_e_contem_estimativa(self):
+        v = np.random.default_rng(0).normal(5, 1, 50)
+        a, b = pv.bootstrap_ic(v), pv.bootstrap_ic(v)
+        self.assertEqual(a, b)
+        self.assertLess(a[1], a[0]); self.assertLess(a[0], a[2])
+
+    def test_delta_pareado(self):
+        r = np.random.default_rng(1)
+        ids = [f's{i}' for i in range(60)]
+        base = pd.DataFrame([{'model': m, 'unique_id': u, 'mape': 10 + r.normal()} for m in ['a', 'b'] for u in ids])
+        adv = base.copy()
+        adv.loc[adv.model == 'a', 'mape'] += 5     # 'a' degrada; 'b' não muda
+        tab, pares = pv.bootstrap_delta(base, adv, ['a', 'b'], n=500)
+        self.assertFalse(tab.loc['a', 'ic_inclui_zero'])
+        self.assertTrue(tab.loc['b', 'ic_inclui_zero'])
+        self.assertFalse(pares['ic_inclui_zero'].iloc[0])
+
+
 class TestMeta(unittest.TestCase):
     def test_meta_json(self):
         with tempfile.TemporaryDirectory() as d:

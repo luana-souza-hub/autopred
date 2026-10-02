@@ -592,6 +592,123 @@ def lime_importancias(entry, nomes, num_samples=LIME_NUM_SAMPLES, seed=SEED):
     return coefs
 
 
+N_PONTOS_XAI = 30
+
+
+def treino_xai(series, h, condicao, serie_idx):
+    """Treino da última janela (série[:-h]); com ruído σ=30% do desvio do próprio treino se pedido."""
+    train = np.asarray(series, dtype=float)[:-h]
+    if condicao == 'ruido30':
+        rng = np.random.default_rng([SEED, int(serie_idx), len(train), CENARIO_ID['XAI_ruido_30pct']])
+        train = perturbar(train, 'XAI_ruido_30pct', rng)
+    elif condicao != 'limpo':
+        raise ValueError(condicao)
+    return train
+
+
+def pontos_explicados(train, com_lag24=False, n_pontos=N_PONTOS_XAI):
+    """Os MESMOS pontos para SHAP e LIME: as n_pontos-1 linhas de treino mais recentes + o ponto de previsão."""
+    X, _, _ = build_features(train, com_lag24=com_lag24)
+    recentes = X[-(n_pontos - 1):]
+    pts = np.vstack([recentes, next_step_features(train, com_lag24=com_lag24)])
+    return pts, ['treino_recente'] * len(recentes) + ['previsao']
+
+
+def explicar_pontos(fit, nome, pts, metodo, lime_samples=LIME_NUM_SAMPLES, seed=SEED):
+    """|atribuição| por ponto e feature (matriz n_pontos x p), na escala original do alvo."""
+    entry = fit[nome]
+    X_in, f = _entrada_e_predict(entry)
+    P = entry['sx'].transform(pts) if entry['sx'] is not None else pts
+    p = X_in.shape[1]
+    if metodo == 'shap':
+        import shap
+        if nome in ('RandomForest', 'GradientBoosting'):
+            return np.abs(np.asarray(shap.TreeExplainer(entry['model']).shap_values(P)))
+        rng = np.random.default_rng(seed)
+        bg = X_in[rng.choice(len(X_in), size=min(SHAP_BACKGROUND, len(X_in)), replace=False)]
+        np.random.seed(seed)   # o KernelExplainer usa o gerador global do numpy
+        vals = shap.KernelExplainer(f, bg).shap_values(P, nsamples=2 * p + 2048, silent=True)
+        return np.abs(np.asarray(vals))
+    if metodo == 'lime':
+        from lime.lime_tabular import LimeTabularExplainer
+        exp_ = LimeTabularExplainer(X_in, feature_names=fit['nomes'], mode='regression',
+                                    random_state=seed, verbose=False)
+        out = np.zeros((len(P), p))
+        for i, x in enumerate(P):
+            for j, w in exp_.explain_instance(x, f, num_features=p, num_samples=lime_samples).as_map()[1]:
+                out[i, j] = abs(w)
+        return out
+    raise ValueError(metodo)
+
+
+def explicar_serie(series, unique_id, serie_idx, h, condicao, com_lag24=False, metodos=('shap', 'lime'),
+                   lime_samples=LIME_NUM_SAMPLES):
+    """Treina RF, GB e SVR na última janela e explica os mesmos pontos com cada método."""
+    train = treino_xai(series, h, condicao, serie_idx)
+    fit = treinar_modelos_xai(train, com_lag24)
+    if fit is None:
+        return []
+    pts, tipos = pontos_explicados(train, com_lag24)
+    regs = []
+    for nome in MODELOS_XAI:
+        if nome not in fit:
+            continue
+        for met in metodos:
+            A = explicar_pontos(fit, nome, pts, met, lime_samples)
+            for k, (a, tipo) in enumerate(zip(A, tipos)):
+                regs.append({'serie': serie_idx, 'unique_id': unique_id, 'modelo': nome, 'metodo': met,
+                             'condicao': condicao, 'ponto': k, 'tipo_ponto': tipo, 'n_train': len(train),
+                             **dict(zip(fit['nomes'], a))})
+    return regs
+
+
+def importancia_por_serie(df_pontos, nomes, tipo_ponto=None):
+    """Média de |atribuição| sobre os pontos explicados, por (série, modelo, método, condição)."""
+    d = df_pontos if tipo_ponto is None else df_pontos[df_pontos['tipo_ponto'] == tipo_ponto]
+    return d.groupby(['serie', 'modelo', 'metodo', 'condicao'])[nomes].mean().reset_index()
+
+
+def bootstrap_ic(valores, n=2000, seed=SEED, estat=np.mean, alfa=0.05):
+    """Estatística e IC percentil por bootstrap (reamostragem das unidades, ex.: séries)."""
+    v = np.asarray(valores, dtype=float)
+    v = v[~np.isnan(v)]
+    if len(v) == 0:
+        return np.nan, np.nan, np.nan
+    idx = np.random.default_rng(seed).integers(0, len(v), size=(n, len(v)))
+    boot = estat(v[idx], axis=1)
+    return float(estat(v)), float(np.percentile(boot, 100 * alfa / 2)), float(np.percentile(boot, 100 * (1 - alfa / 2)))
+
+
+def bootstrap_delta(by_series_base, by_series_adv, modelos, n=2000, seed=SEED, metrica='mape', alfa=0.05):
+    """IC por bootstrap pareado por série (mesmas séries reamostradas para base, cenário e todos os
+    modelos) para ΔMAPE das medianas, em % e p.p.; e IC da diferença de Δ% entre pares de modelos."""
+    B = by_series_base.pivot(index='unique_id', columns='model', values=metrica)[modelos]
+    A = by_series_adv.pivot(index='unique_id', columns='model', values=metrica)[modelos]
+    comuns = B.dropna().index.intersection(A.dropna().index)
+    B, A = B.loc[comuns].values, A.loc[comuns].values
+    idx = np.random.default_rng(seed).integers(0, len(comuns), size=(n, len(comuns)))
+    mb, ma = np.median(B[idx], axis=1), np.median(A[idx], axis=1)
+    d_pp, d_pct = ma - mb, 100 * (ma - mb) / mb
+    pb, pa = np.median(B, axis=0), np.median(A, axis=0)
+    q = [100 * alfa / 2, 100 * (1 - alfa / 2)]
+    tab = pd.DataFrame({
+        'delta_pct': 100 * (pa - pb) / pb, 'ic_pct_inf': np.percentile(d_pct, q[0], axis=0),
+        'ic_pct_sup': np.percentile(d_pct, q[1], axis=0),
+        'delta_pp': pa - pb, 'ic_pp_inf': np.percentile(d_pp, q[0], axis=0), 'ic_pp_sup': np.percentile(d_pp, q[1], axis=0),
+    }, index=modelos)
+    tab['ic_inclui_zero'] = (tab['ic_pct_inf'] <= 0) & (tab['ic_pct_sup'] >= 0)
+    tab['n_series'] = len(comuns)
+    pares = []
+    for i in range(len(modelos)):
+        for j in range(i + 1, len(modelos)):
+            dif = d_pct[:, i] - d_pct[:, j]
+            lo, hi = np.percentile(dif, q)
+            pares.append({'modelo_a': modelos[i], 'modelo_b': modelos[j],
+                          'dif_delta_pct': tab['delta_pct'].iloc[i] - tab['delta_pct'].iloc[j],
+                          'ic_inf': lo, 'ic_sup': hi, 'ic_inclui_zero': bool(lo <= 0 <= hi)})
+    return tab, pd.DataFrame(pares)
+
+
 def normalizar_por_serie(df, nomes):
     """Divide cada linha (série, modelo) pela soma das importâncias (C10)."""
     d = df.copy()
