@@ -15,3 +15,5 @@ base=m4 etapa=limpo alvo_ruidoso=False séries=200 H=18 min_train=24 modelos=['s
 [sarima_auto] 168/200 séries | 35.5 min | ETA 6.8 min
 [sarima_auto] 180/200 séries | 37.9 min | ETA 4.2 min
 [sarima_auto] 192/200 séries | 39.8 min | ETA 1.7 min
+[sarima_auto] 200/200 séries | 42.1 min | ETA 0.0 min
+[sarima_auto] concluído em 42.1 min: results\v2\m4\limpo\m4_limpo_sarima_auto_by_window.csv | {'OK': 600}
