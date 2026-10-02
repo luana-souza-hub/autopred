@@ -371,6 +371,18 @@ class TestBootstrap(unittest.TestCase):
         self.assertFalse(pares['ic_inclui_zero'].iloc[0])
 
 
+class TestBootstrapRanks(unittest.TestCase):
+    def test_ranks_e_ic(self):
+        r = np.random.default_rng(2)
+        ids = [f's{i}' for i in range(80)]
+        bs = pd.DataFrame([{'model': m, 'unique_id': u, 'mae': base + r.normal(0, 0.1)}
+                           for m, base in [('bom', 1.0), ('medio', 2.0), ('ruim', 3.0)] for u in ids])
+        tab, boot = pv.bootstrap_ranks(bs, ['ruim', 'bom', 'medio'], metrica='mae', n=300)
+        self.assertEqual(tab['rank'].to_dict(), {'ruim': 3, 'bom': 1, 'medio': 2})
+        self.assertEqual(tab.loc['bom', 'rank_ic_sup'], 1)
+        self.assertEqual(boot.shape, (300, 3))
+
+
 class TestMeta(unittest.TestCase):
     def test_meta_json(self):
         with tempfile.TemporaryDirectory() as d:

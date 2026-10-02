@@ -39,11 +39,25 @@ def main():
     ap.add_argument('--n-series', type=int, default=None, help='tamanho da amostra-base antes do sorteio das 30')
     ap.add_argument('--n-expl', type=int, default=pv.N_EXPL)
     ap.add_argument('--n-jobs', type=int, default=10)
+    ap.add_argument('--elegiveis', action='store_true',
+                    help='sorteia só entre séries com dados suficientes (>= 10 linhas e alvo não constante)')
     ap.add_argument('--force', action='store_true')
     a = ap.parse_args()
 
     ids, series, h = carregar_base(a.base, a.n_series)
-    pos = np.random.default_rng(pv.SEED + 1).choice(len(ids), size=a.n_expl, replace=False)
+    linhas_treino = [len(pv.build_features(s[:-h])[0]) for s in series]
+    alvo_var = [np.std(pv.build_features(s[:-h])[1]) > 0 if n else False for s, n in zip(series, linhas_treino)]
+    if a.elegiveis:
+        candidatos = [i for i in range(len(ids)) if linhas_treino[i] >= pv.MIN_LINHAS_XAI and alvo_var[i]]
+    else:
+        candidatos = list(range(len(ids)))
+    pos = np.array(candidatos)[np.random.default_rng(pv.SEED + 1).choice(len(candidatos), size=a.n_expl, replace=False)]
+    elig = {'filtro_elegiveis': a.elegiveis, 'n_series_base': len(ids), 'n_elegiveis': len(candidatos),
+            'n_descartadas': len(ids) - len(candidatos),
+            'descartadas_poucas_linhas': int(sum(n < pv.MIN_LINHAS_XAI for n in linhas_treino)),
+            'descartadas_alvo_constante': int(sum((n >= pv.MIN_LINHAS_XAI) and not v for n, v in zip(linhas_treino, alvo_var))),
+            'linhas_treino_sorteadas': sorted({int(linhas_treino[i]) for i in pos})}
+    print(elig, flush=True)
     metodos = tuple(a.metodos.split(','))
     nome = f'xai_{a.base}_{a.condicao}'
     if a.lime_samples != pv.LIME_NUM_SAMPLES:
@@ -66,7 +80,7 @@ def main():
     df.to_csv(arq, index=False)
     pv.write_meta(arq, {'base': a.base, 'condicao': a.condicao, 'metodos': list(metodos),
                         'lime_samples': a.lime_samples, 'com_lag24': a.lag24, 'H': h,
-                        'n_series_amostra': len(ids), 'posicoes_expl': [int(i) for i in pos],
+                        'n_series_amostra': len(ids), 'posicoes_expl': [int(i) for i in pos], **elig,
                         'pontos': f'{pv.N_PONTOS_XAI - 1} linhas de treino mais recentes + ponto de previsão',
                         'shap_svr_nsamples': '2*p + 2048', 'linhas': len(df),
                         'duracao_s': round(time.time() - t0, 1)},

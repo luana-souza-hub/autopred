@@ -709,6 +709,25 @@ def bootstrap_delta(by_series_base, by_series_adv, modelos, n=2000, seed=SEED, m
     return tab, pd.DataFrame(pares)
 
 
+def bootstrap_ranks(by_series, modelos, metrica='mape', n=2000, seed=SEED, alfa=0.05):
+    """Ranking dos modelos pela mediana entre séries, com IC por bootstrap pareado por série
+    (as mesmas séries reamostradas para todos os modelos). Retorna (tabela, medianas_bootstrap n x M)."""
+    from scipy.stats import rankdata
+    P = by_series.pivot(index='unique_id', columns='model', values=metrica)[modelos].dropna()
+    V = P.values
+    idx = np.random.default_rng(seed).integers(0, len(P), size=(n, len(P)))
+    med = np.median(V[idx], axis=1)
+    ranks = np.apply_along_axis(rankdata, 1, med, method='min')
+    q = [100 * alfa / 2, 100 * (1 - alfa / 2)]
+    tab = pd.DataFrame({
+        'mediana': np.median(V, axis=0), 'mediana_ic_inf': np.percentile(med, q[0], axis=0),
+        'mediana_ic_sup': np.percentile(med, q[1], axis=0),
+        'rank': rankdata(np.median(V, axis=0), method='min').astype(int),
+        'rank_ic_inf': np.percentile(ranks, q[0], axis=0), 'rank_ic_sup': np.percentile(ranks, q[1], axis=0),
+        'n_series': len(P)}, index=modelos)
+    return tab, pd.DataFrame(med, columns=modelos)
+
+
 def normalizar_por_serie(df, nomes):
     """Divide cada linha (série, modelo) pela soma das importâncias (C10)."""
     d = df.copy()
