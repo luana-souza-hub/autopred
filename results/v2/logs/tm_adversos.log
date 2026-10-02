@@ -1,0 +1,82 @@
+[persistence] concluído em 0.1 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.2 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\A_ruido_10pct\tm_A_ruido_10pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.2 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\A_ruido_30pct\tm_A_ruido_30pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.3 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\B_ausencias_10pct\tm_B_ausencias_10pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.3 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\B_ausencias_20pct\tm_B_ausencias_20pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.3 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\B_ausencias_30pct\tm_B_ausencias_30pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.1 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.3 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\C_outliers_2pct\tm_C_outliers_2pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.1 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.3 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_sarima_heuristic_by_window.csv | {'OK': 400, 'FALLBACK_SNAIVE': 200}
+[random_forest] concluído em 0.4 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\C_outliers_5pct\tm_C_outliers_5pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.1 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_sarima_heuristic_by_window.csv | {'OK': 399, 'FALLBACK_SNAIVE': 201}
+[random_forest] concluído em 0.4 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\D_trunca_50pct\tm_D_trunca_50pct_svr_by_window.csv | {'OK': 600}
+[persistence] concluído em 0.1 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_persistence_by_window.csv | {'OK': 600}
+[mean] concluído em 0.0 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_mean_by_window.csv | {'OK': 600}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_seasonal_naive_by_window.csv | {'OK': 600}
+[ses] concluído em 0.0 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_ses_by_window.csv | {'OK': 600}
+[holt_winters] concluído em 0.2 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_holt_winters_by_window.csv | {'OK': 600}
+[sarima_heuristic] concluído em 0.1 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_sarima_heuristic_by_window.csv | {'OK': 351, 'FALLBACK_SNAIVE': 249}
+[random_forest] concluído em 0.3 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_random_forest_by_window.csv | {'OK': 600}
+[gbt] concluído em 0.1 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_gbt_by_window.csv | {'OK': 600}
+[svr] concluído em 0.0 min: results\v2\tm\D_trunca_25pct\tm_D_trunca_25pct_svr_by_window.csv | {'OK': 600}
+FIM
