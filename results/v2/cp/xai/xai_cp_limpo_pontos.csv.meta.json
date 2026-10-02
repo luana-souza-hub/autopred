@@ -1,0 +1,134 @@
+{
+  "arquivo": "xai_cp_limpo_pontos.csv",
+  "gerado_em": "2026-10-02T15:19:55",
+  "pipeline": "src/pipeline_v2.py",
+  "pipeline_sha256": "702f60cce580bc9824c3533cfc530f6e018249818bceccea7d7607a47bb35332",
+  "versoes": {
+    "python": "3.11.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0",
+    "statsmodels": "0.14.6",
+    "scipy": "1.17.1",
+    "shap": "0.51.0",
+    "lime": "instalado",
+    "joblib": "1.5.3"
+  },
+  "sementes": {
+    "SEED": 42,
+    "sorteio_amostra": 42,
+    "subconjunto_xai": 43,
+    "perturbacao": "[SEED, serie_idx, origin, CENARIO_ID]",
+    "modelos": 42,
+    "lime": 42,
+    "shap_svr": 42
+  },
+  "protocolo": {
+    "MIN_TRAIN": 24,
+    "N_ORIGINS": 3,
+    "SEASON": 12,
+    "N_LAGS": 12,
+    "features": [
+      "lag_1",
+      "lag_2",
+      "lag_3",
+      "lag_4",
+      "lag_5",
+      "lag_6",
+      "lag_7",
+      "lag_8",
+      "lag_9",
+      "lag_10",
+      "lag_11",
+      "lag_12",
+      "roll_mean_3",
+      "roll_std_3",
+      "roll_mean_6"
+    ],
+    "hiperparametros": {
+      "RandomForest": {
+        "n_estimators": "100",
+        "min_samples_leaf": "2",
+        "random_state": "42",
+        "n_jobs": "1"
+      },
+      "GradientBoosting": {
+        "n_estimators": "100",
+        "learning_rate": "0.1",
+        "max_depth": "3",
+        "subsample": "0.8",
+        "random_state": "42"
+      },
+      "SVR": {
+        "C": "1.0",
+        "epsilon": "0.1",
+        "kernel": "rbf",
+        "gamma": "scale"
+      }
+    },
+    "outlier_k": 3.0,
+    "lime_num_samples": 200
+  },
+  "dados": [
+    {
+      "arquivo": "car_parts_dataset_without_missing_values.tsf",
+      "bytes": 344870,
+      "sha256": "b96623f8f21cf3246b1979e4b2fbebde760581178fece37b2ff15f091763fb67"
+    }
+  ],
+  "base": "cp",
+  "condicao": "limpo",
+  "metodos": [
+    "shap",
+    "lime"
+  ],
+  "lime_samples": 200,
+  "com_lag24": false,
+  "H": 18,
+  "n_series_amostra": 2674,
+  "posicoes_expl": [
+    1779,
+    1146,
+    2250,
+    812,
+    145,
+    66,
+    1204,
+    1594,
+    1214,
+    580,
+    2566,
+    464,
+    2273,
+    1757,
+    2553,
+    779,
+    806,
+    823,
+    1122,
+    1622,
+    824,
+    2109,
+    1283,
+    2407,
+    2395,
+    1091,
+    1311,
+    674,
+    1414,
+    2037
+  ],
+  "filtro_elegiveis": true,
+  "n_series_base": 2674,
+  "n_elegiveis": 2505,
+  "n_descartadas": 169,
+  "descartadas_poucas_linhas": 0,
+  "descartadas_alvo_constante": 169,
+  "linhas_treino_sorteadas": [
+    21
+  ],
+  "pontos": "29 linhas de treino mais recentes + ponto de previsão",
+  "shap_svr_nsamples": "2*p + 2048",
+  "linhas": 3960,
+  "duracao_s": 15.9
+}
