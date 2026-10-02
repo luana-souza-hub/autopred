@@ -1,0 +1,5 @@
+,Rank M4,IC M4,Rank Car Parts,IC CP
+ARIMA,3,[2; 4],4,[4; 4]
+Baseline,4,[2; 4],1,[1; 1]
+ML,2,[1; 3],2,[2; 2]
+Suavização exponencial,1,[1; 2],3,[3; 3]
