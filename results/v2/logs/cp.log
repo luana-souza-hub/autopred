@@ -23,3 +23,7 @@ XAI_FIM
 [sarima_auto] 1200/2674 séries | 74.4 min | ETA 91.4 min
 [sarima_auto] 1400/2674 séries | 85.5 min | ETA 77.8 min
 [sarima_auto] 1600/2674 séries | 96.7 min | ETA 64.9 min
+[sarima_auto] 1800/2674 séries | 107.5 min | ETA 52.2 min
+FIM
+--- retomada 17:11 a partir do checkpoint
+[sarima_auto] retomando: 1800/2674 séries no parcial
