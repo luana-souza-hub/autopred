@@ -1,0 +1,91 @@
+cenario,modelo,fallback (%),erro (%),explosivas (n)
+limpo,Persistência,0.0,0.0,0
+limpo,Média histórica,0.0,0.0,0
+limpo,Sazonal ingênuo,0.0,0.0,0
+limpo,SES,0.0,0.0,0
+limpo,Holt-Winters,0.0,0.0,0
+limpo,SARIMA heurístico,33.33333333333333,0.0,0
+limpo,Random Forest,0.0,0.0,0
+limpo,Gradient Boosting,0.0,0.0,0
+limpo,SVR,0.0,0.0,0
+A_ruido_10pct,Persistência,0.0,0.0,0
+A_ruido_10pct,Média histórica,0.0,0.0,0
+A_ruido_10pct,Sazonal ingênuo,0.0,0.0,0
+A_ruido_10pct,SES,0.0,0.0,0
+A_ruido_10pct,Holt-Winters,0.0,0.0,0
+A_ruido_10pct,SARIMA heurístico,33.33333333333333,0.0,0
+A_ruido_10pct,Random Forest,0.0,0.0,0
+A_ruido_10pct,Gradient Boosting,0.0,0.0,0
+A_ruido_10pct,SVR,0.0,0.0,0
+A_ruido_30pct,Persistência,0.0,0.0,0
+A_ruido_30pct,Média histórica,0.0,0.0,0
+A_ruido_30pct,Sazonal ingênuo,0.0,0.0,0
+A_ruido_30pct,SES,0.0,0.0,0
+A_ruido_30pct,Holt-Winters,0.0,0.0,0
+A_ruido_30pct,SARIMA heurístico,33.33333333333333,0.0,0
+A_ruido_30pct,Random Forest,0.0,0.0,0
+A_ruido_30pct,Gradient Boosting,0.0,0.0,0
+A_ruido_30pct,SVR,0.0,0.0,0
+B_ausencias_10pct,Persistência,0.0,0.0,0
+B_ausencias_10pct,Média histórica,0.0,0.0,0
+B_ausencias_10pct,Sazonal ingênuo,0.0,0.0,0
+B_ausencias_10pct,SES,0.0,0.0,0
+B_ausencias_10pct,Holt-Winters,0.0,0.0,0
+B_ausencias_10pct,SARIMA heurístico,33.33333333333333,0.0,0
+B_ausencias_10pct,Random Forest,0.0,0.0,0
+B_ausencias_10pct,Gradient Boosting,0.0,0.0,0
+B_ausencias_10pct,SVR,0.0,0.0,0
+B_ausencias_20pct,Persistência,0.0,0.0,0
+B_ausencias_20pct,Média histórica,0.0,0.0,0
+B_ausencias_20pct,Sazonal ingênuo,0.0,0.0,0
+B_ausencias_20pct,SES,0.0,0.0,0
+B_ausencias_20pct,Holt-Winters,0.0,0.0,0
+B_ausencias_20pct,SARIMA heurístico,33.33333333333333,0.0,0
+B_ausencias_20pct,Random Forest,0.0,0.0,0
+B_ausencias_20pct,Gradient Boosting,0.0,0.0,0
+B_ausencias_20pct,SVR,0.0,0.0,0
+B_ausencias_30pct,Persistência,0.0,0.0,0
+B_ausencias_30pct,Média histórica,0.0,0.0,0
+B_ausencias_30pct,Sazonal ingênuo,0.0,0.0,0
+B_ausencias_30pct,SES,0.0,0.0,0
+B_ausencias_30pct,Holt-Winters,0.0,0.0,0
+B_ausencias_30pct,SARIMA heurístico,33.33333333333333,0.0,0
+B_ausencias_30pct,Random Forest,0.0,0.0,0
+B_ausencias_30pct,Gradient Boosting,0.0,0.0,0
+B_ausencias_30pct,SVR,0.0,0.0,0
+C_outliers_2pct,Persistência,0.0,0.0,0
+C_outliers_2pct,Média histórica,0.0,0.0,0
+C_outliers_2pct,Sazonal ingênuo,0.0,0.0,0
+C_outliers_2pct,SES,0.0,0.0,0
+C_outliers_2pct,Holt-Winters,0.0,0.0,0
+C_outliers_2pct,SARIMA heurístico,33.33333333333333,0.0,0
+C_outliers_2pct,Random Forest,0.0,0.0,0
+C_outliers_2pct,Gradient Boosting,0.0,0.0,0
+C_outliers_2pct,SVR,0.0,0.0,0
+C_outliers_5pct,Persistência,0.0,0.0,0
+C_outliers_5pct,Média histórica,0.0,0.0,0
+C_outliers_5pct,Sazonal ingênuo,0.0,0.0,0
+C_outliers_5pct,SES,0.0,0.0,0
+C_outliers_5pct,Holt-Winters,0.0,0.0,0
+C_outliers_5pct,SARIMA heurístico,33.33333333333333,0.0,0
+C_outliers_5pct,Random Forest,0.0,0.0,0
+C_outliers_5pct,Gradient Boosting,0.0,0.0,0
+C_outliers_5pct,SVR,0.0,0.0,0
+D_trunca_50pct,Persistência,0.0,0.0,0
+D_trunca_50pct,Média histórica,0.0,0.0,0
+D_trunca_50pct,Sazonal ingênuo,0.0,0.0,0
+D_trunca_50pct,SES,0.0,0.0,0
+D_trunca_50pct,Holt-Winters,0.0,0.0,0
+D_trunca_50pct,SARIMA heurístico,33.5,0.0,0
+D_trunca_50pct,Random Forest,0.0,0.0,0
+D_trunca_50pct,Gradient Boosting,0.0,0.0,0
+D_trunca_50pct,SVR,0.0,0.0,0
+D_trunca_25pct,Persistência,0.0,0.0,0
+D_trunca_25pct,Média histórica,0.0,0.0,0
+D_trunca_25pct,Sazonal ingênuo,0.0,0.0,0
+D_trunca_25pct,SES,0.0,0.0,0
+D_trunca_25pct,Holt-Winters,0.0,0.0,0
+D_trunca_25pct,SARIMA heurístico,41.5,0.0,1
+D_trunca_25pct,Random Forest,0.0,0.0,0
+D_trunca_25pct,Gradient Boosting,0.0,0.0,0
+D_trunca_25pct,SVR,0.0,0.0,0
