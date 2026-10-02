@@ -1,0 +1,6 @@
+Recomendação (Tabela 5),Critério verificável,Resultado v2,Esperado,Sustenta?
+"Dados limpos, sazonalidade regular → Holt-Winters",menor MAPE limpo (Tabela 3 v2),Holt-Winters,Holt-Winters,SIM
+Ruído esperado → SES,menor Δ% médio sob ruído (todos os modelos),SES,SES,SIM
+Outliers frequentes → SVR,"menor Δ% médio sob outliers entre RF, GB e SVR",Random Forest,SVR,NÃO
+Ausências com interpolação → GB ou Persistência,"menor MAPE mediano sob ausências (média de 10, 20 e 30%)",Holt-Winters,Gradient Boosting ou Persistência,NÃO
+Portfólio heterogêneo → SES como padrão,SES degrada menos que HW sob ruído e outliers (Δ p.p.),SES,SES,SIM

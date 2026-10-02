@@ -1,0 +1,10 @@
+Modelo,Ruído antigo,Ruído v2,Ausências antigo,Ausências v2,Outliers antigo,Outliers v2,Truncamento antigo,Truncamento v2
+Persistência,Moderada,Moderada (+6.7%),Elevada*,Alta (+1.2%),Moderada,Alta (+0.9%),Neutro,Alta (+0.0%)
+Média histórica,Alta,Alta (-0.5%),Alta,Alta (-0.5%),Alta,Alta (+1.5%),Neutro,Melhora* (-25.6%)
+Sazonal ingênuo,n.a.,Baixa (+10.1%),n.a.,Alta (+1.9%),n.a.,Baixa (+21.6%),Neutro,Alta (+0.0%)
+SES,Moderada,Alta (-1.4%),Moderada,Alta (+1.7%),Moderada,Moderada (+8.1%),Neutro,Alta (-0.4%)
+Holt-Winters,Baixa,Moderada (+8.2%),Baixa,Moderada (+5.4%),Baixa,Baixa (+22.8%),Neutro,Moderada (+6.7%)
+SARIMA heurístico,n.a.,Baixa (+10.2%),n.a.,Alta (+1.3%),n.a.,Baixa (+31.1%),Neutro,Baixa (+12.0%)
+Random Forest,Baixa,Alta (+1.9%),Elevada*,Alta (-0.1%),Moderada,Moderada (+7.4%),Neutro,Alta (+0.4%)
+Gradient Boosting,Moderada,Moderada (+6.8%),Elevada*,Moderada (+2.5%),Moderada,Baixa (+23.3%),Neutro,Moderada (+4.6%)
+SVR,Baixa,Alta (+1.7%),Moderada,Alta (+1.5%),Alta,Moderada (+8.2%),Neutro,Alta (-1.6%)
