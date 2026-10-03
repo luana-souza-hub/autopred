@@ -9,3 +9,5 @@ base=tm etapa=limpo alvo_ruidoso=False séries=366 H=24 min_train=24 modelos=['p
 [gbt] concluído em 0.3 min: results\v2\tm_366\limpo\tm_366_limpo_gbt_by_window.csv | {'OK': 1098}
 [svr] concluído em 0.1 min: results\v2\tm_366\limpo\tm_366_limpo_svr_by_window.csv | {'OK': 1098}
 {'filtro_elegiveis': False, 'n_series_base': 366, 'n_elegiveis': 366, 'n_descartadas': 0, 'descartadas_poucas_linhas': 0, 'descartadas_alvo_constante': 0, 'linhas_treino_sorteadas': [163, 204, 216, 228, 294, 297]}
+xai_tm_366_limpo: 30 séries, 5400 linhas em 5.0 min -> results\v2\tm_366\xai\xai_tm_366_limpo_pontos.csv
+{'filtro_elegiveis': False, 'n_series_base': 366, 'n_elegiveis': 366, 'n_descartadas': 0, 'descartadas_poucas_linhas': 0, 'descartadas_alvo_constante': 0, 'linhas_treino_sorteadas': [163, 204, 216, 228, 294, 297]}
