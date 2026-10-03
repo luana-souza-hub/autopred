@@ -6,10 +6,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 from nbtools import md, code, check
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else 'm4'
-ROTULO = {'m4': 'M4 Monthly', 'cp': 'Car Parts', 'tm': 'Tourism Monthly'}[BASE]
+ROTULO = {'m4': 'M4 Monthly', 'cp': 'Car Parts', 'tm': 'Tourism Monthly',
+          'tm_366': 'Tourism Monthly, 366 séries (SENSIBILIDADE)'}[BASE]
 NB = Path(r'C:\Users\Usuario\Desktop\Mestrado\Mestrado - aula\dissertação\autopred\notebooks') / \
     {'m4': '09_explicabilidade_v2.ipynb', 'cp': '10b_explicabilidade_car_parts_v2.ipynb',
-     'tm': '11c_explicabilidade_tourism_v2.ipynb'}[BASE]
+     'tm': '11c_explicabilidade_tourism_v2.ipynb', 'tm_366': '11e_explicabilidade_tourism_366_v2.ipynb'}[BASE]
 cells = []
 
 cells.append(md(rf'''
@@ -282,7 +283,11 @@ else:
     print('caches com lag_24 ausentes')
 '''))
 
-if BASE == 'tm':
+if BASE in ('tm', 'tm_366'):
+    if BASE == 'tm_366':
+        cells.append(md(r'''
+> **SENSIBILIDADE (Fase 4d).** As mesmas condições de H1 a H3 recalculadas com as 366 séries do Tourism (30 séries explicadas sorteadas com SEED+1 entre as 366). A avaliação oficial das previsões é a das 200 séries (Fase 4c, `tm/replicacao_previsoes_tm.csv`); os rótulos abaixo **não** a substituem nem alteram `PREVISOES_tourism.md`.
+'''))
     cells.append(md(r'''
 ## 8. Avaliação das previsões H1, H2 e H3 (critérios registrados)
 Critérios de `results/v2/PREVISOES_tourism.md` (commit 1a08fa1) com a interpretação de `results/v2/INTERPRETACAO_criterios_4c.md` (commit 1e3d9f0): faixa da H1 **fechada** [0,65; 0,85]; um Spearman por série acima de 0,85 conta como fora da faixa (concordância maior que a prevista); rótulos pelas contagens registradas, sem reinterpretação. Configuração oficial: 200 séries, 30 explicadas, 15 features, LIME com 200 amostras; lag_24 e sensibilidade do LIME **não** entram.
@@ -352,7 +357,14 @@ for h, (n_tot, faixa) in FAIXAS.items():
 res_h = pd.DataFrame(res_h)
 print(res_h.to_string(index=False))
 '''))
-    cells.append(code(r'''
+    if BASE == 'tm_366':
+        cells.append(code(r'''
+sens = res_h.assign(rotulo='SENSIBILIDADE (366 séries); não substitui a avaliação oficial (200 séries)')
+sens.to_csv(PROJECT_ROOT / 'results' / 'v2' / 'tm_366' / 'sensibilidade_previsoes_tm366.csv', index=False)
+print(sens.to_string(index=False))
+'''))
+    else:
+      cells.append(code(r'''
 # Atualiza a tabela de replicação (H4 vem da 4a e não muda)
 arq = PROJECT_ROOT / 'results' / 'v2' / 'tm' / 'replicacao_previsoes_tm.csv'
 rep = pd.read_csv(arq)
