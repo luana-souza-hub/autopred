@@ -344,7 +344,7 @@ for m in MOD:
                      'valor': f'{frac:.1f}% ({int((r <= 3).sum())} de {len(r)})', 'ok': frac > 30.0})
 
 cond = pd.DataFrame(cond).fillna('')
-cond.to_csv(DIR / 'xai_tm_avaliacao_previsoes_condicoes.csv', index=False)
+cond.to_csv(DIR / f'xai_{BASE}_avaliacao_previsoes_condicoes.csv', index=False)   # tm: xai_tm_...; tm_366: xai_tm_366_...
 FAIXAS = {'H1': (6, (3, 5)), 'H2': (10, (5, 9)), 'H3': (6, (1, 5))}
 res_h = []
 for h, (n_tot, faixa) in FAIXAS.items():
