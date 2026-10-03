@@ -10,7 +10,8 @@ Uso (na raiz do projeto):
 Subconjunto: 30 séries sorteadas com SEED+1 sobre as posições da amostra da base (regra do NB09).
 Modelo: RF, GB e SVR treinados na última janela (série[:-H]); ruído σ=30% só no treino.
 Pontos explicados: as 29 linhas de treino mais recentes + o ponto de previsão (iguais para SHAP e LIME).
-Saída: results/v2/<base>/xai/xai_<base>_<condicao>[_lime<N>][_lag24]_pontos.csv (+ .meta.json).
+Saída: results/v2/<sub>/xai/xai_<sub>_<condicao>[_lime<N>][_lag24]_pontos.csv (+ .meta.json), com <sub> = <base>
+no tamanho padrão da amostra e <base>_<n> em outro tamanho (ex.: --n-series 366 grava em results/v2/tm_366/xai/).
 """
 from __future__ import annotations
 
@@ -26,7 +27,7 @@ RAIZ = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RAIZ))
 sys.path.insert(0, str(RAIZ / 'scripts'))
 from src import pipeline_v2 as pv  # noqa: E402
-from run_v2 import ARQ, carregar_base  # noqa: E402
+from run_v2 import ARQ, carregar_base, subpasta  # noqa: E402
 
 
 def main():
@@ -59,12 +60,13 @@ def main():
             'linhas_treino_sorteadas': sorted({int(linhas_treino[i]) for i in pos})}
     print(elig, flush=True)
     metodos = tuple(a.metodos.split(','))
-    nome = f'xai_{a.base}_{a.condicao}'
+    sub = subpasta(a.base, a.n_series)
+    nome = f'xai_{sub}_{a.condicao}'
     if a.lime_samples != pv.LIME_NUM_SAMPLES:
         nome += f'_lime{a.lime_samples}'
     if a.lag24:
         nome += '_lag24'
-    pasta = RAIZ / 'results' / 'v2' / a.base / 'xai'
+    pasta = RAIZ / 'results' / 'v2' / sub / 'xai'
     pasta.mkdir(parents=True, exist_ok=True)
     arq = pasta / f'{nome}_pontos.csv'
     if arq.exists() and not a.force:
@@ -78,7 +80,7 @@ def main():
         for i in pos)
     df = pd.DataFrame([r for regs in res for r in regs])
     df.to_csv(arq, index=False)
-    pv.write_meta(arq, {'base': a.base, 'condicao': a.condicao, 'metodos': list(metodos),
+    pv.write_meta(arq, {'base': a.base, 'subpasta': sub, 'condicao': a.condicao, 'metodos': list(metodos),
                         'lime_samples': a.lime_samples, 'com_lag24': a.lag24, 'H': h,
                         'n_series_amostra': len(ids), 'posicoes_expl': [int(i) for i in pos], **elig,
                         'pontos': f'{pv.N_PONTOS_XAI - 1} linhas de treino mais recentes + ponto de previsão',

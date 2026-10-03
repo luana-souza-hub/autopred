@@ -8,7 +8,8 @@ Uso (na raiz do projeto):
   .venv\\Scripts\\python.exe scripts\\run_v2.py --base m4 --etapa C_outliers_2pct --alvo-ruidoso --modelos rapidos
 
 Bases: m4 (200 séries do piloto, H=18), cp (Car Parts completo, H=18), tm (Tourism, H=24; --n-series).
-Saída: results/v2/<base>/<etapa>/<base>_<etapa>_<modelo>_by_window.csv (+ .meta.json).
+Saída: results/v2/<sub>/<etapa>/<sub>_<etapa>_<modelo>_by_window.csv (+ .meta.json), com <sub> = <base> no
+tamanho padrão da amostra e <base>_<n> em outro tamanho (ex.: tm_366).
 Se interromper, rode de novo: retoma do arquivo .parcial.csv.
 """
 from __future__ import annotations
@@ -46,19 +47,27 @@ def carregar_base(base, n_series=None):
     return ids, series, HORIZONTE[base]
 
 
+PADRAO_N = {'m4': 200, 'cp': None, 'tm': 200}
+
+
+def subpasta(base, n_series):
+    """Pasta (e prefixo) dos resultados: '<base>' no tamanho padrão da amostra; '<base>_<n>' em qualquer
+    outro tamanho (ex.: tm_366), para nunca sobrescrever os resultados oficiais."""
+    return base if n_series in (None, PADRAO_N[base]) else f'{base}_{n_series}'
+
+
 def pasta_saida(base, etapa, alvo_ruidoso, min_train, n_series):
     nome = etapa + ('_alvo_ruidoso' if alvo_ruidoso else '')
     if min_train != pv.MIN_TRAIN:
         nome += f'_min_train{min_train}'
-    sub = base if not (base == 'tm' and n_series == 366) else 'tm_366'
-    return RAIZ / 'results' / 'v2' / sub / nome, nome
+    return RAIZ / 'results' / 'v2' / subpasta(base, n_series) / nome, nome
 
 
 def rodar_modelo(base, ids, series, h, modelo, etapa, alvo_ruidoso, n_jobs, min_train, n_series,
                  lote, force):
     pasta, nome_etapa = pasta_saida(base, etapa, alvo_ruidoso, min_train, n_series)
     pasta.mkdir(parents=True, exist_ok=True)
-    final = pasta / f'{base}_{nome_etapa}_{modelo}_by_window.csv'
+    final = pasta / f'{subpasta(base, n_series)}_{nome_etapa}_{modelo}_by_window.csv'
     parcial = final.with_name(final.name + '.parcial.csv')
     if final.exists() and not force:
         print(f'[{modelo}] cache completo: {final.relative_to(RAIZ)}', flush=True)
