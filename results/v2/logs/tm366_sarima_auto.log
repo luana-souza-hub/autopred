@@ -1,0 +1,2 @@
+base=tm etapa=limpo alvo_ruidoso=False séries=366 H=24 min_train=24 modelos=['sarima_auto'] n_jobs=6
+[sarima_auto] 24/366 séries | 6.1 min | ETA 87.3 min

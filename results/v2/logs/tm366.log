@@ -1,0 +1,11 @@
+base=tm etapa=limpo alvo_ruidoso=False séries=366 H=24 min_train=24 modelos=['persistence', 'mean', 'seasonal_naive', 'ses', 'holt_winters', 'sarima_heuristic', 'random_forest', 'gbt', 'svr'] n_jobs=6
+[persistence] concluído em 0.1 min: results\v2\tm_366\limpo\tm_366_limpo_persistence_by_window.csv | {'OK': 1098}
+[mean] concluído em 0.0 min: results\v2\tm_366\limpo\tm_366_limpo_mean_by_window.csv | {'OK': 1098}
+[seasonal_naive] concluído em 0.0 min: results\v2\tm_366\limpo\tm_366_limpo_seasonal_naive_by_window.csv | {'OK': 1098}
+[ses] concluído em 0.0 min: results\v2\tm_366\limpo\tm_366_limpo_ses_by_window.csv | {'OK': 1098}
+[holt_winters] concluído em 0.8 min: results\v2\tm_366\limpo\tm_366_limpo_holt_winters_by_window.csv | {'OK': 1098}
+[sarima_heuristic] concluído em 0.8 min: results\v2\tm_366\limpo\tm_366_limpo_sarima_heuristic_by_window.csv | {'OK': 732, 'FALLBACK_SNAIVE': 366}
+[random_forest] concluído em 1.4 min: results\v2\tm_366\limpo\tm_366_limpo_random_forest_by_window.csv | {'OK': 1098}
+[gbt] concluído em 0.3 min: results\v2\tm_366\limpo\tm_366_limpo_gbt_by_window.csv | {'OK': 1098}
+[svr] concluído em 0.1 min: results\v2\tm_366\limpo\tm_366_limpo_svr_by_window.csv | {'OK': 1098}
+{'filtro_elegiveis': False, 'n_series_base': 366, 'n_elegiveis': 366, 'n_descartadas': 0, 'descartadas_poucas_linhas': 0, 'descartadas_alvo_constante': 0, 'linhas_treino_sorteadas': [163, 204, 216, 228, 294, 297]}
