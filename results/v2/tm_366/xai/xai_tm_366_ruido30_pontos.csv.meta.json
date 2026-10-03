@@ -1,0 +1,140 @@
+{
+  "arquivo": "xai_tm_366_ruido30_pontos.csv",
+  "gerado_em": "2026-10-03T14:38:04",
+  "pipeline": "src/pipeline_v2.py",
+  "pipeline_sha256": "bbe78767e39584b6af4b9332bbeeb59e90b0009e3dca3704aa0a56f1f164ead1",
+  "versoes": {
+    "python": "3.11.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0",
+    "statsmodels": "0.14.6",
+    "scipy": "1.17.1",
+    "shap": "0.51.0",
+    "lime": "instalado",
+    "joblib": "1.5.3"
+  },
+  "sementes": {
+    "SEED": 42,
+    "sorteio_amostra": 42,
+    "subconjunto_xai": 43,
+    "perturbacao": "[SEED, serie_idx, origin, CENARIO_ID]",
+    "modelos": 42,
+    "lime": 42,
+    "shap_svr": 42
+  },
+  "protocolo": {
+    "MIN_TRAIN": 24,
+    "N_ORIGINS": 3,
+    "SEASON": 12,
+    "N_LAGS": 12,
+    "features": [
+      "lag_1",
+      "lag_2",
+      "lag_3",
+      "lag_4",
+      "lag_5",
+      "lag_6",
+      "lag_7",
+      "lag_8",
+      "lag_9",
+      "lag_10",
+      "lag_11",
+      "lag_12",
+      "roll_mean_3",
+      "roll_std_3",
+      "roll_mean_6"
+    ],
+    "hiperparametros": {
+      "RandomForest": {
+        "n_estimators": "100",
+        "min_samples_leaf": "2",
+        "random_state": "42",
+        "n_jobs": "1"
+      },
+      "GradientBoosting": {
+        "n_estimators": "100",
+        "learning_rate": "0.1",
+        "max_depth": "3",
+        "subsample": "0.8",
+        "random_state": "42"
+      },
+      "SVR": {
+        "C": "1.0",
+        "epsilon": "0.1",
+        "kernel": "rbf",
+        "gamma": "scale"
+      }
+    },
+    "outlier_k": 3.0,
+    "lime_num_samples": 200
+  },
+  "dados": [
+    {
+      "arquivo": "tourism_monthly_dataset.tsf",
+      "bytes": 516457,
+      "sha256": "fba16c20b9c431406e4377aa61347e7310d4cd155033e2f93af4cbd0e8139b6e"
+    }
+  ],
+  "base": "tm",
+  "subpasta": "tm_366",
+  "condicao": "ruido30",
+  "metodos": [
+    "shap",
+    "lime"
+  ],
+  "lime_samples": 200,
+  "com_lag24": false,
+  "H": 24,
+  "n_series_amostra": 366,
+  "posicoes_expl": [
+    220,
+    136,
+    288,
+    94,
+    14,
+    6,
+    148,
+    196,
+    154,
+    68,
+    334,
+    52,
+    295,
+    226,
+    342,
+    92,
+    96,
+    100,
+    139,
+    203,
+    101,
+    281,
+    355,
+    326,
+    321,
+    133,
+    160,
+    78,
+    170,
+    263
+  ],
+  "filtro_elegiveis": false,
+  "n_series_base": 366,
+  "n_elegiveis": 366,
+  "n_descartadas": 0,
+  "descartadas_poucas_linhas": 0,
+  "descartadas_alvo_constante": 0,
+  "linhas_treino_sorteadas": [
+    163,
+    204,
+    216,
+    228,
+    294,
+    297
+  ],
+  "pontos": "29 linhas de treino mais recentes + ponto de previsão",
+  "shap_svr_nsamples": "2*p + 2048",
+  "linhas": 5400,
+  "duracao_s": 378.7
+}
