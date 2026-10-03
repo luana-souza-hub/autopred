@@ -130,3 +130,19 @@ Avaliação pelos critérios de `PREVISOES_tourism.md` (1a08fa1) com a interpret
 | Estabilidade das explicações sob ruído (comparação entre bases) | M4: 0,44 a 0,62; Car Parts: 0,17 a 0,47 (exploratória) | 0,59 a 0,75 | novo: maior no Tourism, onde a estrutura sazonal domina | `tm/xai/xai_tm_estabilidade.csv` |
 | Sensibilidade do LIME (suplementar) | M4: Pearson 0,986 a 0,999 | 1000 e 5000 amostras: Pearson 0,997 a 1,000, lag_12 em 1º em todos os casos, top-2 igual | novo (robusto) | `tm/xai/xai_tm_sensibilidade_lime.csv` |
 | Lag de 24 meses (suplementar) | M4: lag_24 em 5º a 7º | lag_24 em 2º em todos os casos; lag_12 + lag_24 = 25% a 59% da importância | novo: os dois lags sazonais lideram no Tourism | `tm/xai/xai_tm_suplementar_lag24.csv` |
+
+## Fase 4d: Tourism Monthly, sensibilidade com as 366 séries
+
+**Análise de sensibilidade**, não substitui a avaliação oficial (200 séries). Mesmo pipeline (sha256 bbe78767), resultados em `results/v2/tm_366/` (`results/v2/tm/` não foi tocado). As 200 séries oficiais estão contidas nas 366, então as comparações não são independentes (IC das correlações aproximados). Na XAI, as 30 séries sorteadas entre as 366 têm só 2 em comum com as da 4c.
+
+| Achado (200 séries) | Valor 200 | Valor 366 | Situação | Arquivo-fonte |
+|---|---|---|---|---|
+| Ranking dos 10 modelos em dados limpos | HW 1º por MAPE e MASE | (a) Spearman 200 x 366: MASE 0,988 [0,927; 1,000]; MAPE 0,939 [0,842; 1,000]; MAE 0,939 [0,818; 0,988]. HW continua 1º (IC [1; 1]) | mantém (robusto ao tamanho da amostra) | `tm_366/sensibilidade/spearman_ranking_200_366.csv` |
+| Posições dos modelos | ver 4a | (b) MASE: 2 de 10 mudam (RF e GB trocam 5º e 6º); MAPE: 4 de 10 mudam, no máximo 2 posições (sazonal ingênuo 2º → 4º, SARIMA heurístico 4º → 2º, SVR e RF trocam 5º e 6º) | mantém (só trocas entre modelos com ICs sobrepostos) | `tm_366/sensibilidade/posicoes_200_366.csv` |
+| H4 (sensibilidade): ordem das famílias por MASE | Suavização > ARIMA > Baseline > ML | idêntica | mantém | notebook `11d_sensibilidade_366_tourism_v2.ipynb` |
+| H1 (sensibilidade) | confirmou parcialmente, 5 de 6 | confirmou parcialmente, 5 de 6 (falha de novo o Spearman por série do RF: 0,571 [0,494; 0,649]) | mesma decisão nas 6 condições | `tm_366/sensibilidade/condicoes_h1_h3_200_366.csv` |
+| H2 (sensibilidade) | confirmou parcialmente, 6 de 10 | confirmou parcialmente, 8 de 10: no GB, o lag_1 passa a perder com IC excluindo zero (SHAP −0,026 [−0,055; −0,004]; LIME −0,013 [−0,027; −0,000], limite no zero); RF continua falhando | mesmo rótulo; 2 condições mudam de decisão (o rótulo oficial continua o das 200 séries) | `tm_366/sensibilidade/condicoes_h1_h3_200_366.csv` |
+| H3 (sensibilidade) | confirmou, 6 de 6 | confirmou, 6 de 6 (lag_12 no top-3 de 90% a 100% das séries) | mantém | `tm_366/sensibilidade/h1_h3_200_366.csv` |
+| Hierarquia de robustez (4b) | SES 1,5 < RF 3,4 < SVR 6,1 < SARIMA 6,2 < GB 6,3 < HW 13,7 | SES 1,3 < RF 6,3 < SVR 6,4 < SARIMA 7,3 < GB 7,7 < HW 16,4; (d) Spearman do escore 200 x 366: +1,000 (6 ajustados), +0,967 (9 modelos); 67 de 81 Δ% com o mesmo sinal; correlação dos Δ% 0,946 | mantém (ordem idêntica entre os ajustados) | `tm_366/sensibilidade/robustez_200_366.csv` |
+| Incerteza dos Δ% | 53 de 81 ICs incluem zero | 42 de 81 | mais séries estreitam os ICs, sem mudar as conclusões | `tm_366/sensibilidade/delta_ic95_366.csv` |
+| SARIMA automático, fallback e explosivas | 0% de fallback; 8 janelas explosivas | 0% de fallback; 17 janelas explosivas (1,5%); MAPE 23,55% com e 23,25% sem explosivas | mantém | `tm_366/sensibilidade/status_200_366.csv` |

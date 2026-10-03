@@ -1,6 +1,6 @@
 # HANDOFF: correção do projeto autopred (protocolo v2)
 
-Estado em 2026-10-03, ao fim da Fase 4c (4c concluída em 8ca7f8d; seção 3.1 abaixo mantida como registro). Último commit de resultados: `a320755` (Fase 4b). Pipeline: `src/pipeline_v2.py`, sha256 `bbe78767…` (sem alteração desde `ba7a8d6`); 34 testes em `tests/test_pipeline_v2.py`, todos passando.
+Estado em 2026-10-03, ao fim da Fase 4d (4c concluída em 8ca7f8d, 4d no commit que registra esta linha; seções 3.1 e 3.2 abaixo mantidas como registro). Próximo passo: Fase 5. Último commit de resultados: `a320755` (Fase 4b). Pipeline: `src/pipeline_v2.py`, sha256 `bbe78767…` (sem alteração desde `ba7a8d6`); 34 testes em `tests/test_pipeline_v2.py`, todos passando.
 
 Documentos de referência em `results/v2/`: `CHANGELOG_conclusoes.md` (achado da dissertação, valor antigo, valor v2, situação, arquivo-fonte, por fase), `PREVISOES_tourism.md` (previsões registradas, **não alterar**), `tm/replicacao_previsoes_tm.csv` (previsões x resultados) e este arquivo.
 
@@ -19,8 +19,10 @@ Documentos de referência em `results/v2/`: `CHANGELOG_conclusoes.md` (achado da
 | 4a | Tourism: linha de base limpa (200 séries, H=24); H4 avaliada | **concluída** | `11a_desempenho_tourism_v2.ipynb` | `tm/limpo/` |
 | 4b | Tourism: 9 cenários adversos | **concluída** | `11b_cenarios_adversos_tourism_v2.ipynb` | `tm/<cenário>/`, `tm/adversos/` |
 | 4c | Tourism: explicabilidade; avaliar H1 a H3 | **concluída** (2026-10-03) | `11c_explicabilidade_tourism_v2.ipynb` | `tm/xai/` |
-| 4d | Tourism: sensibilidade com as 366 séries | **pendente** | a definir | `tm_366/` (a gerar) |
+| 4d | Tourism: sensibilidade com as 366 séries | **concluída** (2026-10-03) | `11d_sensibilidade_366_tourism_v2.ipynb`, `11e_explicabilidade_tourism_366_v2.ipynb` | `tm_366/` |
 | 5 | Tabelas comparativas (Tabelas 3 a 7 e figuras, antigo x novo) e tabela de replicação H1 a H4 | **pendente** | a definir | a definir |
+
+Sensibilidade com as 366 séries (4d, não substitui a avaliação oficial): H1 5 de 6, H2 8 de 10, H3 6 de 6, mesmos rótulos (`tm_366/sensibilidade_previsoes_tm366.csv`).
 
 Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H1 **confirmou parcialmente** (5 de 6), H2 **confirmou parcialmente** (6 de 10), H3 **confirmou** (6 de 6), todas na 4c; H4 **confirmou parcialmente** (4a). Interpretação da faixa da H1 registrada em `INTERPRETACAO_criterios_4c.md` (1e3d9f0).
 
@@ -67,7 +69,7 @@ Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H1 **co
 
 ### 3.2 Fase 4d: sensibilidade com as 366 séries
 - Linha de base e cenários: `scripts\run_v2.py --base tm --n-series 366 ...` grava em `results/v2/tm_366/` (já previsto em `pasta_saida`). SARIMA automático: cerca de 1 h com 10 processos.
-- **Cuidado:** `scripts/run_xai_v2.py` grava sempre em `results/v2/<base>/xai/`; rodar a XAI com `--n-series 366` sobrescreveria os nomes de arquivo das 200 séries. Antes, acrescentar um sufixo ou pasta própria para 366.
+- Resolvido no commit f8e5dc6: `subpasta(base, n_series)` em `scripts/run_v2.py`, usada também por `run_xai_v2.py`; qualquer tamanho fora do padrão grava em `results/v2/<base>_<n>/` com prefixo `<base>_<n>_`.
 - Com 366 séries o sorteio vira "todas na ordem do arquivo"; as posições das 30 séries de XAI mudam.
 - Reportar como sensibilidade; as previsões continuam avaliadas nas 200 séries.
 

@@ -11,3 +11,9 @@ base=tm etapa=limpo alvo_ruidoso=False séries=366 H=24 min_train=24 modelos=['s
 [sarima_auto] 240/366 séries | 60.1 min | ETA 31.6 min
 [sarima_auto] 264/366 séries | 65.1 min | ETA 25.2 min
 [sarima_auto] 288/366 séries | 70.2 min | ETA 19.0 min
+[sarima_auto] 312/366 séries | 75.5 min | ETA 13.1 min
+[sarima_auto] 336/366 séries | 80.8 min | ETA 7.2 min
+[sarima_auto] 360/366 séries | 85.3 min | ETA 1.4 min
+[sarima_auto] 366/366 séries | 86.2 min | ETA 0.0 min
+[sarima_auto] concluído em 86.2 min: results\v2\tm_366\limpo\tm_366_limpo_sarima_auto_by_window.csv | {'OK': 1098}
+FIM
