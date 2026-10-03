@@ -1,3 +1,13 @@
 base=tm etapa=limpo alvo_ruidoso=False séries=366 H=24 min_train=24 modelos=['sarima_auto'] n_jobs=6
 [sarima_auto] 24/366 séries | 6.1 min | ETA 87.3 min
 [sarima_auto] 48/366 séries | 13.1 min | ETA 86.9 min
+[sarima_auto] 72/366 séries | 20.9 min | ETA 85.4 min
+[sarima_auto] 96/366 séries | 29.2 min | ETA 82.0 min
+[sarima_auto] 120/366 séries | 35.8 min | ETA 73.3 min
+[sarima_auto] 144/366 séries | 41.5 min | ETA 64.0 min
+[sarima_auto] 168/366 séries | 46.3 min | ETA 54.5 min
+[sarima_auto] 192/366 séries | 50.2 min | ETA 45.5 min
+[sarima_auto] 216/366 séries | 55.4 min | ETA 38.5 min
+[sarima_auto] 240/366 séries | 60.1 min | ETA 31.6 min
+[sarima_auto] 264/366 séries | 65.1 min | ETA 25.2 min
+[sarima_auto] 288/366 séries | 70.2 min | ETA 19.0 min
