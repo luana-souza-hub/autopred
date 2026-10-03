@@ -1,0 +1,13 @@
+condicao,modelo,metodo,pos lag_12,lag_12 top-3 (%),pos lag_24,lag_24 top-3 (%),lag_12 + lag_24 (fração)
+limpo,RandomForest,shap,1,96.7,2,80.0,0.589
+limpo,RandomForest,lime,1,96.7,2,70.0,0.424
+limpo,GradientBoosting,shap,1,100.0,2,80.0,0.478
+limpo,GradientBoosting,lime,1,100.0,2,73.3,0.383
+limpo,SVR,shap,1,96.7,2,70.0,0.298
+limpo,SVR,lime,1,93.3,2,66.7,0.272
+ruido30,RandomForest,shap,1,90.0,2,80.0,0.473
+ruido30,RandomForest,lime,1,86.7,2,80.0,0.369
+ruido30,GradientBoosting,shap,1,86.7,2,83.3,0.379
+ruido30,GradientBoosting,lime,1,83.3,2,83.3,0.329
+ruido30,SVR,shap,1,83.3,2,70.0,0.274
+ruido30,SVR,lime,1,83.3,2,70.0,0.249
