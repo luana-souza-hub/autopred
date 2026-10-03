@@ -282,6 +282,92 @@ else:
     print('caches com lag_24 ausentes')
 '''))
 
+if BASE == 'tm':
+    cells.append(md(r'''
+## 8. Avaliação das previsões H1, H2 e H3 (critérios registrados)
+Critérios de `results/v2/PREVISOES_tourism.md` (commit 1a08fa1) com a interpretação de `results/v2/INTERPRETACAO_criterios_4c.md` (commit 1e3d9f0): faixa da H1 **fechada** [0,65; 0,85]; um Spearman por série acima de 0,85 conta como fora da faixa (concordância maior que a prevista); rótulos pelas contagens registradas, sem reinterpretação. Configuração oficial: 200 séries, 30 explicadas, 15 features, LIME com 200 amostras; lag_24 e sensibilidade do LIME **não** entram.
+'''))
+    cells.append(code(r'''
+def rotulo(n_ok, n_total, faixa_parcial):
+    if n_ok == n_total:
+        return 'confirmou'
+    return 'confirmou parcialmente' if faixa_parcial[0] <= n_ok <= faixa_parcial[1] else 'não confirmou'
+
+cond = []
+# ---- H1: Pearson agregado > 0,90 e Spearman por série em [0,65; 0,85], condição limpa, por modelo
+for m in MOD:
+    s, l = glob(imp, m, 'shap', 'limpo'), glob(imp, m, 'lime', 'limpo')
+    pear = float(np.corrcoef((s / s.max()).values, (l / l.max()).values)[0, 1])
+    a = imp[(imp.modelo == m) & (imp.condicao == 'limpo')]
+    j = a[a.metodo == 'shap'].merge(a[a.metodo == 'lime'], on='serie', suffixes=('_s', '_l'))
+    sp = [spearmanr(r[[f'{n}_s' for n in FN]].astype(float), r[[f'{n}_l' for n in FN]].astype(float))[0] for _, r in j.iterrows()]
+    sp_m, sp_lo, sp_hi = pv.bootstrap_ic(sp)
+    cond.append({'hipotese': 'H1', 'condicao': f'{m}: Pearson agregado > 0,90', 'valor': round(pear, 3), 'ok': pear > 0.90})
+    obs = '' if sp_m <= 0.85 else 'acima da faixa: concordância maior que a prevista'
+    cond.append({'hipotese': 'H1', 'condicao': f'{m}: Spearman por série em [0,65; 0,85]',
+                 'valor': f'{sp_m:.3f} [{sp_lo:.3f}; {sp_hi:.3f}]', 'ok': 0.65 <= sp_m <= 0.85, 'obs': obs})
+# ---- H2 (a): Spearman médio limpo x ruído < 0,80, por modelo e método
+for met in MET:
+    sub = imp[imp.metodo == met]
+    e = pv.estabilidade(sub[sub.condicao == 'limpo'], sub[sub.condicao == 'ruido30'], FN)
+    for m in MOD:
+        v, lo, hi = pv.bootstrap_ic(e[e.modelo == m]['spearman'].values)
+        cond.append({'hipotese': 'H2', 'condicao': f'(a) {m} {met.upper()}: estabilidade (Spearman médio) < 0,80',
+                     'valor': f'{v:.3f} [{lo:.3f}; {hi:.3f}]', 'ok': v < 0.80})
+# ---- H2 (b): RF e GB, SHAP e LIME: Δ lag_1 < 0 e Δ roll_mean_3 ou roll_mean_6 > 0, com IC excluindo zero
+def delta_ic(m, met, f):
+    a = imp[(imp.modelo == m) & (imp.metodo == met)]
+    j = a[a.condicao == 'limpo'][['serie', f]].merge(a[a.condicao == 'ruido30'][['serie', f]], on='serie')
+    return pv.bootstrap_ic((j[f'{f}_y'] - j[f'{f}_x']).values)
+for m in ['RandomForest', 'GradientBoosting']:
+    for met in MET:
+        d1, d3, d6 = delta_ic(m, met, 'lag_1'), delta_ic(m, met, 'roll_mean_3'), delta_ic(m, met, 'roll_mean_6')
+        perde = d1[2] < 0
+        ganha = (d3[1] > 0) or (d6[1] > 0)
+        cond.append({'hipotese': 'H2', 'condicao': f'(b) {m} {met.upper()}: lag_1 perde e média móvel ganha (IC excluindo zero)',
+                     'valor': f'Δlag_1 {d1[0]:+.3f} [{d1[1]:+.3f}; {d1[2]:+.3f}]; Δroll_mean_3 {d3[0]:+.3f} [{d3[1]:+.3f}; {d3[2]:+.3f}]; '
+                              f'Δroll_mean_6 {d6[0]:+.3f} [{d6[1]:+.3f}; {d6[2]:+.3f}]',
+                     'ok': bool(perde and ganha),
+                     'obs': ('' if perde else 'lag_1 não perde com IC excluindo zero; ') + ('' if ganha else 'nenhuma média móvel ganha com IC excluindo zero')})
+# ---- H3: fração de séries com lag_12 no top-3 > 30,0%, condição limpa, por modelo e método
+for m in MOD:
+    for met in MET:
+        sub = imp[(imp.modelo == m) & (imp.metodo == met) & (imp.condicao == 'limpo')]
+        r = sub[FN].rank(axis=1, ascending=False, method='min')['lag_12']
+        frac = 100 * float((r <= 3).mean())
+        cond.append({'hipotese': 'H3', 'condicao': f'{m} {met.upper()}: lag_12 no top-3 em > 30,0% das séries',
+                     'valor': f'{frac:.1f}% ({int((r <= 3).sum())} de {len(r)})', 'ok': frac > 30.0})
+
+cond = pd.DataFrame(cond).fillna('')
+cond.to_csv(DIR / 'xai_tm_avaliacao_previsoes_condicoes.csv', index=False)
+FAIXAS = {'H1': (6, (3, 5)), 'H2': (10, (5, 9)), 'H3': (6, (1, 5))}
+res_h = []
+for h, (n_tot, faixa) in FAIXAS.items():
+    c = cond[cond.hipotese == h]
+    assert len(c) == n_tot, (h, len(c))
+    n_ok = int(c['ok'].sum())
+    res_h.append({'hipotese': h, 'condicoes_validas': f'{n_ok} de {n_tot}', 'status': rotulo(n_ok, n_tot, faixa)})
+    print(f'=== {h}: {n_ok} de {n_tot} condições -> {rotulo(n_ok, n_tot, faixa).upper()} ===')
+    print(c[['condicao', 'valor', 'ok', 'obs']].to_string(index=False)); print()
+res_h = pd.DataFrame(res_h)
+print(res_h.to_string(index=False))
+'''))
+    cells.append(code(r'''
+# Atualiza a tabela de replicação (H4 vem da 4a e não muda)
+arq = PROJECT_ROOT / 'results' / 'v2' / 'tm' / 'replicacao_previsoes_tm.csv'
+rep = pd.read_csv(arq)
+for _, r in res_h.iterrows():
+    c = cond[cond.hipotese == r.hipotese]
+    falhas = '; '.join(f"{x.condicao} = {x.valor}" for x in c.itertuples() if not x.ok)
+    rep.loc[rep.hipotese == r.hipotese, 'status'] = r.status
+    rep.loc[rep.hipotese == r.hipotese, 'evidencia'] = f"{r.condicoes_validas} condições; não valem: {falhas if falhas else 'nenhuma'}"
+    rep.loc[rep.hipotese == r.hipotese, 'parte'] = '4c'
+    rep.loc[rep.hipotese == r.hipotese, 'fonte'] = 'tm/xai/xai_tm_avaliacao_previsoes_condicoes.csv'
+rep.to_csv(arq, index=False)
+pd.set_option('display.max_colwidth', 120)
+print(rep[['hipotese', 'status', 'evidencia', 'parte']].to_string(index=False))
+'''))
+
 if BASE == 'm4':
     cells.append(md(r'''
 ## 8. Comparação com a dissertação (Fig. 20, Fig. 22 e Spearman de estabilidade)
