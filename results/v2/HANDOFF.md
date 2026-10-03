@@ -1,6 +1,6 @@
 # HANDOFF: correção do projeto autopred (protocolo v2)
 
-Estado em 2026-10-02, ao fim da Fase 4b. Último commit de resultados: `a320755` (Fase 4b). Pipeline: `src/pipeline_v2.py`, sha256 `bbe78767…` (sem alteração desde `ba7a8d6`); 34 testes em `tests/test_pipeline_v2.py`, todos passando.
+Estado em 2026-10-03, ao fim da Fase 4c (4c concluída em 8ca7f8d; seção 3.1 abaixo mantida como registro). Último commit de resultados: `a320755` (Fase 4b). Pipeline: `src/pipeline_v2.py`, sha256 `bbe78767…` (sem alteração desde `ba7a8d6`); 34 testes em `tests/test_pipeline_v2.py`, todos passando.
 
 Documentos de referência em `results/v2/`: `CHANGELOG_conclusoes.md` (achado da dissertação, valor antigo, valor v2, situação, arquivo-fonte, por fase), `PREVISOES_tourism.md` (previsões registradas, **não alterar**), `tm/replicacao_previsoes_tm.csv` (previsões x resultados) e este arquivo.
 
@@ -18,11 +18,11 @@ Documentos de referência em `results/v2/`: `CHANGELOG_conclusoes.md` (achado da
 | 3 | Car Parts: linha de base (2.674 séries) e XAI exploratória | **concluída** | `10_car_parts_pipeline_v2.ipynb`, `10b_explicabilidade_car_parts_v2.ipynb` | `cp/limpo/`, `cp/xai/` |
 | 4a | Tourism: linha de base limpa (200 séries, H=24); H4 avaliada | **concluída** | `11a_desempenho_tourism_v2.ipynb` | `tm/limpo/` |
 | 4b | Tourism: 9 cenários adversos | **concluída** | `11b_cenarios_adversos_tourism_v2.ipynb` | `tm/<cenário>/`, `tm/adversos/` |
-| 4c | Tourism: explicabilidade; avaliar H1 a H3 | **pendente** | `11c_explicabilidade_tourism_v2.ipynb` (a gerar) | `tm/xai/` (a gerar) |
+| 4c | Tourism: explicabilidade; avaliar H1 a H3 | **concluída** (2026-10-03) | `11c_explicabilidade_tourism_v2.ipynb` | `tm/xai/` |
 | 4d | Tourism: sensibilidade com as 366 séries | **pendente** | a definir | `tm_366/` (a gerar) |
 | 5 | Tabelas comparativas (Tabelas 3 a 7 e figuras, antigo x novo) e tabela de replicação H1 a H4 | **pendente** | a definir | a definir |
 
-Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H4 **confirmou parcialmente** (4a); H1, H2 e H3 pendentes (4c).
+Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H1 **confirmou parcialmente** (5 de 6), H2 **confirmou parcialmente** (6 de 10), H3 **confirmou** (6 de 6), todas na 4c; H4 **confirmou parcialmente** (4a). Interpretação da faixa da H1 registrada em `INTERPRETACAO_criterios_4c.md` (1e3d9f0).
 
 ## 2. Decisões de protocolo já tomadas (não reabrir sem decisão explícita)
 
