@@ -2,7 +2,7 @@
 
 Registro, por fase, de como cada achado da dissertação (`Dissertacao_PPGI_AutoPred_2.docx`) se comporta quando refeito com o protocolo único v2 (`src/pipeline_v2.py`). Situação: **mantém** (direção e magnitude compatíveis), **muda** (direção mantida, mas magnitude, posição ou rótulo diferentes) ou **não se sustenta** (o achado deixa de valer).
 
-Convenções: MAPE e ΔMAPE em medianas entre séries; "Δ%" é relativo e "p.p." é absoluto; IC = intervalo de 95% por bootstrap pareado por série (2000 reamostragens). Atualizado em 2026-10-02 (Fase 3 revisada: dependência do regime avaliada com a mesma métrica nas duas bases).
+Convenções: MAPE e ΔMAPE em medianas entre séries; "Δ%" é relativo e "p.p." é absoluto; IC = intervalo de 95% por bootstrap pareado por série (2000 reamostragens). Atualizado em 2026-10-03 (Fases 4a a 4d no Tourism e Fase 5: tabelas comparativas antigo x v2 e replicação de H1 a H4 nas três bases).
 
 ---
 
@@ -146,3 +146,42 @@ Avaliação pelos critérios de `PREVISOES_tourism.md` (1a08fa1) com a interpret
 | Hierarquia de robustez (4b) | SES 1,5 < RF 3,4 < SVR 6,1 < SARIMA 6,2 < GB 6,3 < HW 13,7 | SES 1,3 < RF 6,3 < SVR 6,4 < SARIMA 7,3 < GB 7,7 < HW 16,4; (d) Spearman do escore 200 x 366: +1,000 (6 ajustados), +0,967 (9 modelos); 67 de 81 Δ% com o mesmo sinal; correlação dos Δ% 0,946 | mantém (ordem idêntica entre os ajustados) | `tm_366/sensibilidade/robustez_200_366.csv` |
 | Incerteza dos Δ% | 53 de 81 ICs incluem zero | 42 de 81 | mais séries estreitam os ICs, sem mudar as conclusões | `tm_366/sensibilidade/delta_ic95_366.csv` |
 | SARIMA automático, fallback e explosivas | 0% de fallback; 8 janelas explosivas | 0% de fallback; 17 janelas explosivas (1,5%); MAPE 23,55% com e 23,25% sem explosivas | mantém | `tm_366/sensibilidade/status_200_366.csv` |
+
+---
+
+## Fase 5: tabelas comparativas (antigo x v2) e replicação de H1 a H4
+
+Notebook `12_fase5_comparativos_v2.ipynb` (gerador `tools/nb_builders/nb12_fase5_v2.py`), resultados em `results/v2/fase5/` (índice em `fase5/indice_fase5.csv`). Só leitura dos caches v2; valores antigos lidos do `.docx` sem alterá-lo (SHA-256 em `fase5/fase5.meta.json`; cópias das Tabelas 3 a 7 em `fase5/antigo_dissertacao/`). Conferências automáticas no notebook: Tabelas 3 e 7 iguais às das Fases 2a e 3; Tabela 5 do M4 igual à do notebook 08 v2; H1 a H3 do Tourism recalculados idênticos à avaliação oficial (22 condições); famílias por base idênticas às da 4a; rótulo oficial da H4 reproduzido. Os critérios das Tabelas 4 e 5 continuam definidos depois de ver o M4.
+
+| Achado da dissertação | Valor antigo | Valor v2 | Situação | Arquivo-fonte |
+|---|---|---|---|---|
+| Tabela 3 consolidada (M4) | ver Fase 2a | acrescenta IC, MASE e as variantes com e sem fallback e explosivas; por MASE, GB 1º [1; 5] e HW 2º [1; 6] | mantém as conclusões da 2a | `fase5/tabela3_antigo_v2_m4.csv` |
+| Tabela 4: custo computacional (HW "Baixo", ML "Moderado", SARIMA automático "Alto") | qualitativo, sem medição | medido no v2 (mediana por janela, M4): SES 0,006 s, SVR 0,012 s, GB 0,069 s, SARIMA heurístico 0,146 s, HW 0,306 s, RF 0,334 s, SARIMA automático 16,1 s | muda: o SARIMA automático é de fato duas ordens de grandeza mais caro, mas o HW não é mais barato que GB e SVR | `fase5/custo_computacional_v2.csv`, `fase5/tabela4_antigo_v2.csv` |
+| Tabela 4: explicabilidade (RF e SVR "Moderada", GB "Baixa") | qualitativo | estabilidade SHAP 0,56 (RF), 0,44 (GB), 0,62 (SVR); Pearson SHAP×LIME 0,993 a 0,997 | mantém o GB como o menos estável; RF e SVR com ICs sobrepostos | `fase5/tabela4_antigo_v2.csv` |
+| Tabela 4: robustez com Tourism ao lado | só M4 | mesmas categorias e limiares nas duas bases, com o número de níveis com IC excluindo zero | novo | `fase5/tabela4_antigo_v2.csv` |
+| Tabela 5: "restrição operacional → SES ou HW; SARIMA automático contraindicado" | sem critério | SES é o ajustado mais rápido e o SARIMA automático o mais lento nas três bases, mas o HW é mais lento que SVR e GB | não se sustenta como escrito (a parte "SARIMA automático contraindicado" se sustenta) | `fase5/tabela5_antigo_v2.csv` |
+| Tabela 5: "decisões auditáveis → RF + SHAP e LIME (ρ = 0,572; r = 0,959)" | RF o mais estável e concordante | estabilidade SHAP: SVR > RF > GB no M4 (0,62 / 0,56 / 0,44) e no Tourism (0,75 / 0,68 / 0,63); Pearson praticamente empatado | não se sustenta (o RF não é o mais estável) | `fase5/tabela5_antigo_v2.csv` |
+| Tabela 5 no Tourism (critérios aplicados a posteriori) | n/a | sustentam-se HW em dados limpos e SES degradando menos que HW; não se sustentam SES como o mais robusto a ruído (RF −1,1% x SES −0,9%), SVR com outliers (RF), GB ou Persistência com ausências (HW), RF para explicabilidade | novo | `fase5/tabela5_antigo_v2.csv` |
+| Tabela 6: comprimento das séries do M4 | 42 a 126 obs. | 66 a 918 (mediana 198); Car Parts 51; Tourism 91 a 333 (mediana 332) | não se sustenta (erro de texto, já registrado na 2a) | `fase5/tabela6_antigo_v2.csv` |
+| Tabela 6: tempo de execução | M4 ~15 min; Car Parts 14,9 min (9 modelos) | linha de base com 10 modelos, incluindo o SARIMA automático: M4 44,2 min (42,1 do SARIMA automático); Car Parts 166 min (158 do SARIMA automático, execução retomada); Tourism 34,2 min (33,2) | muda (o antigo excluía o SARIMA automático; depende da máquina e do paralelismo) | `fase5/tabela6_antigo_v2.csv` |
+| Tabela 6: sazonalidade no Car Parts "ausente ou mascarada" | qualitativo | F_S mediana 0,58, mas só 18% das séries acima do piso de ruído (M4 56%, Tourism 98%) | mantém (agora medido) | `fase5/tabela6_antigo_v2.csv` |
+| Tabela 7 consolidada (Car Parts) | ver Fase 3 | acrescenta IC do MAE e do rank, MASE (Persistência 1º, SVR 2º, SES 3º, RF 4º) e as faixas de zeros | mantém as conclusões da Fase 3 | `fase5/tabela7_antigo_v2_cp.csv` |
+| Fig. 10: série M32652 | M32652 | M32652 não está na amostra v2 (vinha da amostra alfabética antiga); substituída pela 1ª série da amostra v2 (M17734) | muda (série de exemplo) | `fase5/figuras_indice.csv` |
+| Fig. 11: ganho do HW sobre a Persistência | "1,1 p.p." | diferença das medianas 1,39 p.p. = 14,3% relativo; mediana por série 8,2%; HW melhor em 54% das séries | muda (amostra e unidade) | `fase5/figuras/fig11_v2_m4_ganho_hw_dados.csv` |
+| Fig. 12: importância nativa (impureza) em M19247 | GB: lag_1, lag_season2, roll_mean; RF (outra série): lag_2, roll_mean, lag_1 | GB: lag_1, lag_7, roll_mean_3; RF (mesma série): lag_1, roll_mean_3, lag_7; lag_12 fora do top-10 nessa série | muda (sem duplicatas; importância por impureza, diferente do SHAP) | `fase5/figuras/fig12_v2_m4_importancia_nativa_M19247_dados.csv` |
+| Q1 (Fig. 18): consistência entre séries, CV 1,75 / 1,61 / 0,51 | CV médio, escala original, 17 features | **reanálise** dos caches da 2c (item C11): escala original 1,70 / 1,49 / 1,17; normalizado por série 1,21 / 1,01 / 0,70 | muda: a ordem (SVR o mais consistente, RF o menos) se mantém, mas a vantagem do SVR é bem menor que a reportada | `fase5/reanalise_cv_q1_m4.csv` |
+| Fig. 26: exemplos do RF no Car Parts | T2566 MAE 1,16; T2419 MAE 1,17 (30 árvores) | T2566 MAE 0,93; T2419 MAE 2,28 (100 árvores, previsão recursiva corrigida) | muda (exemplo ilustrativo) | `fase5/figuras/fig26_v2_cp_exemplos_rf_dados.csv` |
+| Demais figuras (8, 9, 13 a 17, 19 a 25) | ver legenda | refeitas no v2, com a antiga ao lado; valores-chave já registrados nas Fases 2a a 3 | consistente com as fases anteriores | `fase5/figuras_indice.csv` |
+
+### Replicação de H1 a H4 nas três bases
+
+Tourism: rótulos oficiais das 200 séries (previsão pré-registrada, 1a08fa1; faixa da H1 conforme `INTERPRETACAO_criterios_4c.md`, 1e3d9f0). M4 (reanálise) e Car Parts (exploratória): os mesmos critérios numéricos **aplicados a posteriori**, com a formulação qualitativa da dissertação ao lado. H4 com MASE como métrica principal e MAE de apoio, nos três pares.
+
+| Hipótese | M4 (reanálise) | Car Parts (exploratória) | Tourism (pré-registrada) | Arquivo-fonte |
+|---|---|---|---|---|
+| H1: concordância SHAP x LIME | replicou (6 de 6) | replicou parcialmente (4 de 6): Pearson do GB 0,71 e do SVR 0,79 | confirmou parcialmente (5 de 6) | `fase5/replicacao_H1_H4.csv` |
+| H2: estabilidade < 0,80 e redistribuição sob ruído | replicou (10 de 10) | replicou parcialmente (6 de 10): no RF e no GB nenhuma média móvel ganha (roll_mean_6 perde) | confirmou parcialmente (6 de 10) | `fase5/replicacao_condicoes_h1_h3.csv` |
+| H3: lag_12 no top-3 em > 30% das séries | não replicou (0 de 6), mas a aplicação é circular: o limiar de 30,0% é o máximo do próprio M4; lag_12 em 3º a 5º global | não replicou (0 de 6): 13% a 23%; lag_12 em 7º a 9º global | confirmou (6 de 6) | `fase5/replicacao_condicoes_h1_h3.csv` |
+| H4: hierarquia entre famílias depende do regime | par M4 x Car Parts: replicou parcialmente (ordem difere, nenhuma família com IC separado no MASE; no MAE, Baseline separado); Spearman dos modelos −0,20 [−0,68; +0,25] | (mesmo par) | confirmou parcialmente: TM x M4 sem IC separado (Spearman +0,19 [−0,18; +0,64]); TM x CP com ARIMA e ML separados (Spearman −0,77 [−0,87; −0,66]) | `fase5/replicacao_h4_pares.csv` |
+
+Leitura: a concordância e a instabilidade das explicações (H1, H2) se repetem no M4 e, em parte, no Tourism e no Car Parts. A centralidade do lag sazonal (H3) acompanha a força da sazonalidade (Tourism ≫ M4 > Car Parts). A dependência do regime (H4) só tem suporte estatístico no par Tourism x Car Parts. Sensibilidade com as 366 séries do Tourism, em arquivo separado (`fase5/replicacao_sensibilidade_tm366.csv`): mesmos rótulos para H1 a H4. Na H2, 2 condições do GB mudam de decisão. Na H4, as quatro famílias se separam do Car Parts e nenhuma do M4.

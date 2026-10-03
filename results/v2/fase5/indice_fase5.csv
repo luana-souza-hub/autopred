@@ -1,0 +1,14 @@
+arquivo,conteúdo
+tabela3_antigo_v2_m4.csv,"Tabela 3 (M4 limpo): antigo x v2, IC, com e sem fallback e explosivas, MASE"
+tabela4_antigo_v2.csv,"Tabela 4 (mapa síntese): antigo x v2 M4, com Tourism; custo só medido"
+tabela5_antigo_v2.csv,"Tabela 5 (recomendações): critérios verificáveis em M4, Tourism e Car Parts"
+tabela6_antigo_v2.csv,"Tabela 6 (características das bases): antigo x v2, três bases, tempo com SARIMA automático"
+tabela7_antigo_v2_cp.csv,"Tabela 7 (Car Parts): antigo x v2, IC, com e sem fallback, MASE"
+custo_computacional_v2.csv,tempos medidos no v2 (logs e exec_time_s)
+reanalise_cv_q1_m4.csv,"reanálise do CV da Questão 1 (item C11), Fig. 18"
+figuras_indice.csv,"índice das Figs. 8 a 26 (antigo x v2, valores-chave)"
+replicacao_condicoes_h1_h3.csv,condições de H1 a H3 nas três bases
+replicacao_h4_pares.csv,"H4 nos três pares de bases (MASE e MAE, IC)"
+replicacao_H1_H4.csv,"tabela final de replicação (formato longo, com evidência e tipo)"
+replicacao_H1_H4_resumo.csv,resumo hipótese x base
+replicacao_sensibilidade_tm366.csv,sensibilidade com 366 séries (separada dos rótulos oficiais)

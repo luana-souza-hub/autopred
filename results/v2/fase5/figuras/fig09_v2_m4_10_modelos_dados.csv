@@ -1,0 +1,11 @@
+model,mape,mase
+Holt-Winters,8.355,0.918
+SARIMA automático,8.912,0.991
+Gradient Boosting,9.057,0.9
+SES,9.681,0.938
+SARIMA heurístico,9.719,1.056
+Persistência,9.748,0.953
+Random Forest,10.127,0.97
+SVR,11.523,1.097
+Sazonal ingênuo,11.77,1.063
+Média histórica,21.822,2.017

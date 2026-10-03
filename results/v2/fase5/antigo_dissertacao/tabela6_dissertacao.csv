@@ -1,0 +1,9 @@
+Característica,M4 mensal (NB 02–07),Car Parts (NB 10)
+Número de séries,200 (piloto SEED=42),2.674 (base completa)
+Comprimento por série,Variável (42–126 obs.),Fixo (51 obs.)
+Natureza das séries,Mista (múltiplos domínios),Demanda intermitente de peças automotivas
+Proporção de zeros,Desprezível,"Mediana 80,4% — 89,1% das séries >50% zeros"
+Métrica principal,MAPE (calculável em todas),"MAE (MAPE indefinido em 15,8% das janelas)"
+Sazonalidade,Regular e detectável,Ausente ou mascarada pela intermitência
+Perfil de adversidade,Controlado por perturbação,Esparsidade e intermitência naturais
+Tempo de execução (9 mod.),~15 min,"14,9 min"

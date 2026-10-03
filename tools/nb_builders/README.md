@@ -12,6 +12,8 @@ Scripts que **escrevem** os notebooks `_v2` a partir de células definidas em Py
 | `nb10v2.py` | `notebooks/10_car_parts_pipeline_v2.ipynb` (Fase 3) | idem |
 | `nb11a_v2.py` | `notebooks/11a_desempenho_tourism_v2.ipynb` (Fase 4a) | idem |
 | `nb11b_v2.py` | `notebooks/11b_cenarios_adversos_tourism_v2.ipynb` (Fase 4b) | idem |
+| `nb11d_v2.py` | `notebooks/11d_sensibilidade_366_tourism_v2.ipynb` (Fase 4d) | idem |
+| `nb12_fase5_v2.py` | `notebooks/12_fase5_comparativos_v2.ipynb` (Fase 5: Tabelas 3 a 7, Figs. 8 a 26, replicação H1 a H4) | idem; lê o `.docx` da dissertação só para leitura |
 
 **Históricos, não rodar de novo:** `etapa1.py` e `etapa1b.py` (criaram as Etapas 1 e 1b do NB11; `etapa1.py` recria o NB11 do zero) e `edit_nb09.py` (aplicou a correção do LIME ao NB09; as verificações de texto falham se rodado de novo).
 

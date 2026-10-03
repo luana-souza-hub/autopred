@@ -1,0 +1,47 @@
+{
+  "gerado_em": "2026-10-03T16:25:34",
+  "notebook": "notebooks/12_fase5_comparativos_v2.ipynb",
+  "pipeline_sha256_atual": "bbe78767e39584b6af4b9332bbeeb59e90b0009e3dca3704aa0a56f1f164ead1",
+  "pipeline_sha256_caches": [
+    "4ad35616",
+    "4cbb2469",
+    "702f60cc",
+    "83a91c9a",
+    "bbe78767"
+  ],
+  "versoes": {
+    "python": "3.11.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0",
+    "statsmodels": "0.14.6",
+    "scipy": "1.17.1",
+    "shap": "0.51.0",
+    "lime": "instalado",
+    "joblib": "1.5.3"
+  },
+  "dissertacao_docx": {
+    "arquivo": "Dissertacao_PPGI_AutoPred_2.docx",
+    "sha256": "bbd41343884a1d2ef66503e9a9784603757235b8e402875eb9ddf906917c2827",
+    "uso": "somente leitura das Tabelas 3 a 7"
+  },
+  "bootstrap": {
+    "n": 2000,
+    "seed": 42
+  },
+  "arquivos": {
+    "tabela3_antigo_v2_m4.csv": "Tabela 3 (M4 limpo): antigo x v2, IC, com e sem fallback e explosivas, MASE",
+    "tabela4_antigo_v2.csv": "Tabela 4 (mapa síntese): antigo x v2 M4, com Tourism; custo só medido",
+    "tabela5_antigo_v2.csv": "Tabela 5 (recomendações): critérios verificáveis em M4, Tourism e Car Parts",
+    "tabela6_antigo_v2.csv": "Tabela 6 (características das bases): antigo x v2, três bases, tempo com SARIMA automático",
+    "tabela7_antigo_v2_cp.csv": "Tabela 7 (Car Parts): antigo x v2, IC, com e sem fallback, MASE",
+    "custo_computacional_v2.csv": "tempos medidos no v2 (logs e exec_time_s)",
+    "reanalise_cv_q1_m4.csv": "reanálise do CV da Questão 1 (item C11), Fig. 18",
+    "figuras_indice.csv": "índice das Figs. 8 a 26 (antigo x v2, valores-chave)",
+    "replicacao_condicoes_h1_h3.csv": "condições de H1 a H3 nas três bases",
+    "replicacao_h4_pares.csv": "H4 nos três pares de bases (MASE e MAE, IC)",
+    "replicacao_H1_H4.csv": "tabela final de replicação (formato longo, com evidência e tipo)",
+    "replicacao_H1_H4_resumo.csv": "resumo hipótese x base",
+    "replicacao_sensibilidade_tm366.csv": "sensibilidade com 366 séries (separada dos rótulos oficiais)"
+  }
+}

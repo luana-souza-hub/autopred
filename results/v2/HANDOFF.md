@@ -1,6 +1,6 @@
 # HANDOFF: correção do projeto autopred (protocolo v2)
 
-Estado em 2026-10-03, ao fim da Fase 4d (4c concluída em 8ca7f8d, 4d no commit que registra esta linha; seções 3.1 e 3.2 abaixo mantidas como registro). Próximo passo: Fase 5. Último commit de resultados: `a320755` (Fase 4b). Pipeline: `src/pipeline_v2.py`, sha256 `bbe78767…` (sem alteração desde `ba7a8d6`); 34 testes em `tests/test_pipeline_v2.py`, todos passando.
+Estado em 2026-10-03, ao fim da Fase 5 (4c em 8ca7f8d, 4d em 798ea27, Fase 5 no commit que registra esta linha; seções 3.1 a 3.3 abaixo mantidas como registro). Todas as fases do plano estão concluídas; pendências na seção 4. Commits de resultados por fase: 4b `a320755`, 4c `8ca7f8d`, 4d `798ea27`, Fase 5 o commit que registra esta linha (`git log -1 -- results/v2/fase5`). Pipeline: `src/pipeline_v2.py`, sha256 `bbe78767…` (sem alteração desde `ba7a8d6`); 34 testes em `tests/test_pipeline_v2.py`, todos passando.
 
 Documentos de referência em `results/v2/`: `CHANGELOG_conclusoes.md` (achado da dissertação, valor antigo, valor v2, situação, arquivo-fonte, por fase), `PREVISOES_tourism.md` (previsões registradas, **não alterar**), `tm/replicacao_previsoes_tm.csv` (previsões x resultados) e este arquivo.
 
@@ -20,11 +20,13 @@ Documentos de referência em `results/v2/`: `CHANGELOG_conclusoes.md` (achado da
 | 4b | Tourism: 9 cenários adversos | **concluída** | `11b_cenarios_adversos_tourism_v2.ipynb` | `tm/<cenário>/`, `tm/adversos/` |
 | 4c | Tourism: explicabilidade; avaliar H1 a H3 | **concluída** (2026-10-03) | `11c_explicabilidade_tourism_v2.ipynb` | `tm/xai/` |
 | 4d | Tourism: sensibilidade com as 366 séries | **concluída** (2026-10-03) | `11d_sensibilidade_366_tourism_v2.ipynb`, `11e_explicabilidade_tourism_366_v2.ipynb` | `tm_366/` |
-| 5 | Tabelas comparativas (Tabelas 3 a 7 e figuras, antigo x novo) e tabela de replicação H1 a H4 | **pendente** | a definir | a definir |
+| 5 | Tabelas comparativas (Tabelas 3 a 7 e Figs. 8 a 26, antigo x novo) e tabela de replicação H1 a H4 | **concluída** (2026-10-03) | `12_fase5_comparativos_v2.ipynb` | `fase5/` (índice em `fase5/indice_fase5.csv`) |
 
 Sensibilidade com as 366 séries (4d, não substitui a avaliação oficial): H1 5 de 6, H2 8 de 10, H3 6 de 6, mesmos rótulos (`tm_366/sensibilidade_previsoes_tm366.csv`).
 
 Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H1 **confirmou parcialmente** (5 de 6), H2 **confirmou parcialmente** (6 de 10), H3 **confirmou** (6 de 6), todas na 4c; H4 **confirmou parcialmente** (4a). Interpretação da faixa da H1 registrada em `INTERPRETACAO_criterios_4c.md` (1e3d9f0).
+
+Replicação nas três bases (Fase 5, `fase5/replicacao_H1_H4.csv` e `fase5/replicacao_H1_H4_resumo.csv`; M4 e Car Parts com os critérios do Tourism aplicados a posteriori): M4 (reanálise) H1 6/6, H2 10/10, H3 0/6 (circular: o limiar é o máximo do M4); Car Parts (exploratória) H1 4/6, H2 6/10, H3 0/6; H4 por pares com MASE: M4 x CP parcial (sem IC separado), TM x M4 parcial, TM x CP com IC separado (ARIMA, ML).
 
 ## 2. Decisões de protocolo já tomadas (não reabrir sem decisão explícita)
 
@@ -73,7 +75,7 @@ Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H1 **co
 - Com 366 séries o sorteio vira "todas na ordem do arquivo"; as posições das 30 séries de XAI mudam.
 - Reportar como sensibilidade; as previsões continuam avaliadas nas 200 séries.
 
-### 3.3 Fase 5: tabelas comparativas
+### 3.3 Fase 5: tabelas comparativas (concluída; registro do plano)
 - Um CSV por tabela da dissertação (Tabelas 3 a 7 e figuras correspondentes), com valor antigo e valor novo; parte já existe (`m4/limpo/comparacao_tabela3_antiga_v2_m4.csv`, `m4/adversos/comparacao_tabela4_robustez.csv`, `m4/adversos/comparacao_tabela5_recomendacoes.csv`, `cp/limpo/comparacao_tabela7_antiga_v2_cp.csv`). Falta a Tabela 6 e consolidar tudo em uma pasta, por exemplo `results/v2/fase5/`.
 - Tabela de replicação final H1 a H4 nas três bases (M4, Car Parts, Tourism), com H3 reformulado (importância do lag sazonal em SHAP e LIME) e status "replicou / parcialmente / não replicou" com a evidência numérica.
 
@@ -84,7 +86,10 @@ Situação das previsões do Tourism (`tm/replicacao_previsoes_tm.csv`): H1 **co
 - **ICs por bootstrap pareado por série (2000)** em todo ranking e ΔMAPE; marcar comparações cujo IC inclui zero. Com 200 séries, a maioria das diferenças entre modelos ajustados no M4 não é distinguível.
 - **Limiares da Tabela 4 e critérios da Tabela 5 foram definidos depois de ver os resultados do M4** (não são pré-registrados); no Tourism foram aplicados sem mudança.
 - ΔMAPE sempre em **% relativo e em p.p.**, com rótulo correto (o texto da dissertação chama de p.p. o que é %; item C3).
-- Q1 de consistência (CV entre séries) **não foi reavaliado** no v2 (CHANGELOG, Fase 2c).
+- Q1 de consistência (CV entre séries): **reanalisado na Fase 5** a partir dos caches da 2c (`fase5/reanalise_cv_q1_m4.csv`, rotulado como reanálise; item C11).
+- **Tabela 8** da dissertação (grau de atendimento dos objetivos específicos) **ficou fora da Fase 5**: pendente, se for preciso, uma comparação antigo x v2 dos status dos OE.
+- Tabela 5: os critérios das recomendações 5 (restrição operacional) e 6 (explicabilidade) foram escritos na Fase 5, depois de ver o M4 e o Tourism; reportar como critérios a posteriori.
+- Custo computacional (Tabelas 4 e 6): tempos medidos dependem da máquina e do paralelismo; o `n_jobs` do SARIMA automático no Car Parts e no Tourism não ficou registrado nos logs.
 - `PREVISOES_tourism.md` não pode ser editado. Qualquer critério novo vai em outro arquivo, rotulado como análise posterior.
 - O `.docx` da dissertação **não** deve ser alterado.
 - Tarefas em segundo plano têm limite de 2 h: para execuções longas, usar `scripts/run_v2.py`, que retoma do `.parcial.csv` (como foi feito com o SARIMA automático do Car Parts).
@@ -96,7 +101,7 @@ Ambiente (Windows, na raiz `autopred/`):
 ```
 .venv\Scripts\python.exe -m unittest tests.test_pipeline_v2          # 34 testes, cerca de 90 s
 git status                                                          # deve estar limpo
-git log --oneline | head                                            # último commit de resultados: a320755
+git log --oneline | head                                            # último commit: Fase 5
 ```
 
 Execução (fora do Jupyter, com cache, checkpoint e `.meta.json` com hash do pipeline, versões, sementes e SHA-256 dos dados):

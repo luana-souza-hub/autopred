@@ -1,0 +1,10 @@
+modelo,A_ruido_30pct,B_ausencias_30pct,C_outliers_5pct,D_trunca_25pct
+Gradient Boosting,10.13,9.53,11.9,9.22
+Holt-Winters,9.83,9.34,11.07,9.12
+Média histórica,21.68,21.79,22.46,14.96
+Persistência,11.04,9.99,9.87,9.75
+Random Forest,10.42,10.52,11.41,10.12
+SARIMA heurístico,11.44,9.45,13.91,11.26
+Sazonal ingênuo,13.63,12.18,14.04,11.77
+SES,9.79,9.99,10.6,9.62
+SVR,11.95,12.42,12.45,11.35

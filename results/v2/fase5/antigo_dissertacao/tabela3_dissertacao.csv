@@ -1,0 +1,11 @@
+Algoritmo,Família,MAPE (%),MAE,R² mediano,Rank
+Holt-Winters,Estatístico,"8,26","256,02","−1,06",1°
+Persistência,Baseline,"8,70","274,17","−1,27",2°
+SES,Estatístico,"8,78",—,—,3°
+SARIMA automático,Estatístico,"9,12",—,—,4°
+Gradient Boosting,ML – árvore,"9,90",—,—,5°
+SARIMA heurístico,Estatístico,"10,10",—,—,6°
+Random Forest,ML – árvore,"10,59",—,—,7°
+Sazonal ingênuo,Baseline,"11,06","316,89","−2,17",8°
+SVR,ML – kernel,"11,13",—,—,9°
+Média histórica,Baseline,"18,60","589,94","−6,48",10°

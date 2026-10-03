@@ -1,0 +1,5 @@
+model,mape,mae,r2
+Holt-Winters,8.36,325.29,-1.22
+Média histórica,21.82,831.59,-9.49
+Persistência,9.75,332.19,-1.29
+Sazonal ingênuo,11.77,419.45,-2.13

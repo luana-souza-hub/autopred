@@ -1,0 +1,8 @@
+Perfil do contexto,Tipo de adversidade esperada,Algoritmo recomendado,Justificativa
+"Dados limpos, série longa, sazonalidade regular",Nenhuma ou baixa,Holt-Winters,Maior acurácia em dados íntegros; custo computacional mínimo
+Qualidade incerta; ruído elevado esperado,Ruído gaussiano,SES,Menor sensibilidade a ruído entre todos os algoritmos avaliados
+Dados com eventos atípicos frequentes,Outliers pontuais,SVR,Menor degradação sob outliers entre os modelos de ML; função de perda insensível na margem ε
+Dados com ausências frequentes e imputação por interpolação,Ausências aleatórias,Gradient Boosting ou Persistência,Benefício paradoxal da suavização por interpolação; melhor MAPE mediano sob ausências no experimento
+Grande volume de séries; restrição de tempo por série,Restrição operacional,SES ou Holt-Winters,Custo computacional muito baixo; SARIMA automático contraindicado
+Decisões auditáveis; explicabilidade necessária,Qualquer,Random Forest + SHAP e LIME,"Maior estabilidade de explicações (ρ=0,572) e concordância metodológica (r=0,959) entre os modelos de ML avaliados"
+Portfólio heterogêneo; perfil de série desconhecido,Mista,SES como default; HW se sazonalidade detectada,Melhor equilíbrio acurácia–robustez; baixo custo permite aplicação em escala
