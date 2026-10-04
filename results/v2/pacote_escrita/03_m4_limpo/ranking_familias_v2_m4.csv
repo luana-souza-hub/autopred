@@ -1,0 +1,5 @@
+familia,MAPE do melhor modelo,MAPE mediano da família
+Suavização exponencial,8.36,9.02
+ARIMA,8.91,9.32
+ML,9.06,10.13
+Baseline,9.75,11.77

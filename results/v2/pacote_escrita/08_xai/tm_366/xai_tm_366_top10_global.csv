@@ -1,0 +1,13 @@
+condicao,modelo,metodo,top10,pos_lag_12,lag_1,roll_mean_3,roll_mean_6,lag_12
+limpo,RandomForest,shap,"lag_12, lag_1, roll_mean_6, roll_mean_3, lag_11, lag_6, roll_std_3, lag_8, lag_5, lag_7",1,0.1286301424299989,0.04967862522882114,0.06524227574539392,0.5334496102131331
+limpo,RandomForest,lime,"lag_12, lag_1, roll_mean_6, roll_mean_3, lag_6, lag_10, lag_7, lag_11, roll_std_3, lag_3",1,0.10118006824357773,0.052870680928125864,0.056381410789437446,0.3690534721606234
+limpo,GradientBoosting,shap,"lag_12, lag_1, roll_mean_6, roll_mean_3, lag_11, lag_6, roll_std_3, lag_7, lag_5, lag_8",1,0.13990180347399114,0.05000268390541791,0.05400997595443309,0.3986996265821217
+limpo,GradientBoosting,lime,"lag_12, lag_1, roll_mean_3, roll_mean_6, lag_11, lag_6, roll_std_3, lag_10, lag_7, lag_5",1,0.11847587129053087,0.05418567691015292,0.05352642699328732,0.3137098335922703
+limpo,SVR,shap,"lag_12, lag_1, lag_11, roll_mean_3, lag_6, roll_mean_6, lag_5, lag_7, roll_std_3, lag_9",1,0.1279204081129937,0.07513270605487507,0.05708778035684577,0.22915550823540834
+limpo,SVR,lime,"lag_12, lag_1, lag_11, roll_mean_3, lag_6, lag_5, roll_mean_6, lag_9, lag_3, lag_7",1,0.11711291930680824,0.06539239093322835,0.05299345249507197,0.2014023210203579
+ruido30,RandomForest,shap,"lag_12, roll_mean_6, lag_1, roll_mean_3, lag_6, lag_11, lag_7, roll_std_3, lag_10, lag_8",1,0.09944025856823614,0.0687459124191203,0.12670114068895816,0.41600955379085847
+ruido30,RandomForest,lime,"lag_12, roll_mean_6, lag_1, roll_mean_3, lag_11, lag_6, lag_7, lag_10, roll_std_3, lag_9",1,0.08588305417471129,0.0644573659486175,0.10345290115424975,0.31124436112360054
+ruido30,GradientBoosting,shap,"lag_12, lag_1, roll_mean_6, lag_11, lag_6, roll_mean_3, lag_7, roll_std_3, lag_10, lag_5",1,0.11379164636577162,0.05123053927242287,0.0820992839602145,0.3159803237983386
+ruido30,GradientBoosting,lime,"lag_12, lag_1, roll_mean_6, lag_11, roll_mean_3, lag_6, lag_10, lag_7, roll_std_3, lag_5",1,0.10569930210784356,0.05437560272969864,0.0787927778879159,0.2663050796091447
+ruido30,SVR,shap,"lag_12, lag_1, lag_11, roll_mean_3, lag_6, lag_7, roll_mean_6, lag_5, lag_10, lag_9",1,0.11450547193739553,0.0691555835356837,0.05749688650524044,0.21055836288872978
+ruido30,SVR,lime,"lag_12, lag_1, lag_11, roll_mean_3, lag_6, lag_7, roll_mean_6, lag_10, lag_3, lag_5",1,0.10224355646516872,0.06388748995579469,0.05615539596641803,0.18489821717048482

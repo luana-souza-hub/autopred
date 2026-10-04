@@ -1,0 +1,7 @@
+lime_samples,modelo,condicao,pearson_shap_lime,spearman_shap_lime,pos_lag_12_lime,estab_spearman_lime,top10_lime
+200,RandomForest,limpo,0.911,0.964,9,0.166 [0.053; 0.282],"roll_mean_6, lag_1, lag_6, lag_3, roll_std_3, lag_7, roll_mean_3, lag_2, lag_12, lag_9"
+200,RandomForest,ruido30,0.977,0.961,12,,"lag_10, lag_6, lag_9, roll_mean_6, lag_7, lag_1, roll_std_3, lag_8, lag_2, lag_3"
+200,GradientBoosting,limpo,0.708,0.854,7,0.199 [0.106; 0.287],"lag_3, lag_6, lag_1, roll_mean_6, lag_9, lag_7, lag_12, lag_10, lag_8, lag_4"
+200,GradientBoosting,ruido30,0.948,0.907,12,,"lag_10, lag_6, lag_9, lag_1, lag_4, roll_mean_6, lag_11, lag_7, roll_std_3, lag_2"
+200,SVR,limpo,0.791,0.654,8,0.326 [0.236; 0.420],"lag_1, lag_2, lag_3, lag_4, lag_6, lag_9, lag_7, lag_12, lag_8, lag_5"
+200,SVR,ruido30,0.914,0.729,12,,"lag_9, lag_8, lag_5, lag_10, lag_6, lag_7, lag_11, roll_std_3, lag_2, lag_3"

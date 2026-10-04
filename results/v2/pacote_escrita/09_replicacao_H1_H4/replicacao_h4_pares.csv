@@ -1,0 +1,7 @@
+par,métrica,ordem A,ordem B,ordem difere,famílias com IC separado,situação,Spearman modelos,IC Spearman,IC inclui zero
+M4 x Car Parts,MASE,ML > Suavização exponencial > Baseline > ARIMA,Baseline > ML > Suavização exponencial > ARIMA,True,nenhuma,ordem difere só nas estimativas pontuais,-0.2,[-0.68; +0.25],True
+Tourism x M4,MASE,Suavização exponencial > ARIMA > Baseline > ML,ML > Suavização exponencial > Baseline > ARIMA,True,nenhuma,ordem difere só nas estimativas pontuais,0.188,[-0.18; +0.64],True
+Tourism x Car Parts,MASE,Suavização exponencial > ARIMA > Baseline > ML,Baseline > ML > Suavização exponencial > ARIMA,True,"ARIMA, ML","ordem difere, com IC separado",-0.77,[-0.87; -0.66],False
+M4 x Car Parts,MAE,ML > Suavização exponencial > Baseline > ARIMA,Baseline > ML > Suavização exponencial > ARIMA,True,Baseline,"ordem difere, com IC separado",0.067,[-0.59; +0.27],True
+Tourism x M4,MAE,ARIMA > Baseline > Suavização exponencial > ML,ML > Suavização exponencial > Baseline > ARIMA,True,nenhuma,ordem difere só nas estimativas pontuais,-0.091,[-0.30; +0.62],True
+Tourism x Car Parts,MAE,ARIMA > Baseline > Suavização exponencial > ML,Baseline > ML > Suavização exponencial > ARIMA,True,ARIMA,"ordem difere, com IC separado",-0.602,[-0.67; -0.25],False

@@ -1,0 +1,11 @@
+Algoritmo,Família (dissertação),Família (v2),Amostra antiga,MAPE antigo,MAPE v2,IC MAPE v2,Δ MAPE (p.p.),Rank antigo,Rank v2 (MAPE),IC rank v2,MAPE v2 sem fallback,MAPE v2 sem explosivas,Fallback v2 (% jan.),Explosivas v2 (% jan.),MAE antigo,MAE v2,R² antigo,R² v2,MASE v2,Rank v2 (MASE),Mudou de posição
+Holt-Winters,Estatístico,Suavização exponencial,NB01 a 04b (alfabética),8.26,8.36,[6.19; 10.25],0.1,1,1,[1; 3],8.36,8.36,0.0,0.0,256.02,325.29,-1.06,-1.22,0.918,2 [1; 6],
+SARIMA automático,Estatístico,ARIMA,NB01 a 04b (alfabética),9.12,8.91,[6.86; 11.74],-0.21,4,2,[1; 6],8.91,8.7,0.0,2.3,,344.72,,-1.33,0.991,6 [2; 7],SIM
+Gradient Boosting,ML – árvore,ML,NB05 a 07 (= v2),9.9,9.06,[7.72; 10.91],-0.84,5,3,[1; 5],9.06,9.06,0.0,0.0,,290.35,,-1.09,0.9,1 [1; 5],SIM
+SES,Estatístico,Suavização exponencial,NB01 a 04b (alfabética),8.78,9.68,[8.29; 11.53],0.9,3,4,[3; 7],9.68,9.68,0.0,0.0,,328.89,,-1.06,0.938,3 [1; 7],SIM
+SARIMA heurístico,Estatístico,ARIMA,NB01 a 04b (alfabética),10.1,9.72,[8.13; 13.34],-0.38,6,5,[3; 8],10.69,9.72,33.3,0.2,,354.0,,-1.74,1.056,7 [4; 9],SIM
+Persistência,Baseline,Baseline,NB01 a 04b (alfabética),8.7,9.75,[8.30; 12.37],1.05,2,6,[3; 8],9.75,9.75,0.0,0.0,274.17,332.19,-1.27,-1.29,0.953,4 [1; 8],SIM
+Random Forest,ML – árvore,ML,NB05 a 07 (= v2),10.59,10.13,[7.89; 11.80],-0.46,7,7,[3; 7],10.13,10.13,0.0,0.0,,323.45,,-1.05,0.97,5 [2; 7],
+SVR,ML – kernel,ML,NB05 a 07 (= v2),11.13,11.52,[9.32; 14.74],0.39,9,8,[7; 9],11.52,11.52,0.5,0.0,,415.89,,-1.68,1.097,9 [7; 9],SIM
+Sazonal ingênuo,Baseline,Baseline,NB01 a 04b (alfabética),11.06,11.77,[9.81; 15.13],0.71,8,9,[8; 9],11.77,11.77,0.0,0.0,316.89,419.45,-2.17,-2.13,1.063,8 [6; 9],SIM
+Média histórica,Baseline,Baseline,NB01 a 04b (alfabética),18.6,21.82,[19.23; 30.53],3.22,10,10,[10; 10],21.82,21.82,0.0,0.0,589.94,831.59,-6.48,-9.49,2.017,10 [10; 10],

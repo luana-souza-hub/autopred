@@ -1,0 +1,10 @@
+,escore 200,escore 366,Δ% médio com sinal 200,Δ% médio com sinal 366,grupo
+Gradient Boosting,6.3,7.7,5.7,7.2,Modelo ajustado
+Holt-Winters,13.7,16.4,13.7,16.4,Modelo ajustado
+Média histórica,5.1,4.4,-5.0,-4.2,Baseline trivial
+Persistência,1.0,1.7,0.8,1.3,Baseline trivial
+Random Forest,3.4,6.3,2.4,6.1,Modelo ajustado
+SARIMA heurístico,6.2,7.3,6.2,7.2,Modelo ajustado
+Sazonal ingênuo,8.6,8.3,8.6,8.3,Baseline trivial
+SES,1.5,1.3,0.1,0.9,Modelo ajustado
+SVR,6.1,6.4,5.8,6.3,Modelo ajustado

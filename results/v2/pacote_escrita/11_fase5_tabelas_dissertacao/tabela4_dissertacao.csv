@@ -1,0 +1,11 @@
+Algoritmo,Família,Desemp. limpo,Rob. ruído,Rob. ausências,Rob. outliers,Rob. truncamento,Explicab.,Custo comp.
+Holt-Winters,Estatístico,Alto,Baixa,Baixa,Baixa,Neutro,N.A.,Baixo
+SES,Estatístico,Alto,Moderada,Moderada,Moderada,Neutro,N.A.,Baixo
+SARIMA auto.,Estatístico,Moderado,Moderada,—,—,—,N.A.,Alto
+SARIMA heur.,Estatístico,Moderado,—,—,—,Neutro,N.A.,Moderado
+Gradient Boost.,ML – árvore,Moderado,Moderada,Elevada*,Moderada,Neutro,Baixa,Moderado
+Random Forest,ML – árvore,Moderado,Baixa,Elevada*,Moderada,Neutro,Moderada,Moderado
+SVR,ML – kernel,Moderado,Baixa,Moderada,Alta,Neutro,Moderada,Moderado
+Persistência,Baseline,Alto,Moderada,Elevada*,Moderada,Neutro,N.A.,Baixo
+Sazonal ingênuo,Baseline,Moderado,—,—,—,Neutro,N.A.,Baixo
+Média histórica,Baseline,Baixo,Alta,Alta,Alta,Neutro,N.A.,Baixo

@@ -1,0 +1,82 @@
+cenário,modelo,Δ% M4,Δ% Tourism,Δp.p. M4,Δp.p. Tourism,mesmo sinal,IC~0 M4,IC~0 TM
+Ruído σ=10%,Gradient Boosting,1.6,0.4,0.15,0.11,True,True,True
+Ruído σ=10%,Holt-Winters,-1.3,6.8,-0.11,1.47,False,True,True
+Ruído σ=10%,Média histórica,-0.4,0.0,-0.08,0.01,False,True,True
+Ruído σ=10%,Persistência,0.1,-0.3,0.01,-0.1,False,True,True
+Ruído σ=10%,Random Forest,1.0,-1.6,0.1,-0.43,False,True,True
+Ruído σ=10%,SARIMA heurístico,2.6,3.4,0.26,0.81,True,True,True
+Ruído σ=10%,Sazonal ingênuo,4.5,4.5,0.53,1.05,True,True,True
+Ruído σ=10%,SES,-3.8,0.3,-0.37,0.09,False,True,True
+Ruído σ=10%,SVR,-0.4,2.2,-0.04,0.57,False,True,True
+Ruído σ=30%,Gradient Boosting,11.9,8.0,1.08,2.11,True,True,False
+Ruído σ=30%,Holt-Winters,17.6,14.3,1.47,3.09,True,False,False
+Ruído σ=30%,Média histórica,-0.6,0.2,-0.14,0.08,False,True,True
+Ruído σ=30%,Persistência,13.3,1.4,1.3,0.53,True,True,True
+Ruído σ=30%,Random Forest,2.9,-0.6,0.29,-0.15,False,True,True
+Ruído σ=30%,SARIMA heurístico,17.8,9.2,1.73,2.18,True,False,False
+Ruído σ=30%,Sazonal ingênuo,15.8,18.2,1.86,4.25,True,False,False
+Ruído σ=30%,SES,1.1,-2.1,0.1,-0.71,False,True,True
+Ruído σ=30%,SVR,3.7,8.2,0.43,2.11,True,True,False
+Ausências 10%,Gradient Boosting,0.6,1.9,0.05,0.5,True,True,True
+Ausências 10%,Holt-Winters,-0.3,4.7,-0.03,1.01,False,True,True
+Ausências 10%,Média histórica,-0.7,-0.3,-0.14,-0.14,True,True,True
+Ausências 10%,Persistência,0.0,-0.7,0.0,-0.25,False,True,True
+Ausências 10%,Random Forest,-6.4,1.1,-0.65,0.29,False,True,True
+Ausências 10%,SARIMA heurístico,4.7,0.6,0.46,0.15,True,True,True
+Ausências 10%,Sazonal ingênuo,0.9,2.3,0.1,0.54,True,True,True
+Ausências 10%,SES,0.0,-1.0,0.0,-0.33,False,True,True
+Ausências 10%,SVR,1.3,2.2,0.15,0.55,True,True,True
+Ausências 20%,Gradient Boosting,1.8,7.2,0.17,1.9,True,True,False
+Ausências 20%,Holt-Winters,4.7,15.0,0.39,3.25,True,True,False
+Ausências 20%,Média histórica,-0.7,-0.7,-0.14,-0.3,True,True,True
+Ausências 20%,Persistência,1.2,2.2,0.12,0.83,True,True,True
+Ausências 20%,Random Forest,2.2,5.8,0.23,1.51,True,True,False
+Ausências 20%,SARIMA heurístico,1.8,4.8,0.17,1.14,True,True,True
+Ausências 20%,Sazonal ingênuo,1.4,9.9,0.17,2.3,True,True,False
+Ausências 20%,SES,1.9,1.5,0.18,0.51,True,True,True
+Ausências 20%,SVR,-4.5,7.7,-0.52,1.97,False,True,False
+Ausências 30%,Gradient Boosting,5.2,13.6,0.47,3.57,True,True,False
+Ausências 30%,Holt-Winters,11.8,17.8,0.98,3.85,True,False,False
+Ausências 30%,Média histórica,-0.1,-1.1,-0.03,-0.5,True,True,True
+Ausências 30%,Persistência,2.5,0.9,0.24,0.32,True,True,True
+Ausências 30%,Random Forest,3.9,9.9,0.39,2.59,True,True,False
+Ausências 30%,SARIMA heurístico,-2.7,7.4,-0.27,1.75,False,True,True
+Ausências 30%,Sazonal ingênuo,3.5,8.6,0.41,2.02,True,True,False
+Ausências 30%,SES,3.2,4.4,0.31,1.47,True,True,True
+Ausências 30%,SVR,7.8,13.0,0.89,3.33,True,True,False
+Outliers 2%,Gradient Boosting,15.1,8.5,1.37,2.24,True,False,False
+Outliers 2%,Holt-Winters,13.1,20.7,1.09,4.47,True,False,False
+Outliers 2%,Média histórica,0.2,-1.5,0.03,-0.68,False,True,True
+Outliers 2%,Persistência,0.5,3.8,0.05,1.43,True,True,False
+Outliers 2%,Random Forest,2.1,2.3,0.21,0.59,True,True,True
+Outliers 2%,SARIMA heurístico,19.0,7.6,1.85,1.81,True,False,True
+Outliers 2%,Sazonal ingênuo,24.0,8.5,2.82,1.98,True,False,False
+Outliers 2%,SES,6.6,-2.2,0.64,-0.73,False,True,True
+Outliers 2%,SVR,8.4,7.2,0.97,1.83,True,True,False
+Outliers 5%,Gradient Boosting,31.4,14.5,2.85,3.81,True,False,False
+Outliers 5%,Holt-Winters,32.5,28.2,2.71,6.11,True,False,False
+Outliers 5%,Média histórica,2.9,-0.4,0.64,-0.18,False,True,True
+Outliers 5%,Persistência,1.2,0.0,0.12,0.0,False,True,True
+Outliers 5%,Random Forest,12.7,6.3,1.28,1.65,True,False,False
+Outliers 5%,SARIMA heurístico,43.1,19.4,4.19,4.62,True,False,False
+Outliers 5%,Sazonal ingênuo,19.3,25.2,2.27,5.89,True,False,False
+Outliers 5%,SES,9.5,-0.3,0.92,-0.1,False,True,True
+Outliers 5%,SVR,8.0,10.5,0.93,2.69,True,True,False
+Truncamento 50%,Gradient Boosting,7.5,-1.3,0.68,-0.35,False,True,True
+Truncamento 50%,Holt-Winters,4.2,6.3,0.35,1.37,True,True,True
+Truncamento 50%,Média histórica,-19.8,-19.1,-4.32,-8.46,True,False,False
+Truncamento 50%,Persistência,0.0,0.0,0.0,0.0,True,True,True
+Truncamento 50%,Random Forest,0.9,-2.3,0.09,-0.6,False,True,True
+Truncamento 50%,SARIMA heurístico,8.1,3.2,0.78,0.77,True,True,True
+Truncamento 50%,Sazonal ingênuo,0.0,0.0,0.0,0.0,True,True,True
+Truncamento 50%,SES,-0.2,1.1,-0.02,0.38,False,True,True
+Truncamento 50%,SVR,-1.7,2.5,-0.19,0.64,False,True,True
+Truncamento 25%,Gradient Boosting,1.8,-1.3,0.16,-0.34,False,True,True
+Truncamento 25%,Holt-Winters,9.1,9.1,0.76,1.96,True,True,True
+Truncamento 25%,Média histórica,-31.5,-22.1,-6.87,-9.77,True,False,False
+Truncamento 25%,Persistência,0.0,0.0,0.0,0.0,True,True,True
+Truncamento 25%,Random Forest,-0.1,0.2,-0.01,0.05,False,True,True
+Truncamento 25%,SARIMA heurístico,15.9,0.0,1.54,0.0,False,True,True
+Truncamento 25%,Sazonal ingênuo,0.0,0.0,0.0,0.0,True,True,True
+Truncamento 25%,SES,-0.6,-0.7,-0.06,-0.23,True,True,True
+Truncamento 25%,SVR,-1.5,-1.6,-0.17,-0.42,True,True,True

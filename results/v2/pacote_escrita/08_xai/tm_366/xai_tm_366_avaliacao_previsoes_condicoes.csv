@@ -1,0 +1,23 @@
+hipotese,condicao,valor,ok,obs
+H1,"RandomForest: Pearson agregado > 0,90",0.999,True,
+H1,"RandomForest: Spearman por série em [0,65; 0,85]",0.571 [0.494; 0.649],False,
+H1,"GradientBoosting: Pearson agregado > 0,90",1.0,True,
+H1,"GradientBoosting: Spearman por série em [0,65; 0,85]",0.737 [0.685; 0.785],True,
+H1,"SVR: Pearson agregado > 0,90",0.996,True,
+H1,"SVR: Spearman por série em [0,65; 0,85]",0.843 [0.810; 0.874],True,
+H2,"(a) RandomForest SHAP: estabilidade (Spearman médio) < 0,80",0.701 [0.640; 0.759],True,
+H2,"(a) GradientBoosting SHAP: estabilidade (Spearman médio) < 0,80",0.645 [0.589; 0.701],True,
+H2,"(a) SVR SHAP: estabilidade (Spearman médio) < 0,80",0.747 [0.694; 0.798],True,
+H2,"(a) RandomForest LIME: estabilidade (Spearman médio) < 0,80",0.595 [0.531; 0.659],True,
+H2,"(a) GradientBoosting LIME: estabilidade (Spearman médio) < 0,80",0.606 [0.556; 0.656],True,
+H2,"(a) SVR LIME: estabilidade (Spearman médio) < 0,80",0.736 [0.670; 0.792],True,
+H2,(b) RandomForest SHAP: lag_1 perde e média móvel ganha (IC excluindo zero),Δlag_1 -0.029 [-0.076; +0.005]; Δroll_mean_3 +0.019 [-0.011; +0.056]; Δroll_mean_6 +0.061 [+0.031; +0.098],False,lag_1 não perde com IC excluindo zero; 
+H2,(b) RandomForest LIME: lag_1 perde e média móvel ganha (IC excluindo zero),Δlag_1 -0.015 [-0.039; +0.003]; Δroll_mean_3 +0.012 [-0.008; +0.037]; Δroll_mean_6 +0.047 [+0.023; +0.076],False,lag_1 não perde com IC excluindo zero; 
+H2,(b) GradientBoosting SHAP: lag_1 perde e média móvel ganha (IC excluindo zero),Δlag_1 -0.026 [-0.055; -0.004]; Δroll_mean_3 +0.001 [-0.017; +0.019]; Δroll_mean_6 +0.028 [+0.013; +0.045],True,
+H2,(b) GradientBoosting LIME: lag_1 perde e média móvel ganha (IC excluindo zero),Δlag_1 -0.013 [-0.027; -0.000]; Δroll_mean_3 +0.000 [-0.011; +0.011]; Δroll_mean_6 +0.025 [+0.013; +0.041],True,
+H3,"RandomForest SHAP: lag_12 no top-3 em > 30,0% das séries",100.0% (30 de 30),True,
+H3,"RandomForest LIME: lag_12 no top-3 em > 30,0% das séries",96.7% (29 de 30),True,
+H3,"GradientBoosting SHAP: lag_12 no top-3 em > 30,0% das séries",100.0% (30 de 30),True,
+H3,"GradientBoosting LIME: lag_12 no top-3 em > 30,0% das séries",90.0% (27 de 30),True,
+H3,"SVR SHAP: lag_12 no top-3 em > 30,0% das séries",96.7% (29 de 30),True,
+H3,"SVR LIME: lag_12 no top-3 em > 30,0% das séries",90.0% (27 de 30),True,

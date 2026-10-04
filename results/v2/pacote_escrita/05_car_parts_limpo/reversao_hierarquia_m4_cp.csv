@@ -1,0 +1,11 @@
+,Família,Rank M4 (MAPE),IC M4,Rank Car Parts (MAE),IC CP,Δ rank (CP − M4),ICs separados
+Holt-Winters,Suavização exponencial,1,[1; 3],10,[10; 10],9,True
+SARIMA automático,ARIMA,2,[1; 6],9,[9; 9],7,True
+Gradient Boosting,ML,3,[1; 5],5,[5; 6],2,False
+SES,Suavização exponencial,4,[3; 7],4,[4; 6],0,False
+SARIMA heurístico,ARIMA,5,[3; 8],8,[7; 8],3,False
+Persistência,Baseline,6,[3; 8],1,[1; 1],-5,True
+Random Forest,ML,7,[3; 7],3,[3; 4],-4,False
+SVR,ML,8,[7; 9],2,[2; 2],-6,True
+Sazonal ingênuo,Baseline,9,[8; 9],5,[3; 6],-4,True
+Média histórica,Baseline,10,[10; 10],7,[7; 8],-3,True

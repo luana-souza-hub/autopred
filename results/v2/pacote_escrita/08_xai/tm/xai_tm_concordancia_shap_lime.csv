@@ -1,0 +1,7 @@
+condicao,modelo,pearson_global,spearman_global,spearman_por_serie
+limpo,RandomForest,1.0,0.764,0.553 [0.451; 0.648]
+limpo,GradientBoosting,1.0,0.743,0.686 [0.593; 0.763]
+limpo,SVR,0.997,0.964,0.839 [0.806; 0.869]
+ruido30,RandomForest,0.999,0.907,0.749 [0.691; 0.801]
+ruido30,GradientBoosting,0.999,0.914,0.803 [0.766; 0.838]
+ruido30,SVR,0.996,0.964,0.840 [0.809; 0.867]
