@@ -16,6 +16,7 @@ Cópias (os originais continuam nas pastas de `results/`) dos arquivos necessár
 | `CHANGELOG_conclusoes.md` | todas | Cada achado da dissertação se mantém, muda ou não se sustenta no v2? Com que valores e em que arquivo? | `results/v2/` |
 | `HANDOFF.md` | todas | Em que estado está cada fase, que decisões de protocolo foram tomadas e como reproduzir tudo? | `results/v2/` |
 | `PREVISOES_tourism.md` | TM | O que foi previsto para o Tourism antes de qualquer execução (H1 a H4) e com que critérios? (commit 1a08fa1; não alterar) | `results/v2/` |
+| `hiperparametros_v2.csv`, `hiperparametros_v2.md` | todas | Quais os hiperparâmetros efetivos de cada um dos 10 modelos (inclusive os padrões de biblioteca), as regras de seleção (aditivo ou multiplicativo no HW; grade de 140 candidatos e AIC no SARIMA automático), as sementes e as regras de fallback? Lido do código por `tools/gerar_hiperparametros_v2.py` | `results/v2/` |
 | `INTERPRETACAO_criterios_4c.md` | TM | Como foi interpretada a faixa da H1 e por que os rótulos não serão reinterpretados? (commit 1e3d9f0) | `results/v2/` |
 
 ## 02_caracterizacao_bases
