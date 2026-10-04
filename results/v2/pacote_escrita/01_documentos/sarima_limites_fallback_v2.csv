@@ -1,0 +1,169 @@
+base,pasta,condicao,suplementar,modelo,janela,n_janelas,ok,busca_incompleta_300s,estouro_60s,exec_time_s_acima_60,fallback_treino_constante,fallback_sem_candidato_valido,fallback_excecao,fallback_verossimilhanca_degenerada,fallback_tempo,fallback_previsao_invalida,fallback_total,status_erro,sem_janela,explosivas,max_exec_time_s,max_selecao_s,arquivo
+M4,m4,limpo,False,SARIMA automático,1,200,200,0,,,0,0,0,0,0,0,0,0,0,4,9.3,9.14,m4/limpo/m4_limpo_sarima_auto_by_window.csv
+M4,m4,limpo,False,SARIMA automático,2,200,200,0,,,0,0,0,0,0,0,0,0,0,3,66.42,64.83,m4/limpo/m4_limpo_sarima_auto_by_window.csv
+M4,m4,limpo,False,SARIMA automático,3,200,200,0,,,0,0,0,0,0,0,0,0,0,7,95.93,92.87,m4/limpo/m4_limpo_sarima_auto_by_window.csv
+M4,m4,limpo,False,SARIMA automático,todas,600,600,0,,,0,0,0,0,0,0,0,0,0,14,95.93,92.87,m4/limpo/m4_limpo_sarima_auto_by_window.csv
+M4,m4,limpo,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.04,,m4/limpo/m4_limpo_sarima_heuristic_by_window.csv
+M4,m4,limpo,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,1,0.58,,m4/limpo/m4_limpo_sarima_heuristic_by_window.csv
+M4,m4,limpo,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.89,,m4/limpo/m4_limpo_sarima_heuristic_by_window.csv
+M4,m4,limpo,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,1,0.89,,m4/limpo/m4_limpo_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/A_ruido_10pct/m4_A_ruido_10pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.53,,m4/A_ruido_10pct/m4_A_ruido_10pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.09,,m4/A_ruido_10pct/m4_A_ruido_10pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.09,,m4/A_ruido_10pct/m4_A_ruido_10pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/A_ruido_30pct/m4_A_ruido_30pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.95,,m4/A_ruido_30pct/m4_A_ruido_30pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.96,,m4/A_ruido_30pct/m4_A_ruido_30pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.96,,m4/A_ruido_30pct/m4_A_ruido_30pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/B_ausencias_10pct/m4_B_ausencias_10pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,1,0.56,,m4/B_ausencias_10pct/m4_B_ausencias_10pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,2.12,,m4/B_ausencias_10pct/m4_B_ausencias_10pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,1,2.12,,m4/B_ausencias_10pct/m4_B_ausencias_10pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct,False,SARIMA heurístico,1,200,0,,0,0,1,0,0,199,0,0,200,0,0,0,0.03,,m4/B_ausencias_20pct/m4_B_ausencias_20pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.65,,m4/B_ausencias_20pct/m4_B_ausencias_20pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.55,,m4/B_ausencias_20pct/m4_B_ausencias_20pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct,False,SARIMA heurístico,todas,600,400,,0,0,1,0,0,199,0,0,200,0,0,0,1.55,,m4/B_ausencias_20pct/m4_B_ausencias_20pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct,False,SARIMA heurístico,1,200,0,,0,0,1,0,0,199,0,0,200,0,0,0,0.03,,m4/B_ausencias_30pct/m4_B_ausencias_30pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.7,,m4/B_ausencias_30pct/m4_B_ausencias_30pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.73,,m4/B_ausencias_30pct/m4_B_ausencias_30pct_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct,False,SARIMA heurístico,todas,600,400,,0,0,1,0,0,199,0,0,200,0,0,0,1.73,,m4/B_ausencias_30pct/m4_B_ausencias_30pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/C_outliers_2pct/m4_C_outliers_2pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.26,,m4/C_outliers_2pct/m4_C_outliers_2pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,1,1.14,,m4/C_outliers_2pct/m4_C_outliers_2pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,1,1.26,,m4/C_outliers_2pct/m4_C_outliers_2pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.09,,m4/C_outliers_5pct/m4_C_outliers_5pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,2,1.19,,m4/C_outliers_5pct/m4_C_outliers_5pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.66,,m4/C_outliers_5pct/m4_C_outliers_5pct_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,2,1.66,,m4/C_outliers_5pct/m4_C_outliers_5pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_25pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/D_trunca_25pct/m4_D_trunca_25pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_25pct,False,SARIMA heurístico,2,200,73,,0,0,2,0,0,125,0,0,127,0,0,0,0.61,,m4/D_trunca_25pct/m4_D_trunca_25pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_25pct,False,SARIMA heurístico,3,200,132,,0,0,0,0,0,68,0,0,68,0,0,0,0.31,,m4/D_trunca_25pct/m4_D_trunca_25pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_25pct,False,SARIMA heurístico,todas,600,205,,0,0,2,0,0,393,0,0,395,0,0,0,0.61,,m4/D_trunca_25pct/m4_D_trunca_25pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_50pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/D_trunca_50pct/m4_D_trunca_50pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_50pct,False,SARIMA heurístico,2,200,134,,0,0,0,0,0,66,0,0,66,0,0,0,0.54,,m4/D_trunca_50pct/m4_D_trunca_50pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_50pct,False,SARIMA heurístico,3,200,153,,0,0,0,0,0,47,0,0,47,0,0,0,0.71,,m4/D_trunca_50pct/m4_D_trunca_50pct_sarima_heuristic_by_window.csv
+M4,m4,D_trunca_50pct,False,SARIMA heurístico,todas,600,287,,0,0,0,0,0,313,0,0,313,0,0,0,0.71,,m4/D_trunca_50pct/m4_D_trunca_50pct_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/A_ruido_10pct_alvo_ruidoso/m4_A_ruido_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.59,,m4/A_ruido_10pct_alvo_ruidoso/m4_A_ruido_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.16,,m4/A_ruido_10pct_alvo_ruidoso/m4_A_ruido_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_10pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.16,,m4/A_ruido_10pct_alvo_ruidoso/m4_A_ruido_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.04,,m4/A_ruido_30pct_alvo_ruidoso/m4_A_ruido_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.97,,m4/A_ruido_30pct_alvo_ruidoso/m4_A_ruido_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,2.21,,m4/A_ruido_30pct_alvo_ruidoso/m4_A_ruido_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,A_ruido_30pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,2.21,,m4/A_ruido_30pct_alvo_ruidoso/m4_A_ruido_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,1,0,0,199,0,0,200,0,0,0,0.03,,m4/B_ausencias_10pct_alvo_ruidoso/m4_B_ausencias_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.51,,m4/B_ausencias_10pct_alvo_ruidoso/m4_B_ausencias_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.76,,m4/B_ausencias_10pct_alvo_ruidoso/m4_B_ausencias_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_10pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,1,0,0,199,0,0,200,0,0,0,0.76,,m4/B_ausencias_10pct_alvo_ruidoso/m4_B_ausencias_10pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,1,0,0,199,0,0,200,0,0,0,0.03,,m4/B_ausencias_20pct_alvo_ruidoso/m4_B_ausencias_20pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.71,,m4/B_ausencias_20pct_alvo_ruidoso/m4_B_ausencias_20pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.23,,m4/B_ausencias_20pct_alvo_ruidoso/m4_B_ausencias_20pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_20pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,1,0,0,199,0,0,200,0,0,0,1.23,,m4/B_ausencias_20pct_alvo_ruidoso/m4_B_ausencias_20pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,1,0,0,199,0,0,200,0,0,0,0.04,,m4/B_ausencias_30pct_alvo_ruidoso/m4_B_ausencias_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.82,,m4/B_ausencias_30pct_alvo_ruidoso/m4_B_ausencias_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.77,,m4/B_ausencias_30pct_alvo_ruidoso/m4_B_ausencias_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,B_ausencias_30pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,1,0,0,199,0,0,200,0,0,0,1.77,,m4/B_ausencias_30pct_alvo_ruidoso/m4_B_ausencias_30pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/C_outliers_2pct_alvo_ruidoso/m4_C_outliers_2pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,2,0.84,,m4/C_outliers_2pct_alvo_ruidoso/m4_C_outliers_2pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,1,1.48,,m4/C_outliers_2pct_alvo_ruidoso/m4_C_outliers_2pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_2pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,3,1.48,,m4/C_outliers_2pct_alvo_ruidoso/m4_C_outliers_2pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct_alvo_ruidoso,True,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,m4/C_outliers_5pct_alvo_ruidoso/m4_C_outliers_5pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct_alvo_ruidoso,True,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,1,1.52,,m4/C_outliers_5pct_alvo_ruidoso/m4_C_outliers_5pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct_alvo_ruidoso,True,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,1,1.47,,m4/C_outliers_5pct_alvo_ruidoso/m4_C_outliers_5pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+M4,m4,C_outliers_5pct_alvo_ruidoso,True,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,2,1.52,,m4/C_outliers_5pct_alvo_ruidoso/m4_C_outliers_5pct_alvo_ruidoso_sarima_heuristic_by_window.csv
+Car Parts,cp,limpo,False,SARIMA automático,1,2674,2332,0,,,342,0,0,0,0,0,342,0,0,71,14.56,14.49,cp/limpo/cp_limpo_sarima_auto_by_window.csv
+Car Parts,cp,limpo,False,SARIMA automático,2,2674,2559,0,,,115,0,0,0,0,0,115,0,0,32,35.47,35.39,cp/limpo/cp_limpo_sarima_auto_by_window.csv
+Car Parts,cp,limpo,False,SARIMA automático,3,2674,2646,0,,,28,0,0,0,0,0,28,0,0,143,39.35,39.19,cp/limpo/cp_limpo_sarima_auto_by_window.csv
+Car Parts,cp,limpo,False,SARIMA automático,todas,8022,7537,0,,,485,0,0,0,0,0,485,0,0,246,39.35,39.19,cp/limpo/cp_limpo_sarima_auto_by_window.csv
+Car Parts,cp,limpo,False,SARIMA heurístico,1,2674,0,,0,0,342,0,0,2332,0,0,2674,0,0,0,0.05,,cp/limpo/cp_limpo_sarima_heuristic_by_window.csv
+Car Parts,cp,limpo,False,SARIMA heurístico,2,2674,0,,0,0,115,0,0,2559,0,0,2674,0,0,0,0.94,,cp/limpo/cp_limpo_sarima_heuristic_by_window.csv
+Car Parts,cp,limpo,False,SARIMA heurístico,3,2674,2642,,0,0,28,0,0,4,0,0,32,0,0,60,0.94,,cp/limpo/cp_limpo_sarima_heuristic_by_window.csv
+Car Parts,cp,limpo,False,SARIMA heurístico,todas,8022,2642,,0,0,485,0,0,4895,0,0,5380,0,0,60,0.94,,cp/limpo/cp_limpo_sarima_heuristic_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA automático,1,200,200,0,,,0,0,0,0,0,0,0,0,0,8,9.32,9.1,tm/limpo/tm_limpo_sarima_auto_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA automático,2,200,200,0,,,0,0,0,0,0,0,0,0,0,0,45.41,44.9,tm/limpo/tm_limpo_sarima_auto_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA automático,3,200,200,0,,,0,0,0,0,0,0,0,0,0,0,76.84,75.14,tm/limpo/tm_limpo_sarima_auto_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA automático,todas,600,600,0,,,0,0,0,0,0,0,0,0,0,8,76.84,75.14,tm/limpo/tm_limpo_sarima_auto_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/limpo/tm_limpo_sarima_heuristic_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.45,,tm/limpo/tm_limpo_sarima_heuristic_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.06,,tm/limpo/tm_limpo_sarima_heuristic_by_window.csv
+Tourism 200,tm,limpo,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.06,,tm/limpo/tm_limpo_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_10pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/A_ruido_10pct/tm_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_10pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.49,,tm/A_ruido_10pct/tm_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_10pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.86,,tm/A_ruido_10pct/tm_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_10pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,0.86,,tm/A_ruido_10pct/tm_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_30pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/A_ruido_30pct/tm_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_30pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.5,,tm/A_ruido_30pct/tm_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_30pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.96,,tm/A_ruido_30pct/tm_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,A_ruido_30pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,0.96,,tm/A_ruido_30pct/tm_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_10pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.04,,tm/B_ausencias_10pct/tm_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_10pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.59,,tm/B_ausencias_10pct/tm_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_10pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.18,,tm/B_ausencias_10pct/tm_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_10pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.18,,tm/B_ausencias_10pct/tm_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_20pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/B_ausencias_20pct/tm_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_20pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.63,,tm/B_ausencias_20pct/tm_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_20pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.11,,tm/B_ausencias_20pct/tm_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_20pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.11,,tm/B_ausencias_20pct/tm_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_30pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.04,,tm/B_ausencias_30pct/tm_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_30pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.58,,tm/B_ausencias_30pct/tm_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_30pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.01,,tm/B_ausencias_30pct/tm_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,B_ausencias_30pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.01,,tm/B_ausencias_30pct/tm_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_2pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/C_outliers_2pct/tm_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_2pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.6,,tm/C_outliers_2pct/tm_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_2pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.06,,tm/C_outliers_2pct/tm_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_2pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.06,,tm/C_outliers_2pct/tm_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_5pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/C_outliers_5pct/tm_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_5pct,False,SARIMA heurístico,2,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.61,,tm/C_outliers_5pct/tm_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_5pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,1.23,,tm/C_outliers_5pct/tm_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,C_outliers_5pct,False,SARIMA heurístico,todas,600,400,,0,0,0,0,0,200,0,0,200,0,0,0,1.23,,tm/C_outliers_5pct/tm_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_25pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/D_trunca_25pct/tm_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_25pct,False,SARIMA heurístico,2,200,152,,0,0,0,0,0,48,0,0,48,0,0,1,0.29,,tm/D_trunca_25pct/tm_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_25pct,False,SARIMA heurístico,3,200,199,,0,0,0,0,0,1,0,0,1,0,0,0,0.27,,tm/D_trunca_25pct/tm_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_25pct,False,SARIMA heurístico,todas,600,351,,0,0,0,0,0,249,0,0,249,0,0,1,0.29,,tm/D_trunca_25pct/tm_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_50pct,False,SARIMA heurístico,1,200,0,,0,0,0,0,0,200,0,0,200,0,0,0,0.03,,tm/D_trunca_50pct/tm_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_50pct,False,SARIMA heurístico,2,200,199,,0,0,0,0,0,1,0,0,1,0,0,0,0.29,,tm/D_trunca_50pct/tm_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_50pct,False,SARIMA heurístico,3,200,200,,0,0,0,0,0,0,0,0,0,0,0,0,0.56,,tm/D_trunca_50pct/tm_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 200,tm,D_trunca_50pct,False,SARIMA heurístico,todas,600,399,,0,0,0,0,0,201,0,0,201,0,0,0,0.56,,tm/D_trunca_50pct/tm_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA automático,1,366,366,0,,,0,0,0,0,0,0,0,0,0,17,10.89,10.85,tm_366/limpo/tm_366_limpo_sarima_auto_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA automático,2,366,366,0,,,0,0,0,0,0,0,0,0,0,0,49.44,48.96,tm_366/limpo/tm_366_limpo_sarima_auto_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA automático,3,366,366,0,,,0,0,0,0,0,0,0,0,0,0,83.72,82.8,tm_366/limpo/tm_366_limpo_sarima_auto_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA automático,todas,1098,1098,0,,,0,0,0,0,0,0,0,0,0,17,83.72,82.8,tm_366/limpo/tm_366_limpo_sarima_auto_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.04,,tm_366/limpo/tm_366_limpo_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.67,,tm_366/limpo/tm_366_limpo_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.24,,tm_366/limpo/tm_366_limpo_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,limpo,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.24,,tm_366/limpo/tm_366_limpo_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_10pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.03,,tm_366/A_ruido_10pct/tm_366_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_10pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.61,,tm_366/A_ruido_10pct/tm_366_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_10pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.95,,tm_366/A_ruido_10pct/tm_366_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_10pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,0.95,,tm_366/A_ruido_10pct/tm_366_A_ruido_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_30pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.03,,tm_366/A_ruido_30pct/tm_366_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_30pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.65,,tm_366/A_ruido_30pct/tm_366_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_30pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.08,,tm_366/A_ruido_30pct/tm_366_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,A_ruido_30pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.08,,tm_366/A_ruido_30pct/tm_366_A_ruido_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_10pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.04,,tm_366/B_ausencias_10pct/tm_366_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_10pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.66,,tm_366/B_ausencias_10pct/tm_366_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_10pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.07,,tm_366/B_ausencias_10pct/tm_366_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_10pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.07,,tm_366/B_ausencias_10pct/tm_366_B_ausencias_10pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_20pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.04,,tm_366/B_ausencias_20pct/tm_366_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_20pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.68,,tm_366/B_ausencias_20pct/tm_366_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_20pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.21,,tm_366/B_ausencias_20pct/tm_366_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_20pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.21,,tm_366/B_ausencias_20pct/tm_366_B_ausencias_20pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_30pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.03,,tm_366/B_ausencias_30pct/tm_366_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_30pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.74,,tm_366/B_ausencias_30pct/tm_366_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_30pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.4,,tm_366/B_ausencias_30pct/tm_366_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,B_ausencias_30pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.4,,tm_366/B_ausencias_30pct/tm_366_B_ausencias_30pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_2pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.03,,tm_366/C_outliers_2pct/tm_366_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_2pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.62,,tm_366/C_outliers_2pct/tm_366_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_2pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.07,,tm_366/C_outliers_2pct/tm_366_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_2pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.07,,tm_366/C_outliers_2pct/tm_366_C_outliers_2pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_5pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.04,,tm_366/C_outliers_5pct/tm_366_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_5pct,False,SARIMA heurístico,2,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.6,,tm_366/C_outliers_5pct/tm_366_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_5pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,1.47,,tm_366/C_outliers_5pct/tm_366_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,C_outliers_5pct,False,SARIMA heurístico,todas,1098,732,,0,0,0,0,0,366,0,0,366,0,0,0,1.47,,tm_366/C_outliers_5pct/tm_366_C_outliers_5pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_25pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.04,,tm_366/D_trunca_25pct/tm_366_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_25pct,False,SARIMA heurístico,2,366,280,,0,0,0,0,0,86,0,0,86,0,0,1,0.37,,tm_366/D_trunca_25pct/tm_366_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_25pct,False,SARIMA heurístico,3,366,365,,0,0,0,0,0,1,0,0,1,0,0,0,0.37,,tm_366/D_trunca_25pct/tm_366_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_25pct,False,SARIMA heurístico,todas,1098,645,,0,0,0,0,0,453,0,0,453,0,0,1,0.37,,tm_366/D_trunca_25pct/tm_366_D_trunca_25pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_50pct,False,SARIMA heurístico,1,366,0,,0,0,0,0,0,366,0,0,366,0,0,0,0.04,,tm_366/D_trunca_50pct/tm_366_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_50pct,False,SARIMA heurístico,2,366,365,,0,0,0,0,0,1,0,0,1,0,0,0,0.3,,tm_366/D_trunca_50pct/tm_366_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_50pct,False,SARIMA heurístico,3,366,366,,0,0,0,0,0,0,0,0,0,0,0,0,0.63,,tm_366/D_trunca_50pct/tm_366_D_trunca_50pct_sarima_heuristic_by_window.csv
+Tourism 366,tm_366,D_trunca_50pct,False,SARIMA heurístico,todas,1098,731,,0,0,0,0,0,367,0,0,367,0,0,0,0.63,,tm_366/D_trunca_50pct/tm_366_D_trunca_50pct_sarima_heuristic_by_window.csv
