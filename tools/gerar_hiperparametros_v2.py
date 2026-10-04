@@ -250,6 +250,6 @@ for mod in ordem:
         md += [f'| {cel(r.parametro)} | {cel(r.valor)} | {cel(r.origem)} | {cel(r.observacao)} |' for r in s.itertuples()]
         md.append('')
 texto = '\n'.join(md)
-assert '—' not in texto and not df.apply(lambda c: c.astype(str).str.contains('—')).any().any(), 'travessão'
+assert '\u2014' not in texto and not df.apply(lambda c: c.astype(str).str.contains('\u2014')).any().any(), 'travessão'
 (saida / 'hiperparametros_v2.md').write_text(texto, encoding='utf-8')
 print(f'{len(df)} linhas; {df.modelo.nunique()} grupos -> results/v2/hiperparametros_v2.csv e .md')
