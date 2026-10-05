@@ -1,0 +1,11 @@
+model,mae
+Persistência,0.333
+SVR,0.459
+Random Forest,0.5
+SES,0.536
+Gradient Boosting,0.556
+Sazonal ingênuo,0.556
+Média histórica,0.576
+SARIMA heurístico,0.611
+SARIMA automático,0.65
+Holt-Winters,0.741

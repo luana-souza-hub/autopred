@@ -1,0 +1,13 @@
+condicao,modelo,metodo,pos_global,pos_mediana_por_serie,% séries no top-3,importância normalizada
+limpo,RandomForest,shap,9,7.5,16.7,0.0553
+limpo,RandomForest,lime,9,9.0,20.0,0.0579
+limpo,GradientBoosting,shap,8,7.5,13.3,0.0617
+limpo,GradientBoosting,lime,7,7.0,23.3,0.0636
+limpo,SVR,shap,8,9.0,16.7,0.0659
+limpo,SVR,lime,8,9.0,16.7,0.0622
+ruido30,RandomForest,shap,13,9.0,13.3,0.0535
+ruido30,RandomForest,lime,12,9.0,10.0,0.0586
+ruido30,GradientBoosting,shap,13,8.5,10.0,0.0494
+ruido30,GradientBoosting,lime,12,8.5,10.0,0.0572
+ruido30,SVR,shap,4,8.5,33.3,0.072
+ruido30,SVR,lime,12,9.5,26.7,0.065

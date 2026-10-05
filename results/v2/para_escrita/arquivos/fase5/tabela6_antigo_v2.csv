@@ -1,0 +1,12 @@
+Característica,M4 antigo,M4 v2,Car Parts antigo,Car Parts v2,Tourism v2,Nota
+Número de séries,200 (piloto SEED=42),200 (amostra SEED=42 de 48.000),2.674 (base completa),2674 (base completa),200 (amostra SEED=42 de 366); sensibilidade com as 366,
+Comprimento por série,Variável (42–126 obs.),66 a 918 obs. (mediana 198),Fixo (51 obs.),51 a 51 obs. (mediana 51),91 a 333 obs. (mediana 332),antigo do M4 (42 a 126) era erro de texto
+Horizonte H,,18,,18,24,
+Natureza das séries,Mista (múltiplos domínios),Mista (múltiplos domínios),Demanda intermitente de peças automotivas,Demanda intermitente de peças automotivas,Demanda turística mensal (Tourism Forecasting Competition),
+Proporção de zeros,Desprezível,mediana 0.0%; 0.0% das séries com algum zero,"Mediana 80,4% — 89,1% das séries >50% zeros",mediana 80.4%; 100.0% das séries com algum zero,mediana 0.0%; 14.5% das séries com algum zero,
+Tendência (F_T mediana),,0.98,,0.29,0.93,
+Sazonalidade,Regular e detectável,"F_S mediana 0.51; F_S > 0,5 em 52% das séries; acima do piso de ruído (p95) em 56%",Ausente ou mascarada pela intermitência,"F_S mediana 0.58; F_S > 0,5 em 70% das séries; acima do piso de ruído (p95) em 18%","F_S mediana 0.84; F_S > 0,5 em 94% das séries; acima do piso de ruído (p95) em 98%","no Car Parts, F_S quase não supera o piso de ruído"
+Métrica principal,MAPE (calculável em todas),MAPE; MASE como métrica comum,"MAE (MAPE indefinido em 15,8% das janelas)",MAE; MASE como métrica comum; MAPE indefinido em 15.8% das janelas,MAPE; MASE como métrica comum,
+Perfil de adversidade,Controlado por perturbação,"9 cenários controlados (perturbação só no treino, teste limpo)",Esparsidade e intermitência naturais,sem cenários adversos (decisão 3A); esparsidade natural,9 cenários controlados (mesmo protocolo do M4),
+Modelos,,10 (inclui SARIMA automático),,10 (inclui SARIMA automático),10 (inclui SARIMA automático),antigo: 9 no Car Parts
+Tempo de execução (linha de base limpa),~15 min,"44.2 min de parede, dos quais 42.1 min do SARIMA automático; n_jobs [5] nos demais modelos; SARIMA automático n_jobs 6","14,9 min","166.1 min de parede, dos quais 158.0 min do SARIMA automático (SARIMA automático em execução retomada; soma dos trechos); n_jobs [10] nos demais modelos; SARIMA automático com n_jobs não registrado no log","34.2 min de parede, dos quais 33.2 min do SARIMA automático; n_jobs [10] nos demais modelos; SARIMA automático com n_jobs não registrado no log",depende da máquina e do paralelismo; ver custo_computacional_v2.csv

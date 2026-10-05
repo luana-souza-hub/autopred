@@ -1,0 +1,7 @@
+modelo,feature,antigo bruto (mediana) limpo→ruído,antigo normalizado (média) limpo→ruído,v2 normalizado (média) limpo→ruído,v2 Δ [IC 95%]
+RandomForest,lag_1,160.069 → 61.654,0.347 → 0.161,0.361 → 0.173,-0.188 [-0.266; -0.110]
+RandomForest,roll_mean_6,38.105 → 103.841,0.077 → 0.187,0.090 → 0.192,+0.102 [+0.057; +0.152]
+GradientBoosting,lag_1,182.165 → 98.285,0.329 → 0.164,0.330 → 0.169,-0.160 [-0.225; -0.094]
+GradientBoosting,roll_mean_6,50.717 → 105.303,0.068 → 0.137,0.073 → 0.120,+0.047 [+0.018; +0.076]
+SVR,lag_1,0.146 → 0.093,0.169 → 0.124,0.198 → 0.144,-0.054 [-0.077; -0.031]
+SVR,roll_mean_6,0.057 → 0.066,0.068 → 0.073,0.086 → 0.085,-0.001 [-0.006; +0.004]

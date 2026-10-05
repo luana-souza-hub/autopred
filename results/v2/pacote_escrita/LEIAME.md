@@ -2,6 +2,8 @@
 
 Cópias (os originais continuam nas pastas de `results/`) dos arquivos necessários para reescrever a dissertação e o artigo com os resultados do protocolo v2. Montado em 2026-10-04, sobre o commit `1ea7977` (Fase 5). Todos os números vêm do pipeline `src/pipeline_v2.py` (sha256 `bbe78767…`); a origem de cada cópia está indicada na coluna "Original".
 
+**Controle da reescrita (2026-10-05):** `00_controle/` traz os fatos congelados (`FATOS_CONGELADOS.csv`), a matriz de mudanças do `.docx` (`MATRIZ_MUDANCAS.csv`), uma ficha por seção (`FICHAS/`), as lacunas (`LACUNAS.md`) e a lista do que é obsoleto (`OBSOLETOS.md`); ver `00_controle/LEIAME_controle.md`. O verificador de texto é `tools/checar_texto.py`. A pasta `results/v2/para_escrita/` reúne `00_controle` e os arquivos citados nas fichas.
+
 **Por onde começar:** `01_documentos/CHANGELOG_conclusoes.md` (achado da dissertação, valor antigo, valor v2, situação, por fase), depois `09_replicacao_H1_H4/replicacao_H1_H4_resumo.csv` e as tabelas da Fase 5 (`11_fase5_tabelas_dissertacao/` e as cópias de `tabela3`, `tabela6` e `tabela7`).
 
 **Convenções:** M4 = M4 Monthly (200 séries, H=18); CP = Car Parts (2.674 séries, H=18); TM = Tourism Monthly (200 séries, H=24); TM366 = Tourism com as 366 séries (sensibilidade). "Δ%" é relativo e "p.p." é absoluto. IC = 95%, bootstrap pareado por série (2000). Rótulos de previsão do Tourism: só os de `PREVISOES_tourism.md` valem como oficiais (200 séries); M4 e CP recebem os mesmos critérios **a posteriori**; TM366 é sensibilidade.

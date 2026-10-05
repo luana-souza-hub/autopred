@@ -1,0 +1,13 @@
+modelo,metodo,escala,n_series,CV médio (15 features),IC 95%,"CV antigo (dissertação, SHAP, 17 features, escala original)",rótulo
+RandomForest,shap,normalizada por série,30,1.211,[0.955; 1.298],1.75,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+RandomForest,shap,escala original,30,1.702,[1.228; 1.789],1.75,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+RandomForest,lime,normalizada por série,30,0.627,[0.450; 0.672],,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+RandomForest,lime,escala original,30,1.205,[0.829; 1.276],,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+GradientBoosting,shap,normalizada por série,30,1.015,[0.849; 1.069],1.61,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+GradientBoosting,shap,escala original,30,1.493,[1.153; 1.600],1.61,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+GradientBoosting,lime,normalizada por série,30,0.587,[0.448; 0.624],,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+GradientBoosting,lime,escala original,30,1.188,[0.835; 1.284],,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+SVR,shap,normalizada por série,30,0.7,[0.621; 0.748],0.51,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+SVR,shap,escala original,30,1.167,[0.964; 1.282],0.51,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+SVR,lime,normalizada por série,30,0.414,[0.334; 0.452],,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"
+SVR,lime,escala original,30,0.878,[0.699; 1.002],,"REANÁLISE (item C11): CV recalculado dos caches da 2c, sem rodar XAI de novo"

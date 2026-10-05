@@ -1,0 +1,13 @@
+condicao,modelo,metodo,top10,pos_lag_12,lag_1,roll_mean_3,roll_mean_6,lag_12
+limpo,RandomForest,shap,"roll_mean_6, lag_6, lag_1, roll_std_3, roll_mean_3, lag_3, lag_7, lag_9, lag_12, lag_2",9,0.09507000445270206,0.07239731423638286,0.1737534591399233,0.05533460821742163
+limpo,RandomForest,lime,"roll_mean_6, lag_1, lag_6, lag_3, roll_std_3, lag_7, roll_mean_3, lag_2, lag_12, lag_9",9,0.1113887587037052,0.06142652543200094,0.12291119678781605,0.057861325880933324
+limpo,GradientBoosting,shap,"roll_mean_6, lag_6, lag_3, lag_7, lag_9, lag_1, lag_8, lag_12, lag_10, roll_mean_3",8,0.06914810484846627,0.05482030913018277,0.14292026800428506,0.06172108834186079
+limpo,GradientBoosting,lime,"lag_3, lag_6, lag_1, roll_mean_6, lag_9, lag_7, lag_12, lag_10, lag_8, lag_4",7,0.09107746224837143,0.04257633483425311,0.09004561970225906,0.06357538501247406
+limpo,SVR,shap,"lag_1, lag_2, roll_std_3, lag_4, lag_6, lag_3, roll_mean_6, lag_12, lag_7, lag_9",8,0.09243490595185556,0.05862806701593747,0.0684981070914698,0.06586247088692676
+limpo,SVR,lime,"lag_1, lag_2, lag_3, lag_4, lag_6, lag_9, lag_7, lag_12, lag_8, lag_5",8,0.09747100954657376,0.05328748747596737,0.05353714795309836,0.06222353628494766
+ruido30,RandomForest,shap,"lag_10, lag_6, lag_9, roll_mean_6, lag_1, lag_7, lag_8, roll_std_3, lag_2, lag_3",13,0.07233752476119652,0.04986652618006164,0.07338292737943279,0.05346781829617921
+ruido30,RandomForest,lime,"lag_10, lag_6, lag_9, roll_mean_6, lag_7, lag_1, roll_std_3, lag_8, lag_2, lag_3",12,0.07029916261917729,0.048520130063070786,0.07210992617251308,0.0586447825609329
+ruido30,GradientBoosting,shap,"lag_10, lag_6, lag_9, roll_mean_6, lag_11, lag_4, lag_1, roll_std_3, lag_8, lag_7",13,0.07304057419839229,0.03529592146143043,0.08252419656848223,0.0493831709911048
+ruido30,GradientBoosting,lime,"lag_10, lag_6, lag_9, lag_1, lag_4, roll_mean_6, lag_11, lag_7, roll_std_3, lag_2",12,0.07269871123541856,0.045819811347223356,0.0710476783350848,0.057208844012520604
+ruido30,SVR,shap,"lag_9, lag_7, lag_5, lag_12, lag_8, lag_11, lag_10, lag_6, lag_1, roll_std_3",4,0.0636279386343252,0.04770809593959647,0.058849091567458614,0.07195852069746408
+ruido30,SVR,lime,"lag_9, lag_8, lag_5, lag_10, lag_6, lag_7, lag_11, roll_std_3, lag_2, lag_3",12,0.06202753796054514,0.05187618201091717,0.06332633164782273,0.06501683629493385

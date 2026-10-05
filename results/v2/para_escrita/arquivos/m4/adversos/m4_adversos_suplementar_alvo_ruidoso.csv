@@ -1,0 +1,64 @@
+cenário,modelo,Δ% oficial (só treino),Δ% alvo ruidoso,diferença (p.p. de Δ%)
+Ruído σ=10%,Persistência,0.1,-0.4,-0.4
+Ruído σ=10%,Média histórica,-0.4,-0.5,-0.2
+Ruído σ=10%,Sazonal ingênuo,4.5,6.9,2.4
+Ruído σ=10%,SES,-3.8,-2.5,1.3
+Ruído σ=10%,Holt-Winters,-1.3,4.4,5.7
+Ruído σ=10%,SARIMA heurístico,2.6,13.5,10.9
+Ruído σ=10%,Random Forest,1.0,0.8,-0.1
+Ruído σ=10%,Gradient Boosting,1.6,8.4,6.7
+Ruído σ=10%,SVR,-0.4,-0.8,-0.5
+Ruído σ=30%,Persistência,13.3,24.8,11.5
+Ruído σ=30%,Média histórica,-0.6,0.3,0.9
+Ruído σ=30%,Sazonal ingênuo,15.8,23.4,7.6
+Ruído σ=30%,SES,1.1,24.1,23.0
+Ruído σ=30%,Holt-Winters,17.6,38.1,20.5
+Ruído σ=30%,SARIMA heurístico,17.8,36.3,18.5
+Ruído σ=30%,Random Forest,2.9,18.0,15.1
+Ruído σ=30%,Gradient Boosting,11.9,27.9,16.0
+Ruído σ=30%,SVR,3.7,8.2,4.5
+Ausências 10%,Persistência,0.0,-0.9,-0.9
+Ausências 10%,Média histórica,-0.7,-1.2,-0.5
+Ausências 10%,Sazonal ingênuo,0.9,2.8,1.9
+Ausências 10%,SES,0.0,-2.2,-2.2
+Ausências 10%,Holt-Winters,-0.3,-6.0,-5.7
+Ausências 10%,SARIMA heurístico,4.7,-0.9,-5.6
+Ausências 10%,Random Forest,-6.4,-2.0,4.4
+Ausências 10%,Gradient Boosting,0.6,3.9,3.3
+Ausências 10%,SVR,1.3,-1.6,-2.9
+Ausências 20%,Persistência,1.2,-2.3,-3.5
+Ausências 20%,Média histórica,-0.7,-2.1,-1.4
+Ausências 20%,Sazonal ingênuo,1.4,1.3,-0.2
+Ausências 20%,SES,1.9,-1.6,-3.5
+Ausências 20%,Holt-Winters,4.7,5.0,0.4
+Ausências 20%,SARIMA heurístico,1.8,4.3,2.5
+Ausências 20%,Random Forest,2.2,-0.8,-3.1
+Ausências 20%,Gradient Boosting,1.8,5.3,3.5
+Ausências 20%,SVR,-4.5,-2.8,1.7
+Ausências 30%,Persistência,2.5,0.4,-2.0
+Ausências 30%,Média histórica,-0.1,0.5,0.6
+Ausências 30%,Sazonal ingênuo,3.5,2.7,-0.8
+Ausências 30%,SES,3.2,0.4,-2.8
+Ausências 30%,Holt-Winters,11.8,13.8,2.0
+Ausências 30%,SARIMA heurístico,-2.7,5.3,8.1
+Ausências 30%,Random Forest,3.9,0.0,-3.8
+Ausências 30%,Gradient Boosting,5.2,1.7,-3.5
+Ausências 30%,SVR,7.8,1.1,-6.7
+Outliers 2%,Persistência,0.5,32.6,32.1
+Outliers 2%,Média histórica,0.2,12.8,12.7
+Outliers 2%,Sazonal ingênuo,24.0,30.5,6.5
+Outliers 2%,SES,6.6,30.1,23.4
+Outliers 2%,Holt-Winters,13.1,27.3,14.3
+Outliers 2%,SARIMA heurístico,19.0,42.1,23.1
+Outliers 2%,Random Forest,2.1,18.3,16.2
+Outliers 2%,Gradient Boosting,15.1,34.9,19.8
+Outliers 2%,SVR,8.4,18.7,10.3
+Outliers 5%,Persistência,1.2,40.6,39.4
+Outliers 5%,Média histórica,2.9,15.5,12.6
+Outliers 5%,Sazonal ingênuo,19.3,46.7,27.4
+Outliers 5%,SES,9.5,53.2,43.7
+Outliers 5%,Holt-Winters,32.5,76.8,44.3
+Outliers 5%,SARIMA heurístico,43.1,77.0,33.9
+Outliers 5%,Random Forest,12.7,39.4,26.8
+Outliers 5%,Gradient Boosting,31.4,89.6,58.2
+Outliers 5%,SVR,8.0,26.9,18.8

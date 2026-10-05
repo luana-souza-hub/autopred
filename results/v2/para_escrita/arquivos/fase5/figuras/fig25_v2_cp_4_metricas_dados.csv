@@ -1,0 +1,11 @@
+model,mape,mae,r2,mase
+Persistência,100.0,0.333,-0.258,0.568
+SVR,84.348,0.459,-0.145,0.682
+Random Forest,79.311,0.5,-0.204,0.785
+SES,75.828,0.536,-0.132,0.769
+Gradient Boosting,88.278,0.556,-0.491,0.874
+Sazonal ingênuo,100.0,0.556,-1.032,0.867
+Média histórica,78.247,0.576,-0.17,0.788
+SARIMA heurístico,100.0,0.611,-1.174,0.958
+SARIMA automático,100.0,0.65,-1.118,1.01
+Holt-Winters,90.386,0.741,-1.182,1.351

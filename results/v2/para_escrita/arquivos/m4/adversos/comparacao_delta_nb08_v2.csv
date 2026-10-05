@@ -1,0 +1,37 @@
+cenário,modelo,Δ% antigo (NB08),Δ% v2,Δp.p. v2,mudança de sinal
+Ausências 10%,Holt-Winters,0.2,-0.3,-0.03,SIM
+Ausências 10%,SES,-0.1,0.0,0.0,SIM
+Ausências 10%,Persistência,-2.5,0.0,0.0,SIM
+Ausências 10%,Gradient Boosting,-4.2,0.6,0.05,SIM
+Ausências 10%,Random Forest,-1.1,-6.4,-0.65,
+Ausências 10%,SVR,2.7,1.3,0.15,
+Ausências 20%,Holt-Winters,7.9,4.7,0.39,
+Ausências 20%,SES,-1.2,1.9,0.18,SIM
+Ausências 20%,Persistência,-6.2,1.2,0.12,SIM
+Ausências 20%,Gradient Boosting,-7.9,1.8,0.17,SIM
+Ausências 20%,Random Forest,-1.8,2.2,0.23,SIM
+Ausências 20%,SVR,-0.5,-4.5,-0.52,
+Ausências 30%,Holt-Winters,8.6,11.8,0.98,
+Ausências 30%,SES,-4.7,3.2,0.31,SIM
+Ausências 30%,Persistência,-10.8,2.5,0.24,SIM
+Ausências 30%,Gradient Boosting,-0.7,5.2,0.47,SIM
+Ausências 30%,Random Forest,-0.3,3.9,0.39,SIM
+Ausências 30%,SVR,-3.3,7.8,0.89,SIM
+Outliers 2%,Holt-Winters,45.7,13.1,1.09,
+Outliers 2%,SES,25.5,6.6,0.64,
+Outliers 2%,Persistência,16.3,0.5,0.05,
+Outliers 2%,Gradient Boosting,29.9,15.1,1.37,
+Outliers 2%,Random Forest,25.4,2.1,0.21,
+Outliers 2%,SVR,18.1,8.4,0.97,
+Ruído σ=10%,Holt-Winters,10.4,-1.3,-0.11,SIM
+Ruído σ=10%,SES,0.1,-3.8,-0.37,SIM
+Ruído σ=10%,Persistência,3.5,0.1,0.01,
+Ruído σ=10%,Gradient Boosting,8.1,1.6,0.15,
+Ruído σ=10%,Random Forest,12.3,1.0,0.1,
+Ruído σ=10%,SVR,13.3,-0.4,-0.04,SIM
+Ruído σ=30%,Holt-Winters,49.2,17.6,1.47,
+Ruído σ=30%,SES,27.9,1.1,0.1,
+Ruído σ=30%,Persistência,32.3,13.3,1.3,
+Ruído σ=30%,Gradient Boosting,38.7,11.9,1.08,
+Ruído σ=30%,Random Forest,41.1,2.9,0.29,
+Ruído σ=30%,SVR,32.3,3.7,0.43,

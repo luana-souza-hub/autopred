@@ -1,0 +1,91 @@
+cenario,modelo,OK (%),fallback (%),erro (%),explosivas (n)
+limpo,Persistência,100.0,0.0,0.0,0
+limpo,Média histórica,100.0,0.0,0.0,0
+limpo,Sazonal ingênuo,100.0,0.0,0.0,0
+limpo,SES,100.0,0.0,0.0,0
+limpo,Holt-Winters,100.0,0.0,0.0,0
+limpo,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,1
+limpo,Random Forest,100.0,0.0,0.0,0
+limpo,Gradient Boosting,100.0,0.0,0.0,0
+limpo,SVR,99.5,0.5,0.0,0
+A_ruido_10pct,Persistência,100.0,0.0,0.0,0
+A_ruido_10pct,Média histórica,100.0,0.0,0.0,0
+A_ruido_10pct,Sazonal ingênuo,100.0,0.0,0.0,0
+A_ruido_10pct,SES,100.0,0.0,0.0,0
+A_ruido_10pct,Holt-Winters,100.0,0.0,0.0,0
+A_ruido_10pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,0
+A_ruido_10pct,Random Forest,100.0,0.0,0.0,0
+A_ruido_10pct,Gradient Boosting,100.0,0.0,0.0,0
+A_ruido_10pct,SVR,100.0,0.0,0.0,0
+A_ruido_30pct,Persistência,100.0,0.0,0.0,0
+A_ruido_30pct,Média histórica,100.0,0.0,0.0,0
+A_ruido_30pct,Sazonal ingênuo,100.0,0.0,0.0,0
+A_ruido_30pct,SES,100.0,0.0,0.0,0
+A_ruido_30pct,Holt-Winters,100.0,0.0,0.0,0
+A_ruido_30pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,0
+A_ruido_30pct,Random Forest,100.0,0.0,0.0,0
+A_ruido_30pct,Gradient Boosting,100.0,0.0,0.0,0
+A_ruido_30pct,SVR,100.0,0.0,0.0,0
+B_ausencias_10pct,Persistência,100.0,0.0,0.0,0
+B_ausencias_10pct,Média histórica,100.0,0.0,0.0,0
+B_ausencias_10pct,Sazonal ingênuo,100.0,0.0,0.0,0
+B_ausencias_10pct,SES,100.0,0.0,0.0,0
+B_ausencias_10pct,Holt-Winters,100.0,0.0,0.0,0
+B_ausencias_10pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,1
+B_ausencias_10pct,Random Forest,100.0,0.0,0.0,0
+B_ausencias_10pct,Gradient Boosting,100.0,0.0,0.0,0
+B_ausencias_10pct,SVR,99.5,0.5,0.0,0
+B_ausencias_20pct,Persistência,100.0,0.0,0.0,0
+B_ausencias_20pct,Média histórica,100.0,0.0,0.0,0
+B_ausencias_20pct,Sazonal ingênuo,100.0,0.0,0.0,0
+B_ausencias_20pct,SES,100.0,0.0,0.0,0
+B_ausencias_20pct,Holt-Winters,100.0,0.0,0.0,0
+B_ausencias_20pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,0
+B_ausencias_20pct,Random Forest,100.0,0.0,0.0,0
+B_ausencias_20pct,Gradient Boosting,100.0,0.0,0.0,0
+B_ausencias_20pct,SVR,99.5,0.5,0.0,0
+B_ausencias_30pct,Persistência,100.0,0.0,0.0,0
+B_ausencias_30pct,Média histórica,100.0,0.0,0.0,0
+B_ausencias_30pct,Sazonal ingênuo,100.0,0.0,0.0,0
+B_ausencias_30pct,SES,100.0,0.0,0.0,0
+B_ausencias_30pct,Holt-Winters,100.0,0.0,0.0,0
+B_ausencias_30pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,0
+B_ausencias_30pct,Random Forest,100.0,0.0,0.0,0
+B_ausencias_30pct,Gradient Boosting,100.0,0.0,0.0,0
+B_ausencias_30pct,SVR,99.33333333333331,0.6666666666666667,0.0,0
+C_outliers_2pct,Persistência,100.0,0.0,0.0,0
+C_outliers_2pct,Média histórica,100.0,0.0,0.0,0
+C_outliers_2pct,Sazonal ingênuo,100.0,0.0,0.0,0
+C_outliers_2pct,SES,100.0,0.0,0.0,0
+C_outliers_2pct,Holt-Winters,100.0,0.0,0.0,0
+C_outliers_2pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,1
+C_outliers_2pct,Random Forest,100.0,0.0,0.0,0
+C_outliers_2pct,Gradient Boosting,100.0,0.0,0.0,0
+C_outliers_2pct,SVR,99.66666666666669,0.3333333333333333,0.0,0
+C_outliers_5pct,Persistência,100.0,0.0,0.0,0
+C_outliers_5pct,Média histórica,100.0,0.0,0.0,0
+C_outliers_5pct,Sazonal ingênuo,100.0,0.0,0.0,0
+C_outliers_5pct,SES,100.0,0.0,0.0,0
+C_outliers_5pct,Holt-Winters,100.0,0.0,0.0,0
+C_outliers_5pct,SARIMA heurístico,66.66666666666666,33.33333333333333,0.0,2
+C_outliers_5pct,Random Forest,100.0,0.0,0.0,0
+C_outliers_5pct,Gradient Boosting,100.0,0.0,0.0,0
+C_outliers_5pct,SVR,99.5,0.5,0.0,0
+D_trunca_50pct,Persistência,100.0,0.0,0.0,0
+D_trunca_50pct,Média histórica,100.0,0.0,0.0,0
+D_trunca_50pct,Sazonal ingênuo,100.0,0.0,0.0,0
+D_trunca_50pct,SES,100.0,0.0,0.0,0
+D_trunca_50pct,Holt-Winters,100.0,0.0,0.0,0
+D_trunca_50pct,SARIMA heurístico,47.833333333333336,52.16666666666666,0.0,0
+D_trunca_50pct,Random Forest,100.0,0.0,0.0,0
+D_trunca_50pct,Gradient Boosting,100.0,0.0,0.0,0
+D_trunca_50pct,SVR,99.33333333333331,0.6666666666666667,0.0,0
+D_trunca_25pct,Persistência,100.0,0.0,0.0,0
+D_trunca_25pct,Média histórica,100.0,0.0,0.0,0
+D_trunca_25pct,Sazonal ingênuo,100.0,0.0,0.0,0
+D_trunca_25pct,SES,100.0,0.0,0.0,0
+D_trunca_25pct,Holt-Winters,100.0,0.0,0.0,0
+D_trunca_25pct,SARIMA heurístico,34.166666666666664,65.83333333333333,0.0,0
+D_trunca_25pct,Random Forest,100.0,0.0,0.0,0
+D_trunca_25pct,Gradient Boosting,100.0,0.0,0.0,0
+D_trunca_25pct,SVR,99.16666666666669,0.8333333333333334,0.0,0

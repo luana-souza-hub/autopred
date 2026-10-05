@@ -1,0 +1,11 @@
+model,mape
+Persistência,100.0
+SVR,84.3
+Random Forest,79.3
+SES,75.8
+Gradient Boosting,88.3
+Sazonal ingênuo,100.0
+Média histórica,78.2
+SARIMA heurístico,100.0
+SARIMA automático,100.0
+Holt-Winters,90.4

@@ -1,0 +1,11 @@
+,OK,FALLBACK_SNAIVE,FALLBACK_MEAN,ERRO,SEM_JANELA
+Gradient Boosting,100.0,0.0,0.0,0.0,0.0
+Holt-Winters,100.0,0.0,0.0,0.0,0.0
+Média histórica,100.0,0.0,0.0,0.0,0.0
+Persistência,100.0,0.0,0.0,0.0,0.0
+Random Forest,100.0,0.0,0.0,0.0,0.0
+SARIMA automático,94.0,6.0,0.0,0.0,0.0
+SARIMA heurístico,32.9,67.1,0.0,0.0,0.0
+Sazonal ingênuo,100.0,0.0,0.0,0.0,0.0
+SES,100.0,0.0,0.0,0.0,0.0
+SVR,86.9,0.0,13.1,0.0,0.0
