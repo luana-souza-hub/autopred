@@ -20,5 +20,4 @@ Fonte única dos números: `00_controle/FATOS_CONGELADOS.csv`. Caminhos relativo
 - `fase5/custo_computacional_v2.csv`
 - `fase5/tabela6_antigo_v2.csv`
 - `sarima_limites_fallback_v2.csv`
-
-**Dados ainda sem tabela:** L01 (ver `00_controle/LACUNAS.md`)
+- `pacote_escrita/00_controle/tabelas/L01_m4_adversos_sarima_variantes.csv`

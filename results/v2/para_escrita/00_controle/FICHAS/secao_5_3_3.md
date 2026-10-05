@@ -15,5 +15,4 @@ Fonte única dos números: `00_controle/FATOS_CONGELADOS.csv`. Caminhos relativo
 - `m4/adversos/m4_adversos_delta_pct.csv`
 - `m4/adversos/comparacao_delta_nb08_v2.csv`
 - `fase5/figuras/fig16_v2_m4_perfil_robustez_dados.csv`
-
-**Dados ainda sem tabela:** L01 (ver `00_controle/LACUNAS.md`)
+- `pacote_escrita/00_controle/tabelas/L01_m4_adversos_sarima_variantes.csv`

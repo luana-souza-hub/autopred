@@ -8,6 +8,7 @@ Fonte única dos números: `00_controle/FATOS_CONGELADOS.csv`. Caminhos relativo
 | PRT-18 | Combinações modelo × cenário por base | 81 (9 modelos × 9 cenários); SARIMA automático só na linha de base |  | results/v2/m4/adversos/m4_adversos_delta_ic95.csv |
 | PRT-20 | Análise suplementar "alvo ruidoso" | só M4, cenários A, B e C; fora dos rankings |  | results/v2/m4/adversos/m4_adversos_suplementar_alvo_ruidoso.csv |
 | DEF-05 | Δ% e Δp.p. | Δ% = 100 × (MAPE mediano do cenário − MAPE mediano da base) ÷ MAPE mediano da base; Δp.p. = diferença; positivo = degradação; não é a mediana dos Δ% por série |  | src/pipeline_v2.py (tabela_delta, linhas 550 a 563) |
+| M4A-14 | M4: SARIMA heurístico nos cenários, Δ% com / sem fallback | ruído 10% 2,63 / 9,80; ruído 30% 17,76 / 8,97; ausências 10% 4,73 / 1,97; 20% 1,78 / 1,47; 30% −2,75 / 8,93; outliers 2% 19,05 / 17,81; 5% 43,14 / 37,85; truncamento 50% 8,06 / 3,22 (153 séries); 25% 15,89 / 22,73 (132 séries). Sem explosivas = com fallback. Δp.p. sem fallback 1,05; 0,96; 0,21; 0,16; 0,95; 1,90; 4,05; 0,22; 1,41 |  | results/v2/pacote_escrita/00_controle/tabelas/L01_m4_adversos_sarima_variantes.csv |
 | M4A-01 | M4: ICs do Δ% que incluem zero | 66 de 81 (15 excluem zero) |  | results/v2/m4/adversos/m4_adversos_delta_ic95.csv |
 | M4A-02 | M4: Holt-Winters, ruído 30% | +17,6% (+1,47 p.p.) | [+2,5; +37,7] | results/v2/m4/adversos/m4_adversos_delta_ic95.csv |
 | M4A-03 | M4: Holt-Winters, outliers 2% | +13,1% (+1,09 p.p.) | [+2,5; +38,6] | results/v2/m4/adversos/m4_adversos_delta_ic95.csv |
@@ -29,5 +30,6 @@ Fonte única dos números: `00_controle/FATOS_CONGELADOS.csv`. Caminhos relativo
 - `fase5/figuras/fig13_v2_m4_heatmap_delta_dados.csv`
 - `fase5/figuras/fig14_v2_m4_taxa_sem_fallback.png`
 - `fase5/figuras/fig14_v2_m4_taxa_sem_fallback_dados.csv`
+- `pacote_escrita/00_controle/tabelas/L01_m4_adversos_sarima_variantes.csv`
 
-**Dados ainda sem tabela:** L01, L02 (ver `00_controle/LACUNAS.md`)
+**Dados ainda sem tabela:** L02 (ver `00_controle/LACUNAS.md`)
