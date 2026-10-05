@@ -39,6 +39,12 @@ Cópias (os originais continuam nas pastas de `results/`) dos arquivos necessár
 | `m4_limpo_taxas_status.csv` | M4 | Que fração das janelas ficou OK, em fallback, em erro ou sem janela, por modelo? | `results/v2/m4/limpo/` |
 | `m4_limpo_fallback_por_janela.csv` | M4 | Em que janela (1ª, 2ª, 3ª) ocorrem os fallbacks? (SARIMA heurístico: toda a 1ª janela) | `results/v2/m4/limpo/` |
 | `sanidade_amostra_antiga_m4.csv` | M4 | Onde o protocolo não mudou, o v2 reproduz os caches antigos janela a janela? (sim, diferença ≤ 3×10⁻¹⁴) | `results/v2/m4/limpo/` |
+| `m4_limpo_por_serie.csv` | M4 | Tabela por série (unique_id x modelo): MAPE, MASE, MAE e R² da mediana das 3 janelas (com fallback, versão oficial), com nº de janelas, de fallbacks e de explosivas de cada série, para filtrar | gerado aqui por `tools/detalhar_m4_limpo_v2.py` (dos caches, sem rodar modelos) |
+| `m4_limpo_distribuicao_por_serie.csv` | M4 | Como a mediana por série se distribui entre as 200 séries? Mínimo, Q1, mediana, Q3 e máximo de MAPE, MASE, MAE e R², com o unique_id do mínimo e do máximo do MAPE e do R². Versão oficial (com fallback) para os 10 modelos; SARIMA heurístico e SVR também sem fallback; SARIMA automático e heurístico também sem explosivas | idem |
+| `m4_limpo_mape_acima_100.csv` | M4 | Quantas séries têm MAPE (mediana por série) acima de 100% em cada modelo, qual o MAPE máximo e em que série? (SARIMA automático: 184,31% em M20937, 5 séries acima de 100%; sem explosivas, 4) | idem |
+| `desempenho_por_janela_m4.csv` | M4 | MAPE, MAE e MASE (mediana entre séries) e posto de cada um dos 10 modelos em cada janela de origem (1ª, 2ª, 3ª), no formato de `desempenho_por_janela_tm.csv` mais as colunas `posto MAPE` e `posto MASE`. Na 1ª janela o SARIMA heurístico empata com o sazonal ingênuo (100% em fallback) | idem |
+| `m4_limpo_explosivas_denominador.csv` | M4 | Qual o denominador da proporção de janelas explosivas da Tabela 3 v2? (todas as janelas do modelo: SARIMA heurístico 1 de 600 = 0,17%, exibido como 0,2%; sobre as 400 janelas OK seria 0,25%; SARIMA automático 14 de 600 = 2,33%, igual nos dois denominadores) | idem |
+| `fig09_v2_m4_10_modelos.png` | M4 | Fig. 9 v2 refeita: MAPE (truncado em 100%) e MASE (truncado em 6) por série dos 10 modelos, sem o espaço vazio à esquerda do painel do MAPE (a versão em `results/v2/fase5/figuras/` não foi alterada) | idem |
 
 ## 04_m4_adversos (Fase 2b)
 

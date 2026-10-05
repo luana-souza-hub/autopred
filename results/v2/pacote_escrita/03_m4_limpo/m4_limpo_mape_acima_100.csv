@@ -1,0 +1,15 @@
+modelo,versão,n_series,séries com MAPE > 100%,MAPE máx,série do MAPE máx
+Persistência,com fallback (oficial),200,2,224.4992,M33340
+Média histórica,com fallback (oficial),200,7,335.4676,M33340
+Sazonal ingênuo,com fallback (oficial),200,2,165.1129,M33340
+SES,com fallback (oficial),200,2,154.4747,M33428
+Holt-Winters,com fallback (oficial),200,3,189.222,M33428
+SARIMA heurístico,com fallback (oficial),200,6,219.2888,M33428
+SARIMA automático,com fallback (oficial),200,5,184.3079,M20937
+Random Forest,com fallback (oficial),200,3,168.081,M39593
+Gradient Boosting,com fallback (oficial),200,3,148.1258,M33340
+SVR,com fallback (oficial),200,3,151.0398,M33340
+SARIMA heurístico,sem fallback,200,5,7505.8415,M16659
+SVR,sem fallback,200,3,151.0398,M33340
+SARIMA automático,sem explosivas,200,4,130.9729,M33340
+SARIMA heurístico,sem explosivas,200,6,219.2888,M33428

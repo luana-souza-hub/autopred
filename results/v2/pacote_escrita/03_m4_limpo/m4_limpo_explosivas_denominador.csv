@@ -1,0 +1,11 @@
+modelo,janelas,janelas_OK,fallback,explosivas,explosivas em janelas OK,% sobre todas as janelas (usado na Tabela 3 v2),% sobre as janelas OK
+Gradient Boosting,600,600,0,0,0,0.0,0.0
+Holt-Winters,600,600,0,0,0,0.0,0.0
+Média histórica,600,600,0,0,0,0.0,0.0
+Persistência,600,600,0,0,0,0.0,0.0
+Random Forest,600,600,0,0,0,0.0,0.0
+SARIMA automático,600,600,0,14,14,2.333,2.333
+SARIMA heurístico,600,400,200,1,1,0.167,0.25
+Sazonal ingênuo,600,600,0,0,0,0.0,0.0
+SES,600,600,0,0,0,0.0,0.0
+SVR,600,597,3,0,0,0.0,0.0
