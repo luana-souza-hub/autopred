@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-10-03T16:25:34",
+  "gerado_em": "2026-10-06T11:04:08",
   "notebook": "notebooks/12_fase5_comparativos_v2.ipynb",
   "pipeline_sha256_atual": "bbe78767e39584b6af4b9332bbeeb59e90b0009e3dca3704aa0a56f1f164ead1",
   "pipeline_sha256_caches": [
@@ -23,7 +23,8 @@
   "dissertacao_docx": {
     "arquivo": "Dissertacao_PPGI_AutoPred_2.docx",
     "sha256": "bbd41343884a1d2ef66503e9a9784603757235b8e402875eb9ddf906917c2827",
-    "uso": "somente leitura das Tabelas 3 a 7"
+    "uso": "somente leitura das Tabelas 3 a 7",
+    "fonte_dos_valores_antigos": "cópias congeladas em results\\v2\\fase5\\antigo_dissertacao (lidas do .docx da Fase 5, sha256 bbd41343884a1d2e); o .docx atual (sha256 c95301cc27056f9f) está em reescrita e não é usado"
   },
   "bootstrap": {
     "n": 2000,

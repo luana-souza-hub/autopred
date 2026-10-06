@@ -15,7 +15,7 @@ Consolida em `results/v2/fase5/` (i) as Tabelas 3 a 7 da dissertação com o val
 
 **Regras desta fase**
 - Só leitura dos caches v2 (nenhum modelo de previsão é reexecutado). Cálculo novo, leve: bootstrap de ranks, CV da Fig. 18 a partir dos caches da 2c, importância nativa da Fig. 12 (um ajuste de RF e GB numa série) e as previsões das séries de exemplo das Figs. 10 e 26.
-- Valores antigos lidos do `.docx` da dissertação **só para leitura** (o arquivo não é alterado; o SHA-256 vai no `.meta.json`).
+- Valores antigos lidos do `.docx` da dissertação **só para leitura** (o arquivo não é alterado; o SHA-256 vai no `.meta.json`). Se o `.docx` mudou desde a Fase 5 (reescrita da dissertação), os valores antigos vêm das cópias congeladas em `fase5/antigo_dissertacao/`.
 - SARIMA e SVR sempre com e sem fallback; SARIMA também sem as janelas explosivas; baselines triviais separados nos rankings de robustez; Δ% com sinal; IC 95% por bootstrap pareado por série (2000).
 - Replicação: no Tourism, os rótulos oficiais das **200 séries** (`tm/replicacao_previsoes_tm.csv`), sem reinterpretação; no M4 e no Car Parts, os **critérios numéricos registrados para o Tourism aplicados a posteriori**, com a formulação qualitativa da dissertação ao lado. A sensibilidade com 366 séries fica em arquivo separado.
 - Limiares da Tabela 4 e critérios da Tabela 5 foram definidos depois de ver o M4 (não são pré-registrados).
@@ -65,20 +65,30 @@ def num(s):
         return np.nan
 
 # ---- tabelas da dissertação (somente leitura do .docx)
+# "Antigo" = a dissertação como estava na Fase 5 (sha256 abaixo). Se o .docx mudou (reescrita em curso),
+# os valores antigos vêm das cópias congeladas em fase5/antigo_dissertacao/, gravadas na Fase 5 a partir dele.
+DOCX_SHA_FASE5 = 'bbd41343884a1d2ef66503e9a9784603757235b8e402875eb9ddf906917c2827'
 W = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
-DOCX_SHA = hashlib.sha256(DOCX.read_bytes()).hexdigest()
-_root_xml = ET.fromstring(zipfile.ZipFile(DOCX).read('word/document.xml'))
-def _tab(t):
-    rows = [[''.join(x.text or '' for x in c.iter(W + 't')).strip() for c in r.findall(W + 'tc')] for r in t.findall(W + 'tr')]
-    return pd.DataFrame(rows[1:], columns=rows[0])
-TD = [_tab(t) for t in _root_xml.iter(W + 'tbl')]
-ANT = {3: TD[3], 4: TD[4], 5: TD[5], 6: TD[6], 7: TD[7]}   # TD[0] licença, TD[1] Tabela 1, TD[2] Tabela 2
+DOCX_SHA_ATUAL = hashlib.sha256(DOCX.read_bytes()).hexdigest() if DOCX.exists() else None
+if DOCX_SHA_ATUAL == DOCX_SHA_FASE5:
+    _root_xml = ET.fromstring(zipfile.ZipFile(DOCX).read('word/document.xml'))
+    def _tab(t):
+        rows = [[''.join(x.text or '' for x in c.iter(W + 't')).strip() for c in r.findall(W + 'tc')] for r in t.findall(W + 'tr')]
+        return pd.DataFrame(rows[1:], columns=rows[0])
+    TD = [_tab(t) for t in _root_xml.iter(W + 'tbl')]
+    ANT = {3: TD[3], 4: TD[4], 5: TD[5], 6: TD[6], 7: TD[7]}   # TD[0] licença, TD[1] Tabela 1, TD[2] Tabela 2
+    for k, t in ANT.items():
+        t.to_csv(ANTD / f'tabela{k}_dissertacao.csv', index=False)
+    FONTE_ANT = f'.docx da Fase 5 (sha256 {DOCX_SHA_FASE5[:16]}), lido agora'
+else:
+    ANT = {k: pd.read_csv(ANTD / f'tabela{k}_dissertacao.csv', dtype=str, keep_default_na=False) for k in range(3, 8)}
+    FONTE_ANT = (f'cópias congeladas em {ANTD.relative_to(PROJECT_ROOT)} (lidas do .docx da Fase 5, sha256 {DOCX_SHA_FASE5[:16]}); '
+                 f'o .docx atual (sha256 {str(DOCX_SHA_ATUAL)[:16]}) está em reescrita e não é usado')
+DOCX_SHA = DOCX_SHA_FASE5
 assert list(ANT[3].columns) == ['Algoritmo', 'Família', 'MAPE (%)', 'MAE', 'R² mediano', 'Rank']
 assert ANT[4].columns[2] == 'Desemp. limpo' and ANT[5].columns[2] == 'Algoritmo recomendado'
 assert ANT[6].columns[0] == 'Característica' and ANT[7].columns[1] == 'MAE med.'
-for k, t in ANT.items():
-    t.to_csv(ANTD / f'tabela{k}_dissertacao.csv', index=False)
-print(f'.docx lido (sha256 {DOCX_SHA[:16]}); Tabelas 3 a 7 gravadas em {ANTD.relative_to(PROJECT_ROOT)}')
+print('Valores antigos (Tabelas 3 a 7):', FONTE_ANT)
 
 # ---- janelas v2 das três bases (com MASE)
 def carregar(sub, pasta, modelos=None):
@@ -588,8 +598,8 @@ for i in range(H.shape[0]):
         ax.text(j, i, f'{H.iloc[i, j]:+.1f}' + ('' if Z.iloc[i, j] else '*'), ha='center', va='center', fontsize=8)
 ax.set_xticks(range(len(CEN))); ax.set_xticklabels([pv.CENARIOS[c][2] for c in CEN], rotation=30, ha='right', fontsize=8)
 ax.set_yticks(range(len(RAP))); ax.set_yticklabels([NOMES[m] for m in RAP], fontsize=9)
-plt.colorbar(im, ax=ax, label='ΔMAPE relativo (%)')
-ax.set_title('M4, v2: ΔMAPE relativo (%) por modelo e cenário; * = IC 95% exclui zero (perturbação só no treino, teste limpo)', fontsize=10)
+plt.colorbar(im, ax=ax, label='Δ% do MAPE (relativo à linha de base)')
+ax.set_title('M4, v2: Δ% do MAPE por modelo e cenário; * = IC 95% exclui zero (perturbação só no treino, teste limpo)', fontsize=10)
 salvar(fig, 13, 'm4_heatmap_delta', 'Mapa de calor do ΔMAPE relativo (%) por algoritmo e cenário adverso',
        'HW +49,2 (ruído 30%) e +45,7 (outliers 2%), rotulados p.p.; ausências reduzem o MAPE de GB, RF e Persistência',
        f"HW {H.loc['holt_winters', 'A_ruido_30pct']:+.1f}% (ruído 30%) e {H.loc['holt_winters', 'C_outliers_2pct']:+.1f}% (outliers 2%); "
@@ -601,10 +611,12 @@ S = st.pivot(index='modelo', columns='cenario', values='OK (%)').loc[[NOMES[m] f
 fig, ax = plt.subplots(figsize=(14, 6.5)); im = ax.imshow(S.values, cmap='Greens', vmin=0, vmax=1, aspect='auto')
 for i in range(S.shape[0]):
     for j in range(S.shape[1]):
-        ax.text(j, i, f'{S.iloc[i, j]:.2f}', ha='center', va='center', fontsize=8)
+        ax.text(j, i, f'{S.iloc[i, j]:.2f}', ha='center', va='center', fontsize=8,
+                color='white' if S.iloc[i, j] > 0.6 else 'black')
 ax.set_xticks(range(S.shape[1])); ax.set_xticklabels(['Limpo'] + [pv.CENARIOS[c][2] for c in CEN], rotation=30, ha='right', fontsize=8)
 ax.set_yticks(range(S.shape[0])); ax.set_yticklabels(S.index, fontsize=9); plt.colorbar(im, ax=ax, label='fração de janelas sem fallback')
-ax.set_title('M4, v2: fração de janelas com ajuste próprio (1,0 = nenhum fallback); o fallback do SARIMA heurístico é a 1ª janela', fontsize=10)
+ax.set_title('M4, v2: fração de janelas com ajuste próprio (1,0 = nenhum fallback). SARIMA heurístico: na linha de base, fallback em toda a 1ª janela'
+             '\n(24 obs., verossimilhança degenerada); no truncamento, também em parte da 2ª e da 3ª janelas', fontsize=10)
 salvar(fig, 14, 'm4_taxa_sem_fallback', 'Taxa de sucesso do ajuste por algoritmo e cenário adverso',
        'taxas 0,93 e 0,85 atribuídas a "falha de convergência"',
        f"1,00 para todos exceto SARIMA heurístico ({S.loc['SARIMA heurístico'].min():.2f} a {S.loc['SARIMA heurístico'].max():.2f}) e SVR (≥ {S.loc['SVR'].min():.2f})",
@@ -1078,7 +1090,8 @@ assert all((F5 / k).exists() for k in DESC)
 idx.to_csv(F5 / 'indice_fase5.csv', index=False)
 meta = {'gerado_em': datetime.now().isoformat(timespec='seconds'), 'notebook': 'notebooks/12_fase5_comparativos_v2.ipynb',
         'pipeline_sha256_atual': pv.hash_pipeline(), 'pipeline_sha256_caches': hashes, 'versoes': pv.versoes(),
-        'dissertacao_docx': {'arquivo': DOCX.name, 'sha256': DOCX_SHA, 'uso': 'somente leitura das Tabelas 3 a 7'},
+        'dissertacao_docx': {'arquivo': DOCX.name, 'sha256': DOCX_SHA, 'uso': 'somente leitura das Tabelas 3 a 7',
+                             'fonte_dos_valores_antigos': FONTE_ANT},
         'bootstrap': {'n': 2000, 'seed': pv.SEED}, 'arquivos': DESC}
 (F5 / 'fase5.meta.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False, default=str), encoding='utf-8')
 print(idx.to_string(index=False)); print(f'\nfiguras: {len(list(FIG.glob("*.png")))} PNG em {FIG.relative_to(PROJECT_ROOT)}')
