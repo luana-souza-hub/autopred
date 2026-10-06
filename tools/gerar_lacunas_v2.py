@@ -1,16 +1,19 @@
 #!/usr/bin/env python
-"""Gera as tabelas das lacunas L01, L03 e L04 (M4) a partir dos caches v2, sem rodar modelos.
+"""Gera as tabelas das lacunas L01 a L04 a partir dos caches v2, sem rodar modelos.
 
 L01: SARIMA heurístico nos 9 cenários do M4: Δ% e Δp.p. com fallback, sem fallback e sem explosivas,
      e taxa de fallback por cenário (mesmas regras de tm_adversos_sarima_variantes.csv, nb11b_v2.py).
+L02: SVR nos 9 cenários do M4 e do Tourism: mesmo formato de L01 com svr, mais o IC 95% do Δ% (bootstrap_delta,
+     pareado por série, 2000 réplicas) com e sem fallback e a marca de IC incluindo zero.
 L03: MAPE, MAE, MASE e posto (MAPE e MASE) de cada modelo por janela de origem (mediana entre séries),
      como desempenho_por_janela_tm.csv (nb11a_v2.py), com os 10 modelos.
 L04: distribuição por série (mediana das janelas de cada série) de MAPE, MASE, MAE e R² por modelo:
      mínimo, quartis, máximo e unique_id dos extremos; versões oficial (com fallback), sem fallback e
      sem explosivas; número de séries com MAPE > 100%.
 
-Saída: results/v2/pacote_escrita/00_controle/tabelas/L01_*.csv, L03_*.csv, L04_*.csv
-Uso (na raiz do projeto):  .venv\\Scripts\\python.exe tools\\gerar_lacunas_v2.py
+Saída: results/v2/pacote_escrita/00_controle/tabelas/L01_*.csv, L02_*.csv, L03_*.csv, L04_*.csv
+Uso (na raiz do projeto):  .venv\\Scripts\\python.exe tools\\gerar_lacunas_v2.py [L01 L02 L03 L04]
+(sem argumentos, gera todas)
 """
 from __future__ import annotations
 
@@ -31,8 +34,8 @@ NOMES = {'persistence': 'Persistência', 'mean': 'Média histórica', 'seasonal_
 DESC = {c: d for c, (_, _, d) in pv.CENARIOS.items()}
 
 
-def carregar(cond, modelos=None):
-    arqs = [a for a in sorted((V2 / 'm4' / cond).glob(f'm4_{cond}_*_by_window.csv')) if '.parcial' not in a.name]
+def carregar(cond, modelos=None, base='m4'):
+    arqs = [a for a in sorted((V2 / base / cond).glob(f'{base}_{cond}_*_by_window.csv')) if '.parcial' not in a.name]
     d = pd.concat([pd.read_csv(a) for a in arqs], ignore_index=True)
     return d[d.model.isin(modelos)] if modelos else d
 
@@ -54,6 +57,42 @@ def l01():
         lin['explosivas no cenário (n jan.)'] = int(pv.flag_explosiva(adv).sum())
         linhas.append(lin)
     return pd.DataFrame(linhas).set_index('cenário')
+
+
+def l02():
+    linhas = []
+    for base, rotulo in [('m4', 'M4'), ('tm', 'Tourism')]:
+        lb = carregar('limpo', ['svr'], base)
+        fb_base = 100 * lb.status.isin([pv.FB_SNAIVE, pv.FB_MEAN]).mean()
+        for c in pv.CENARIOS:
+            adv = carregar(c, ['svr'], base)
+            lin = {'base': rotulo, 'cenário': DESC[c]}
+            for nome, inc_fb, exc_exp in [('com fallback', True, False), ('sem fallback', False, False), ('sem explosivas', True, True)]:
+                b, a = pv.agregar_por_serie(lb, inc_fb, exc_exp), pv.agregar_por_serie(adv, inc_fb, exc_exp)
+                r = pv.tabela_delta(b, a).loc['svr']
+                lin[f'Δ% {nome}'] = r['delta_pct']
+                lin[f'Δp.p. {nome}'] = r['delta_pp']
+                lin[f'n séries ({nome})'] = int(r['n_series'])
+                if nome != 'sem explosivas':
+                    ic = pv.bootstrap_delta(b, a, ['svr'], n=2000)[0].loc['svr']
+                    assert abs(ic['delta_pct'] - r['delta_pct']) < 1e-9
+                    lin[f'IC Δ% {nome} inf'] = ic['ic_pct_inf']
+                    lin[f'IC Δ% {nome} sup'] = ic['ic_pct_sup']
+                    lin[f'IC inclui zero ({nome})'] = bool(ic['ic_inclui_zero'])
+            lin['fallback no cenário (% jan.)'] = 100 * adv.status.isin([pv.FB_SNAIVE, pv.FB_MEAN]).mean()
+            lin['fallback na linha de base (% jan.)'] = fb_base
+            lin['explosivas no cenário (n jan.)'] = int(pv.flag_explosiva(adv).sum())
+            linhas.append(lin)
+    t = pd.DataFrame(linhas).set_index(['base', 'cenário'])
+    # conferência: Δ% e IC com fallback iguais aos de <base>_adversos_delta_ic95.csv (mesmas séries e semente)
+    for base, rotulo in [('m4', 'M4'), ('tm', 'Tourism')]:
+        ref = pd.read_csv(V2 / base / 'adversos' / f'{base}_adversos_delta_ic95.csv').query("model == 'svr'")
+        ref = ref.assign(cen=ref.cenario.map(DESC)).set_index('cen')
+        sub = t.loc[rotulo]
+        for col, rcol in [('Δ% com fallback', 'delta_pct'), ('IC Δ% com fallback inf', 'ic_pct_inf'),
+                          ('IC Δ% com fallback sup', 'ic_pct_sup')]:
+            assert (sub[col] - ref.loc[sub.index, rcol]).abs().max() < 1e-9, (rotulo, col)
+    return t
 
 
 def m4_com_mase():
@@ -88,20 +127,28 @@ def l04(d):
     return pd.DataFrame(linhas)
 
 
-def main():
+def main(quais):
     SAIDA.mkdir(parents=True, exist_ok=True)
-    t1 = l01()
-    t1.to_csv(SAIDA / 'L01_m4_adversos_sarima_variantes.csv')
-    d = m4_com_mase()
-    t3 = l03(d)
-    t3.to_csv(SAIDA / 'L03_m4_desempenho_por_janela.csv', index=False)
-    t4 = l04(d)
-    t4.to_csv(SAIDA / 'L04_m4_distribuicao_por_serie.csv', index=False)
     pd.set_option('display.width', 250)
-    print(t1.round(2).to_string()); print()
-    print(t3.pivot(index='modelo', columns='janela', values=['posto MAPE', 'posto MASE']).to_string()); print()
-    print(f'L04: {len(t4)} linhas -> {SAIDA.relative_to(RAIZ)}')
+    if 'L01' in quais:
+        t1 = l01()
+        t1.to_csv(SAIDA / 'L01_m4_adversos_sarima_variantes.csv')
+        print(t1.round(2).to_string()); print()
+    if 'L02' in quais:
+        t2 = l02()
+        t2.to_csv(SAIDA / 'L02_adversos_svr_sem_fallback.csv')
+        print(t2.round(2).to_string()); print()
+    if 'L03' in quais or 'L04' in quais:
+        d = m4_com_mase()
+    if 'L03' in quais:
+        t3 = l03(d)
+        t3.to_csv(SAIDA / 'L03_m4_desempenho_por_janela.csv', index=False)
+        print(t3.pivot(index='modelo', columns='janela', values=['posto MAPE', 'posto MASE']).to_string()); print()
+    if 'L04' in quais:
+        t4 = l04(d)
+        t4.to_csv(SAIDA / 'L04_m4_distribuicao_por_serie.csv', index=False)
+        print(f'L04: {len(t4)} linhas -> {SAIDA.relative_to(RAIZ)}')
 
 
 if __name__ == '__main__':
-    main()
+    main([a.upper() for a in sys.argv[1:]] or ['L01', 'L02', 'L03', 'L04'])
