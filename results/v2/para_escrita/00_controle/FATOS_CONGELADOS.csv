@@ -114,7 +114,7 @@ M4L-19,M4L,M4: posto por janela de origem,"HW 1º, 1º, 4º; GB 2º, 2º, 1º; S
 M4A-01,M4A,M4: ICs do Δ% que incluem zero,66 de 81 (15 excluem zero),,results/v2/m4/adversos/m4_adversos_delta_ic95.csv,5.3.1; 5.3.6,confirmado,
 M4A-02,M4A,"M4: Holt-Winters, ruído 30%","+17,6% (+1,47 p.p.)","[+2,5; +37,7]",results/v2/m4/adversos/m4_adversos_delta_ic95.csv,Resumo; 5.3.2; 6.1,confirmado,"antigo ""+49,2 p.p."" era Δ% com teste perturbado (C2, C3)"
 M4A-03,M4A,"M4: Holt-Winters, outliers 2%","+13,1% (+1,09 p.p.)","[+2,5; +38,6]",results/v2/m4/adversos/m4_adversos_delta_ic95.csv,Resumo; 5.3.4; 6.1,confirmado,
-M4A-04,M4A,M4: outliers 5% por modelo,"SARIMA heur. +43,1%; HW +32,5%; GB +31,4%; RF +12,7%; SES +9,5%; SVR +8,0%","SARIMA [+13,6; +56,0]; HW [+15,1; +59,7]; GB [+14,8; +43,7]; RF [+3,2; +29,5]; SES [−1,9; +22,2]; SVR [−2,9; +22,5]",results/v2/m4/adversos/m4_adversos_delta_ic95.csv,5.3.4,confirmado,
+M4A-04,M4A,M4: outliers 5% por modelo,"SARIMA heur. +43,1%; HW +32,5%; GB +31,4%; RF +12,7%; SES +9,5%; SVR +8,0%","SARIMA [+13,6; +56,0]; HW [+15,1; +59,7]; GB [+14,7; +43,7]; RF [+3,2; +29,5]; SES [−1,9; +22,2]; SVR [−2,9; +22,5]",results/v2/m4/adversos/m4_adversos_delta_ic95.csv,5.3.4,confirmado,
 M4A-05,M4A,"M4: escore de robustez, ajustados","SES 3,0 < RF 3,6 < SVR 4,1 < GB 8,5 < HW 10,5 < SARIMA heur. 12,9",sem IC,results/v2/m4/adversos/m4_adversos_hierarquia_robustez.csv,5.3.6; 5.5; 6.1,confirmado,
 M4A-06,M4A,"M4: escore de robustez, triviais","Persistência 2,1 < Média histórica 6,3 < Sazonal ingênuo 7,7",sem IC,results/v2/m4/adversos/m4_adversos_hierarquia_robustez.csv,5.3.6,confirmado,
 M4A-07,M4A,M4: SES sob ruído,"−3,8% (10%) e +1,1% (30%)",,results/v2/m4/adversos/m4_adversos_delta_pct.csv,5.3.2,confirmado,
