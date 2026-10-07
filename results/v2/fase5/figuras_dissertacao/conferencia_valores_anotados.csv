@@ -1,0 +1,67 @@
+figura,valor anotado,antes,agora,idêntico
+15,"mediana Holt-Winters, Ruído σ = 30%",9.83,9.83,True
+15,"mediana Gradient Boosting, Ruído σ = 30%",10.13,10.13,True
+15,"mediana SES, Ruído σ = 30%",9.79,9.79,True
+15,"mediana SARIMA heurístico, Ruído σ = 30%",11.44,11.44,True
+15,"mediana Persistência, Ruído σ = 30%",11.04,11.04,True
+15,"mediana Random Forest, Ruído σ = 30%",10.42,10.42,True
+15,"mediana SVR, Ruído σ = 30%",11.95,11.95,True
+15,"mediana Sazonal ingênuo, Ruído σ = 30%",13.63,13.63,True
+15,"mediana Média histórica, Ruído σ = 30%",21.68,21.68,True
+15,"mediana Holt-Winters, Ausências 30%",9.34,9.34,True
+15,"mediana Gradient Boosting, Ausências 30%",9.53,9.53,True
+15,"mediana SES, Ausências 30%",9.99,9.99,True
+15,"mediana SARIMA heurístico, Ausências 30%",9.45,9.45,True
+15,"mediana Persistência, Ausências 30%",9.99,9.99,True
+15,"mediana Random Forest, Ausências 30%",10.52,10.52,True
+15,"mediana SVR, Ausências 30%",12.42,12.42,True
+15,"mediana Sazonal ingênuo, Ausências 30%",12.18,12.18,True
+15,"mediana Média histórica, Ausências 30%",21.79,21.79,True
+15,"mediana Holt-Winters, Outliers 5%",11.07,11.07,True
+15,"mediana Gradient Boosting, Outliers 5%",11.9,11.9,True
+15,"mediana SES, Outliers 5%",10.6,10.6,True
+15,"mediana SARIMA heurístico, Outliers 5%",13.91,13.91,True
+15,"mediana Persistência, Outliers 5%",9.87,9.87,True
+15,"mediana Random Forest, Outliers 5%",11.41,11.41,True
+15,"mediana SVR, Outliers 5%",12.45,12.45,True
+15,"mediana Sazonal ingênuo, Outliers 5%",14.04,14.04,True
+15,"mediana Média histórica, Outliers 5%",22.46,22.46,True
+15,"mediana Holt-Winters, Truncamento 25%",9.12,9.12,True
+15,"mediana Gradient Boosting, Truncamento 25%",9.22,9.22,True
+15,"mediana SES, Truncamento 25%",9.62,9.62,True
+15,"mediana SARIMA heurístico, Truncamento 25%",11.26,11.26,True
+15,"mediana Persistência, Truncamento 25%",9.75,9.75,True
+15,"mediana Random Forest, Truncamento 25%",10.12,10.12,True
+15,"mediana SVR, Truncamento 25%",11.35,11.35,True
+15,"mediana Sazonal ingênuo, Truncamento 25%",11.77,11.77,True
+15,"mediana Média histórica, Truncamento 25%",14.96,14.96,True
+20,r Random Forest,0.997,0.997,True
+20,r Gradient Boosting,0.996,0.996,True
+20,r SVR,0.993,0.993,True
+21,mediana Random Forest SHAP,0.584,0.584,True
+21,mediana Gradient Boosting SHAP,0.405,0.405,True
+21,mediana SVR SHAP,0.63,0.63,True
+21,mediana Random Forest LIME,0.514,0.514,True
+21,mediana Gradient Boosting LIME,0.446,0.446,True
+21,mediana SVR LIME,0.614,0.614,True
+CP MAE,p95 do MAE (eixo),1.94,1.94,True
+CP MAE,mediana Persistência,0.333,0.333,True
+CP MAE,mediana SVR,0.459,0.459,True
+CP MAE,mediana Random Forest,0.5,0.5,True
+CP MAE,mediana SES,0.536,0.536,True
+CP MAE,mediana Gradient Boosting,0.556,0.556,True
+CP MAE,mediana Sazonal ingênuo,0.556,0.556,True
+CP MAE,mediana Média histórica,0.576,0.576,True
+CP MAE,mediana SARIMA heurístico,0.611,0.611,True
+CP MAE,mediana SARIMA automático,0.65,0.65,True
+CP MAE,mediana Holt-Winters,0.741,0.741,True
+CP MAPE,mediana Persistência,100.0,100.0,True
+CP MAPE,mediana SVR,84.3,84.3,True
+CP MAPE,mediana Random Forest,79.3,79.3,True
+CP MAPE,mediana SES,75.8,75.8,True
+CP MAPE,mediana Gradient Boosting,88.3,88.3,True
+CP MAPE,mediana Sazonal ingênuo,100.0,100.0,True
+CP MAPE,mediana Média histórica,78.2,78.2,True
+CP MAPE,mediana SARIMA heurístico,100.0,100.0,True
+CP MAPE,mediana SARIMA automático,100.0,100.0,True
+CP MAPE,mediana Holt-Winters,90.4,90.4,True

@@ -1,0 +1,24 @@
+# Figuras corrigidas (só apresentação): o que mudou
+
+Gerado por `tools/figuras_apresentacao_v2.py` em 2026-10-07. Nenhum dado, cálculo, amostra ou semente mudou: os valores vêm dos CSVs congelados em `fase5/figuras/*_dados.csv` (e, para os boxplots por série da Fig. 15 e do Car Parts, dos caches by_window com a mesma agregação da Fase 5). Os 66 valores anotados nas figuras foram conferidos contra os de antes e são idênticos (`conferencia_valores_anotados.csv`).
+
+Regras aplicadas a todas: Arial, mesmos tamanhos de fonte das Figs. 8 e 9; vírgula decimal, ponto de milhar e sinal de menos tipográfico (−); sem título interno e sem "v2"; cores por família iguais às das Figs. 8 e 9 (suavização exponencial azul, ARIMA laranja, aprendizado de máquina verde, baseline cinza); 300 dpi, 15 cm de largura; mesmos nomes de arquivo de `fase5/figuras/` (os originais lá não foram alterados).
+
+| Figura (numeração atual) | Arquivo | O que mudou |
+|---|---|---|
+| 15 | `fig15_v2_m4_mape_cenarios.png` | título interno removido; painéis 2 × 2 com espaçamento refeito; boxplots horizontais por família com legenda de família; medianas com vírgula |
+| 16 | `fig16_v2_m4_perfil_robustez.png` | eixo y "Δ% do MAPE"; título interno removido; linhas na cor da família (marcador distingue modelos da mesma família; baselines tracejados); legenda abaixo dos painéis |
+| 17 | `fig17_v2_m4_top10_shap.png` | margem esquerda maior (rótulos do eixo y não encostam nos painéis); título interno removido; barras em verde (aprendizado de máquina), lag_12 em verde escuro com legenda |
+| 19 | `fig19_v2_m4_top10_lime.png` | mesmas mudanças da Fig. 17 |
+| 20 | `fig20_v2_m4_shap_x_lime.png` | título interno ("30 pontos") removido; anotação "15 características" em cada painel; r com vírgula; só lag_1 e roll_mean_3 rotulados (os demais rótulos se sobrepunham); lag_12 pela cor, com legenda |
+| 21 | `fig21_v2_m4_estabilidade.png` | vírgula decimal; título com "v2" removido; boxplots horizontais em verde |
+| 22 | `fig22_v2_m4_shap_limpo_x_ruido.png` | vírgula decimal; título com "v2" removido; "sem ruído" em cinza e "ruído σ = 30%" em verde |
+| Car Parts, MAE (atual Fig. 23) | `fig24_v2_cp_mae.png` | cores por família corrigidas (aprendizado de máquina passa de roxo a verde), legenda de família; "p95 (1,94)"; boxplots horizontais |
+| Car Parts, MAPE | `fig23_v2_cp_mape.png` | cores por família e legenda; eixo truncado no p95 (116,0%) e indicado no rótulo, porque o MAPE por série do SARIMA automático passa de 100.000% e achatava todas as caixas (truncamento só visual) |
+
+## Pontos para conferir na dissertação (não alterados aqui)
+
+- **Fig. 19:** a legenda atual diz "CV médio da importância SHAP entre as 30 séries", mas a imagem é o top-10 do LIME. Legenda e imagem não correspondem.
+- **Fig. 20:** a legenda atual traz os r antigos (0,959; 0,952; 0,908); a figura mostra os do v2 (0,997; 0,996; 0,993).
+- **Boxplot do MAPE no Car Parts:** não tem legenda no `.docx` atual.
+- As Figs. 10, 11, 13, 14 e 18 não estavam na lista e continuam com ponto decimal e/ou "v2" no título interno.
