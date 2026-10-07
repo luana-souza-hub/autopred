@@ -365,7 +365,7 @@ def car_parts():
 
 
 # ── .docx: figura seguida da legenda atual ──────────────────────────────────
-def montar_docx(itens, arq):
+def montar_docx(itens, arq, extra=""):
     corpo, rels = [], []
     for i, (png, leg) in enumerate(itens):
         rid = f'rIdImg{i + 1}'
@@ -380,7 +380,7 @@ def montar_docx(itens, arq):
            'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" '
            'xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" '
            'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" '
-           'xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><w:body>' + ''.join(corpo) +
+           'xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><w:body>' + ''.join(corpo) + extra +
            '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/>'
            '<w:pgMar w:top="1701" w:right="1134" w:bottom="1134" w:left="1701" w:header="709" w:footer="709" w:gutter="0"/>'
            '</w:sectPr></w:body></w:document>')

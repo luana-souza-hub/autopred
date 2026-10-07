@@ -1,0 +1,185 @@
+figura,valor,antes,agora,idêntico
+10,MAPE Persistência (cache da janela x figura),13.7,13.7,True
+10,MAPE Média histórica (cache da janela x figura),53.5,53.5,True
+10,MAPE Sazonal ingênuo (cache da janela x figura),18.3,18.3,True
+10,MAPE Holt-Winters (cache da janela x figura),15.3,15.3,True
+11,"mediana da redução relativa, Persistência",8.15,8.15,True
+11,"mediana da redução relativa, Sazonal ingênuo",17.55,17.55,True
+11,"mediana da redução relativa, Média histórica",55.42,55.42,True
+13,Persistência × Ruído σ = 10%,0.1,0.1,True
+13,Persistência × Ruído σ = 30%,13.3,13.3,True
+13,Persistência × Ausências 10%,0.0,0.0,True
+13,Persistência × Ausências 20%,1.2,1.2,True
+13,Persistência × Ausências 30%,2.5,2.5,True
+13,Persistência × Outliers 2%,0.5,0.5,True
+13,Persistência × Outliers 5%,1.2,1.2,True
+13,Persistência × Truncamento 50%,0.0,0.0,True
+13,Persistência × Truncamento 25%,0.0,0.0,True
+13,Média histórica × Ruído σ = 10%,-0.4,-0.4,True
+13,Média histórica × Ruído σ = 30%,-0.6,-0.6,True
+13,Média histórica × Ausências 10%,-0.7,-0.7,True
+13,Média histórica × Ausências 20%,-0.7,-0.7,True
+13,Média histórica × Ausências 30%,-0.1,-0.1,True
+13,Média histórica × Outliers 2%,0.2,0.2,True
+13,Média histórica × Outliers 5%,2.9,2.9,True
+13,Média histórica × Truncamento 50%,-19.8,-19.8,True
+13,Média histórica × Truncamento 25%,-31.5,-31.5,True
+13,Sazonal ingênuo × Ruído σ = 10%,4.5,4.5,True
+13,Sazonal ingênuo × Ruído σ = 30%,15.8,15.8,True
+13,Sazonal ingênuo × Ausências 10%,0.9,0.9,True
+13,Sazonal ingênuo × Ausências 20%,1.4,1.4,True
+13,Sazonal ingênuo × Ausências 30%,3.5,3.5,True
+13,Sazonal ingênuo × Outliers 2%,24.0,24.0,True
+13,Sazonal ingênuo × Outliers 5%,19.3,19.3,True
+13,Sazonal ingênuo × Truncamento 50%,0.0,0.0,True
+13,Sazonal ingênuo × Truncamento 25%,0.0,0.0,True
+13,SES × Ruído σ = 10%,-3.8,-3.8,True
+13,SES × Ruído σ = 30%,1.1,1.1,True
+13,SES × Ausências 10%,0.0,0.0,True
+13,SES × Ausências 20%,1.9,1.9,True
+13,SES × Ausências 30%,3.2,3.2,True
+13,SES × Outliers 2%,6.6,6.6,True
+13,SES × Outliers 5%,9.5,9.5,True
+13,SES × Truncamento 50%,-0.2,-0.2,True
+13,SES × Truncamento 25%,-0.6,-0.6,True
+13,Holt-Winters × Ruído σ = 10%,-1.3,-1.3,True
+13,Holt-Winters × Ruído σ = 30%,17.6,17.6,True
+13,Holt-Winters × Ausências 10%,-0.3,-0.3,True
+13,Holt-Winters × Ausências 20%,4.7,4.7,True
+13,Holt-Winters × Ausências 30%,11.8,11.8,True
+13,Holt-Winters × Outliers 2%,13.1,13.1,True
+13,Holt-Winters × Outliers 5%,32.5,32.5,True
+13,Holt-Winters × Truncamento 50%,4.2,4.2,True
+13,Holt-Winters × Truncamento 25%,9.1,9.1,True
+13,SARIMA heurístico × Ruído σ = 10%,2.6,2.6,True
+13,SARIMA heurístico × Ruído σ = 30%,17.8,17.8,True
+13,SARIMA heurístico × Ausências 10%,4.7,4.7,True
+13,SARIMA heurístico × Ausências 20%,1.8,1.8,True
+13,SARIMA heurístico × Ausências 30%,-2.7,-2.7,True
+13,SARIMA heurístico × Outliers 2%,19.0,19.0,True
+13,SARIMA heurístico × Outliers 5%,43.1,43.1,True
+13,SARIMA heurístico × Truncamento 50%,8.1,8.1,True
+13,SARIMA heurístico × Truncamento 25%,15.9,15.9,True
+13,Random Forest × Ruído σ = 10%,1.0,1.0,True
+13,Random Forest × Ruído σ = 30%,2.9,2.9,True
+13,Random Forest × Ausências 10%,-6.4,-6.4,True
+13,Random Forest × Ausências 20%,2.2,2.2,True
+13,Random Forest × Ausências 30%,3.9,3.9,True
+13,Random Forest × Outliers 2%,2.1,2.1,True
+13,Random Forest × Outliers 5%,12.7,12.7,True
+13,Random Forest × Truncamento 50%,0.9,0.9,True
+13,Random Forest × Truncamento 25%,-0.1,-0.1,True
+13,Gradient Boosting × Ruído σ = 10%,1.6,1.6,True
+13,Gradient Boosting × Ruído σ = 30%,11.9,11.9,True
+13,Gradient Boosting × Ausências 10%,0.6,0.6,True
+13,Gradient Boosting × Ausências 20%,1.8,1.8,True
+13,Gradient Boosting × Ausências 30%,5.2,5.2,True
+13,Gradient Boosting × Outliers 2%,15.1,15.1,True
+13,Gradient Boosting × Outliers 5%,31.4,31.4,True
+13,Gradient Boosting × Truncamento 50%,7.5,7.5,True
+13,Gradient Boosting × Truncamento 25%,1.8,1.8,True
+13,SVR × Ruído σ = 10%,-0.4,-0.4,True
+13,SVR × Ruído σ = 30%,3.7,3.7,True
+13,SVR × Ausências 10%,1.3,1.3,True
+13,SVR × Ausências 20%,-4.5,-4.5,True
+13,SVR × Ausências 30%,7.8,7.8,True
+13,SVR × Outliers 2%,8.4,8.4,True
+13,SVR × Outliers 5%,8.0,8.0,True
+13,SVR × Truncamento 50%,-1.7,-1.7,True
+13,SVR × Truncamento 25%,-1.5,-1.5,True
+14,Persistência × limpo,1.0,1.0,True
+14,Persistência × A_ruido_10pct,1.0,1.0,True
+14,Persistência × A_ruido_30pct,1.0,1.0,True
+14,Persistência × B_ausencias_10pct,1.0,1.0,True
+14,Persistência × B_ausencias_20pct,1.0,1.0,True
+14,Persistência × B_ausencias_30pct,1.0,1.0,True
+14,Persistência × C_outliers_2pct,1.0,1.0,True
+14,Persistência × C_outliers_5pct,1.0,1.0,True
+14,Persistência × D_trunca_50pct,1.0,1.0,True
+14,Persistência × D_trunca_25pct,1.0,1.0,True
+14,Média histórica × limpo,1.0,1.0,True
+14,Média histórica × A_ruido_10pct,1.0,1.0,True
+14,Média histórica × A_ruido_30pct,1.0,1.0,True
+14,Média histórica × B_ausencias_10pct,1.0,1.0,True
+14,Média histórica × B_ausencias_20pct,1.0,1.0,True
+14,Média histórica × B_ausencias_30pct,1.0,1.0,True
+14,Média histórica × C_outliers_2pct,1.0,1.0,True
+14,Média histórica × C_outliers_5pct,1.0,1.0,True
+14,Média histórica × D_trunca_50pct,1.0,1.0,True
+14,Média histórica × D_trunca_25pct,1.0,1.0,True
+14,Sazonal ingênuo × limpo,1.0,1.0,True
+14,Sazonal ingênuo × A_ruido_10pct,1.0,1.0,True
+14,Sazonal ingênuo × A_ruido_30pct,1.0,1.0,True
+14,Sazonal ingênuo × B_ausencias_10pct,1.0,1.0,True
+14,Sazonal ingênuo × B_ausencias_20pct,1.0,1.0,True
+14,Sazonal ingênuo × B_ausencias_30pct,1.0,1.0,True
+14,Sazonal ingênuo × C_outliers_2pct,1.0,1.0,True
+14,Sazonal ingênuo × C_outliers_5pct,1.0,1.0,True
+14,Sazonal ingênuo × D_trunca_50pct,1.0,1.0,True
+14,Sazonal ingênuo × D_trunca_25pct,1.0,1.0,True
+14,SES × limpo,1.0,1.0,True
+14,SES × A_ruido_10pct,1.0,1.0,True
+14,SES × A_ruido_30pct,1.0,1.0,True
+14,SES × B_ausencias_10pct,1.0,1.0,True
+14,SES × B_ausencias_20pct,1.0,1.0,True
+14,SES × B_ausencias_30pct,1.0,1.0,True
+14,SES × C_outliers_2pct,1.0,1.0,True
+14,SES × C_outliers_5pct,1.0,1.0,True
+14,SES × D_trunca_50pct,1.0,1.0,True
+14,SES × D_trunca_25pct,1.0,1.0,True
+14,Holt-Winters × limpo,1.0,1.0,True
+14,Holt-Winters × A_ruido_10pct,1.0,1.0,True
+14,Holt-Winters × A_ruido_30pct,1.0,1.0,True
+14,Holt-Winters × B_ausencias_10pct,1.0,1.0,True
+14,Holt-Winters × B_ausencias_20pct,1.0,1.0,True
+14,Holt-Winters × B_ausencias_30pct,1.0,1.0,True
+14,Holt-Winters × C_outliers_2pct,1.0,1.0,True
+14,Holt-Winters × C_outliers_5pct,1.0,1.0,True
+14,Holt-Winters × D_trunca_50pct,1.0,1.0,True
+14,Holt-Winters × D_trunca_25pct,1.0,1.0,True
+14,SARIMA heurístico × limpo,0.67,0.67,True
+14,SARIMA heurístico × A_ruido_10pct,0.67,0.67,True
+14,SARIMA heurístico × A_ruido_30pct,0.67,0.67,True
+14,SARIMA heurístico × B_ausencias_10pct,0.67,0.67,True
+14,SARIMA heurístico × B_ausencias_20pct,0.67,0.67,True
+14,SARIMA heurístico × B_ausencias_30pct,0.67,0.67,True
+14,SARIMA heurístico × C_outliers_2pct,0.67,0.67,True
+14,SARIMA heurístico × C_outliers_5pct,0.67,0.67,True
+14,SARIMA heurístico × D_trunca_50pct,0.48,0.48,True
+14,SARIMA heurístico × D_trunca_25pct,0.34,0.34,True
+14,Random Forest × limpo,1.0,1.0,True
+14,Random Forest × A_ruido_10pct,1.0,1.0,True
+14,Random Forest × A_ruido_30pct,1.0,1.0,True
+14,Random Forest × B_ausencias_10pct,1.0,1.0,True
+14,Random Forest × B_ausencias_20pct,1.0,1.0,True
+14,Random Forest × B_ausencias_30pct,1.0,1.0,True
+14,Random Forest × C_outliers_2pct,1.0,1.0,True
+14,Random Forest × C_outliers_5pct,1.0,1.0,True
+14,Random Forest × D_trunca_50pct,1.0,1.0,True
+14,Random Forest × D_trunca_25pct,1.0,1.0,True
+14,Gradient Boosting × limpo,1.0,1.0,True
+14,Gradient Boosting × A_ruido_10pct,1.0,1.0,True
+14,Gradient Boosting × A_ruido_30pct,1.0,1.0,True
+14,Gradient Boosting × B_ausencias_10pct,1.0,1.0,True
+14,Gradient Boosting × B_ausencias_20pct,1.0,1.0,True
+14,Gradient Boosting × B_ausencias_30pct,1.0,1.0,True
+14,Gradient Boosting × C_outliers_2pct,1.0,1.0,True
+14,Gradient Boosting × C_outliers_5pct,1.0,1.0,True
+14,Gradient Boosting × D_trunca_50pct,1.0,1.0,True
+14,Gradient Boosting × D_trunca_25pct,1.0,1.0,True
+14,SVR × limpo,0.99,0.99,True
+14,SVR × A_ruido_10pct,1.0,1.0,True
+14,SVR × A_ruido_30pct,1.0,1.0,True
+14,SVR × B_ausencias_10pct,0.99,0.99,True
+14,SVR × B_ausencias_20pct,0.99,0.99,True
+14,SVR × B_ausencias_30pct,0.99,0.99,True
+14,SVR × C_outliers_2pct,1.0,1.0,True
+14,SVR × C_outliers_5pct,0.99,0.99,True
+14,SVR × D_trunca_50pct,0.99,0.99,True
+14,SVR × D_trunca_25pct,0.99,0.99,True
+24,MAE RF T2566,0.927,0.927,True
+24,MAPE RF T2566,36.8,36.8,True
+24,zeros (%) T2566,29.4,29.4,True
+24,MAE RF T2419,2.284,2.284,True
+24,MAPE RF T2419,70.8,70.8,True
+24,zeros (%) T2419,82.4,82.4,True
