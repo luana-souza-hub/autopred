@@ -1,0 +1,24 @@
+item,texto,calculado,bate
+mediana MAPE Persistência,"9,75","9,75",True
+mediana MAPE Média histórica,"21,82","21,82",True
+mediana MAPE Sazonal ingênuo,"11,77","11,77",True
+mediana MAPE Holt-Winters,"8,36","8,36",True
+máximo MAPE Sazonal ingênuo,"165,11","165,11",True
+máximo MAPE Média histórica,"335,47","335,47",True
+Q1 MAPE Média histórica,"11,80","11,80",True
+Q3 MAPE Média histórica,"43,08","43,08",True
+mediana MAE Média histórica,"831,59","831,59",True
+mediana MAE Holt-Winters,"325,29","325,29",True
+máximo MAPE SARIMA automático,"184,31","184,31",True
+"máximos de MAPE dos 4 modelos dentro de [165,11; 335,47]","165,11 a 335,47","Holt-Winters 189,22; Persistência 224,50; Sazonal ingênuo 165,11; Média histórica 335,47",True
+máximo MAPE SARIMA automático sem explosivas,"130,97","130,97",True
+séries com MAPE > 100%: Persistência,2,2,True
+séries com MAPE > 100%: SES,2,2,True
+séries com MAPE > 100%: Sazonal ingênuo,2,2,True
+séries com MAPE > 100%: Holt-Winters,3,3,True
+séries com MAPE > 100%: Random Forest,3,3,True
+séries com MAPE > 100%: Gradient Boosting,3,3,True
+séries com MAPE > 100%: SVR,3,3,True
+séries com MAPE > 100%: SARIMA automático,5,5,True
+séries com MAPE > 100%: SARIMA heurístico,6,6,True
+séries com MAPE > 100%: Média histórica,7,7,True
