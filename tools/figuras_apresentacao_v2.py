@@ -54,6 +54,7 @@ LEGENDAS = {
     22: 'Figura 22 – Importância SHAP normalizada média, sem e com ruído de 30%, por modelo (M4 mensal, 30 séries)',
     'cp_mae': 'Figura 23 – Car Parts, distribuição do MAE por série e por modelo, ordenada pelo MAE mediano (eixo truncado no percentil 95)',
     'cp_mape': '(boxplot do MAPE no Car Parts: sem legenda no .docx atual)',
+    25: '(Figura 25, Tourism: sem legenda própria no .docx atual; a legenda numerada 25 no .docx é a dos exemplos do Car Parts)',
 }
 CONF = []   # (figura, item, antes, agora)
 
@@ -289,6 +290,48 @@ def fig22():
     return salvar(fig, 'fig22_v2_m4_shap_limpo_x_ruido.png')
 
 
+# ── Fig. 25 (Tourism): redistribuição sob ruído ─────────────────────────────
+FEATS25 = ['lag_1', 'roll_mean_3', 'roll_mean_6', 'lag_12']   # mesma ordem da figura anterior (nb09v2.py)
+
+
+def fig25():
+    """Mesmo conteúdo de tm/xai/fig_v2_tm_redistribuicao_ruido.png (nb09v2.py, Fase 4c): médias entre séries da
+    importância normalizada, sem ruído e com ruído σ = 30%, lidas de tm/xai/xai_tm_redistribuicao_ruido.csv.
+    As alturas desenhadas são conferidas contra o CSV e contra as importâncias recalculadas dos caches de pontos."""
+    red = pd.read_csv(V2 / 'tm' / 'xai' / 'xai_tm_redistribuicao_ruido.csv')
+    fn = pv.feature_names()
+    imp = pd.concat([pv.normalizar_por_serie(pv.importancia_por_serie(
+        pd.read_csv(V2 / 'tm' / 'xai' / f'xai_tm_{c}_pontos.csv'), fn), fn) for c in ['limpo', 'ruido30']])
+    fig, axs = plt.subplots(2, 3, figsize=(LARG, 4.6), sharey=True)
+    x = np.arange(len(FEATS25))
+    for i, met in enumerate(['shap', 'lime']):
+        for j, m in enumerate(XAI):
+            ax = axs[i, j]
+            s = red[(red.modelo == m) & (red.metodo == met)].set_index('feature').loc[FEATS25]
+            b0 = ax.bar(x - 0.2, s.limpo, 0.4, color='#BBBBBB', edgecolor='black', linewidth=0.3, label='sem ruído')
+            b1 = ax.bar(x + 0.2, s.ruido30, 0.4, color=VERDE, alpha=0.85, edgecolor='black', linewidth=0.3, label='ruído σ = 30%')
+            for cond, barras in [('limpo', b0), ('ruido30', b1)]:
+                rec = imp[(imp.modelo == m) & (imp.metodo == met) & (imp.condicao == cond)][FEATS25].mean()
+                for f, br_ in zip(FEATS25, barras):
+                    CONF.append(('25', f'{XAI[m]} {met.upper()} {f} {"sem ruído" if cond == "limpo" else "ruído"}',
+                                 float(s.loc[f, cond]), round(float(br_.get_height()), 3)))
+                    assert round(float(rec[f]), 3) == float(s.loc[f, cond]), (m, met, f, cond)
+            ax.set_title(f'{XAI[m]}, {met.upper()}', pad=3)
+            ax.set_xticks(x)
+            ax.set_xticklabels(FEATS25, rotation=30, ha='right', fontsize=7)
+            ax.yaxis.set_major_formatter(fmt_eixo())
+            ax.grid(axis='y', alpha=0.3, lw=0.4)
+            ax.set_axisbelow(True)
+        axs[i, 0].set_ylabel(f'{met.upper()} normalizado')
+    fig.tight_layout(rect=(0, 0.06, 1, 1), h_pad=1.0, w_pad=0.8)
+    h, lab = axs[0, 0].get_legend_handles_labels()
+    fig.legend(h, lab, loc='lower center', bbox_to_anchor=(0.5, 0.0), ncol=2, frameon=False)
+    arq = salvar(fig, 'fig_v2_tm_redistribuicao_ruido.png')
+    copia = SAIDA / 'fig25_v2_tm_redistribuicao_ruido.png'
+    copia.write_bytes(arq.read_bytes())
+    return copia
+
+
 # ── Car Parts: boxplots de MAE e MAPE ───────────────────────────────────────
 def car_parts():
     mods = list(pv.MODELOS)
@@ -369,9 +412,10 @@ def main():
     f18 = fig18()
     f19 = top10('fig19_v2_m4_top10_lime_dados.csv', 'fig19_v2_m4_top10_lime.png', 'LIME')
     f20, f21, f22 = fig20(), fig21(), fig22()
+    f25 = fig25()
     cp_mae, cp_mape = car_parts()
     itens = [(f15, LEGENDAS[15]), (f16, LEGENDAS[16]), (f17, LEGENDAS[17]), (f18, LEGENDAS[18]), (f19, LEGENDAS[19]), (f20, LEGENDAS[20]),
-             (f21, LEGENDAS[21]), (f22, LEGENDAS[22]), (cp_mae, LEGENDAS['cp_mae']), (cp_mape, LEGENDAS['cp_mape'])]
+             (f21, LEGENDAS[21]), (f22, LEGENDAS[22]), (f25, LEGENDAS[25]), (cp_mae, LEGENDAS['cp_mae']), (cp_mape, LEGENDAS['cp_mape'])]
     montar_docx(itens, SAIDA / 'figuras_dissertacao.docx')
     conf = pd.DataFrame(CONF, columns=['figura', 'valor anotado', 'antes', 'agora'])
     conf['idêntico'] = conf['antes'] == conf['agora']
