@@ -1,6 +1,6 @@
 # Figuras corrigidas (só apresentação): o que mudou
 
-Gerado por `tools/figuras_apresentacao_v2.py` em 2026-10-07. Nenhum dado, cálculo, amostra ou semente mudou: os valores vêm dos CSVs congelados em `fase5/figuras/*_dados.csv` (e, para os boxplots por série da Fig. 15 e do Car Parts, dos caches by_window com a mesma agregação da Fase 5). Os 66 valores anotados nas figuras foram conferidos contra os de antes e são idênticos (`conferencia_valores_anotados.csv`).
+Gerado por `tools/figuras_apresentacao_v2.py` em 2026-10-07. Nenhum dado, cálculo, amostra ou semente mudou: os valores vêm dos CSVs congelados em `fase5/figuras/*_dados.csv` (e, para os boxplots por série da Fig. 15 e do Car Parts, dos caches by_window com a mesma agregação da Fase 5). Os valores anotados nas figuras (78, com a Fig. 18) foram conferidos contra os de antes e são idênticos (`conferencia_valores_anotados.csv`).
 
 Regras aplicadas a todas: Arial, mesmos tamanhos de fonte das Figs. 8 e 9; vírgula decimal, ponto de milhar e sinal de menos tipográfico (−); sem título interno e sem "v2"; cores por família iguais às das Figs. 8 e 9 (suavização exponencial azul, ARIMA laranja, aprendizado de máquina verde, baseline cinza); 300 dpi, 15 cm de largura; mesmos nomes de arquivo de `fase5/figuras/` (os originais lá não foram alterados).
 
@@ -9,6 +9,7 @@ Regras aplicadas a todas: Arial, mesmos tamanhos de fonte das Figs. 8 e 9; vírg
 | 15 | `fig15_v2_m4_mape_cenarios.png` | título interno removido; painéis 2 × 2 com espaçamento refeito; boxplots horizontais por família com legenda de família; medianas com vírgula |
 | 16 | `fig16_v2_m4_perfil_robustez.png` | eixo y "Δ% do MAPE"; título interno removido; linhas na cor da família (marcador distingue modelos da mesma família; baselines tracejados); legenda abaixo dos painéis |
 | 17 | `fig17_v2_m4_top10_shap.png` | margem esquerda maior (rótulos do eixo y não encostam nos painéis); título interno removido; barras em verde (aprendizado de máquina), lag_12 em verde escuro com legenda |
+| 18 | `fig18_v2_m4_variabilidade_shap.png` | refeita (2026-10-07): boxplots da importância SHAP normalizada por série das 8 características mais importantes de cada modelo, um painel por modelo com eixo y próprio; CV médio normalizado (15 características) no título de cada painel (1,21 / 1,02 / 0,70; o do GB é 1,01505, que arredonda para 1,02); verde (aprendizado de máquina), lag_12 em verde escuro; sem título interno e sem "v2". Valores conferidos: CV igual a `fase5/reanalise_cv_q1_m4.csv` e médias iguais às da Fig. 17 |
 | 19 | `fig19_v2_m4_top10_lime.png` | mesmas mudanças da Fig. 17 |
 | 20 | `fig20_v2_m4_shap_x_lime.png` | título interno ("30 pontos") removido; anotação "15 características" em cada painel; r com vírgula; só lag_1 e roll_mean_3 rotulados (os demais rótulos se sobrepunham); lag_12 pela cor, com legenda |
 | 21 | `fig21_v2_m4_estabilidade.png` | vírgula decimal; título com "v2" removido; boxplots horizontais em verde |

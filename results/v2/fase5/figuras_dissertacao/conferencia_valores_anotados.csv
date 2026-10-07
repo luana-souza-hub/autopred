@@ -35,6 +35,18 @@ figura,valor anotado,antes,agora,idêntico
 15,"mediana SVR, Truncamento 25%",11.35,11.35,True
 15,"mediana Sazonal ingênuo, Truncamento 25%",11.77,11.77,True
 15,"mediana Média histórica, Truncamento 25%",14.96,14.96,True
+18,CV médio Random Forest,1.211,1.211,True
+18,média lag_1 Random Forest (= Fig. 17),0.3608,0.3608,True
+18,média roll_mean_3 Random Forest (= Fig. 17),0.1234,0.1234,True
+18,média lag_12 Random Forest (= Fig. 17),0.0945,0.0945,True
+18,CV médio Gradient Boosting,1.015,1.015,True
+18,média lag_1 Gradient Boosting (= Fig. 17),0.3297,0.3297,True
+18,média roll_mean_3 Gradient Boosting (= Fig. 17),0.1152,0.1152,True
+18,média lag_12 Gradient Boosting (= Fig. 17),0.1031,0.1031,True
+18,CV médio SVR,0.7,0.7,True
+18,média lag_1 SVR (= Fig. 17),0.1977,0.1977,True
+18,média roll_mean_3 SVR (= Fig. 17),0.1226,0.1226,True
+18,média lag_2 SVR (= Fig. 17),0.0951,0.0951,True
 20,r Random Forest,0.997,0.997,True
 20,r Gradient Boosting,0.996,0.996,True
 20,r SVR,0.993,0.993,True

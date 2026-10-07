@@ -47,6 +47,7 @@ LEGENDAS = {
     15: 'Figura 15 – MAPE por série no nível mais forte de cada tipo de cenário (M4 mensal, 200 séries; MAPE truncado em 150% para visualização; teste limpo)',
     16: 'Figura 16 – Perfil de robustez: Δ% do MAPE por intensidade da perturbação (M4 mensal, 200 séries)',
     17: 'Figura 17 – Top-10 da importância global por SHAP, por modelo (M4 mensal, 30 séries)',
+    18: 'Figura 18 – Variabilidade da importância SHAP entre as 30 séries (M4 mensal)',
     19: 'Figura 19 – CV médio da importância SHAP entre as 30 séries (M4 mensal)',
     20: 'Figura 20 – Coerência entre importâncias SHAP e LIME normalizadas por característica, para Random Forest (r=0,959), Gradient Boosting (r=0,952) e SVR (r=0,908)',
     21: 'Figura 21 – Spearman por série entre importâncias limpas e com ruído, por modelo e método (M4 mensal, 30 séries)',
@@ -153,6 +154,50 @@ def top10(arq_dados, nome, metodo):
                         Patch(facecolor=VERDE, alpha=0.85, edgecolor='black', linewidth=0.4, label='demais características')],
                loc='lower center', bbox_to_anchor=(0.5, 0.0), ncol=2, frameon=False)
     return salvar(fig, nome)
+
+
+# ── Fig. 18 ─────────────────────────────────────────────────────────────────
+def fig18():
+    """Importância SHAP normalizada por série (soma 1), condição limpa, 30 séries: mesma agregação da Fase 5
+    (pv.importancia_por_serie + pv.normalizar_por_serie sobre m4/xai/xai_m4_limpo_pontos.csv). Top-8 pela média
+    entre séries; CV médio normalizado (15 características) lido de fase5/reanalise_cv_q1_m4.csv."""
+    fn = pv.feature_names()
+    pts = pd.read_csv(V2 / 'm4' / 'xai' / 'xai_m4_limpo_pontos.csv')
+    imp = pv.normalizar_por_serie(pv.importancia_por_serie(pts, fn), fn)
+    imp = imp[imp.metodo == 'shap']
+    cv = pd.read_csv(V2 / 'fase5' / 'reanalise_cv_q1_m4.csv').query("metodo == 'shap' and escala == 'normalizada por série'") \
+        .set_index('modelo')['CV médio (15 features)']
+    top17 = ler('fig17_v2_m4_top10_shap_dados.csv').set_index(['modelo', 'feature'])['importancia']
+    fig, axs = plt.subplots(1, 3, figsize=(LARG, 3.4))
+    for ax, m in zip(axs, XAI):
+        X = imp[imp.modelo == m][fn]
+        assert len(X) == 30
+        mu = X.mean()
+        top8 = list(mu.sort_values(ascending=False).index[:8])
+        cv_calc = float(np.nanmean(X.std(ddof=1) / mu))   # conferência do CV congelado
+        CONF.append(('18', f'CV médio {XAI[m]}', round(float(cv[m]), 3), round(cv_calc, 3)))
+        for f in top8[:3]:
+            CONF.append(('18', f'média {f} {XAI[m]} (= Fig. 17)', round(float(top17[(m, f)]), 4), round(float(mu[f]), 4)))
+        bp = ax.boxplot([X[f].values for f in top8], widths=0.55, patch_artist=True,
+                        medianprops={'color': 'black', 'linewidth': 1.2}, whiskerprops={'linewidth': 0.8},
+                        capprops={'linewidth': 0.8},
+                        flierprops={'marker': 'o', 'markersize': 2.2, 'markerfacecolor': VERDE, 'markeredgecolor': VERDE})
+        for caixa, f in zip(bp['boxes'], top8):
+            caixa.set(facecolor=VERDE_ESC if f == 'lag_12' else VERDE, alpha=0.55 if f != 'lag_12' else 0.8,
+                      edgecolor='black', linewidth=0.7)
+        ax.set_xticks(range(1, 9))
+        ax.set_xticklabels(top8, rotation=45, ha='right', fontsize=7)
+        ax.set_title(f'{XAI[m]}\nCV médio = {br(cv_calc, 2)}', pad=4)   # valor sem arredondar (o CSV guarda 3 casas)
+        ax.yaxis.set_major_formatter(fmt_eixo())
+        ax.set_ylim(bottom=0)
+        ax.grid(axis='y', alpha=0.3, lw=0.4)
+        ax.set_axisbelow(True)
+    axs[0].set_ylabel('SHAP normalizado por série')
+    fig.tight_layout(rect=(0, 0.07, 1, 1), w_pad=1.4)
+    fig.legend(handles=[Patch(facecolor=VERDE_ESC, alpha=0.8, edgecolor='black', linewidth=0.7, label='lag_12 (lag sazonal)'),
+                        Patch(facecolor=VERDE, alpha=0.55, edgecolor='black', linewidth=0.7, label='demais características')],
+               loc='lower center', bbox_to_anchor=(0.5, 0.0), ncol=2, frameon=False)
+    return salvar(fig, 'fig18_v2_m4_variabilidade_shap.png')
 
 
 # ── Fig. 20 ─────────────────────────────────────────────────────────────────
@@ -321,10 +366,11 @@ def main():
     SAIDA.mkdir(parents=True, exist_ok=True)
     f15, f16 = fig15(), fig16()
     f17 = top10('fig17_v2_m4_top10_shap_dados.csv', 'fig17_v2_m4_top10_shap.png', 'SHAP')
+    f18 = fig18()
     f19 = top10('fig19_v2_m4_top10_lime_dados.csv', 'fig19_v2_m4_top10_lime.png', 'LIME')
     f20, f21, f22 = fig20(), fig21(), fig22()
     cp_mae, cp_mape = car_parts()
-    itens = [(f15, LEGENDAS[15]), (f16, LEGENDAS[16]), (f17, LEGENDAS[17]), (f19, LEGENDAS[19]), (f20, LEGENDAS[20]),
+    itens = [(f15, LEGENDAS[15]), (f16, LEGENDAS[16]), (f17, LEGENDAS[17]), (f18, LEGENDAS[18]), (f19, LEGENDAS[19]), (f20, LEGENDAS[20]),
              (f21, LEGENDAS[21]), (f22, LEGENDAS[22]), (cp_mae, LEGENDAS['cp_mae']), (cp_mape, LEGENDAS['cp_mape'])]
     montar_docx(itens, SAIDA / 'figuras_dissertacao.docx')
     conf = pd.DataFrame(CONF, columns=['figura', 'valor anotado', 'antes', 'agora'])
