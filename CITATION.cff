@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "AutoPred: a protocol for comparing forecasting models on accuracy, robustness and explainability"
+type: software
+authors:
+  - family-names: "Gomes de Souza"
+    given-names: "Luana"
+    affiliation: "Federal University of Technology - Parana (UTFPR), Cornelio Procopio, Brazil"
+  - family-names: "Sipoli Sanches"
+    given-names: "Danilo"
+    affiliation: "Federal University of Technology - Parana (UTFPR), Cornelio Procopio, Brazil"
+license: MIT
+repository-code: "https://github.com/REPLACE-WITH-USER/REPLACE-WITH-REPO"
