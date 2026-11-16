@@ -38,6 +38,12 @@ htmlcov/
 # Variáveis de ambiente (credenciais)
 .env
 .env.local
+credentials.json
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+scratch/
 
 # OS
 Thumbs.db
