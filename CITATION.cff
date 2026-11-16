@@ -10,4 +10,7 @@ authors:
     given-names: "Danilo"
     affiliation: "Federal University of Technology - Parana (UTFPR), Cornelio Procopio, Brazil"
 license: MIT
-repository-code: "https://github.com/REPLACE-WITH-USER/REPLACE-WITH-REPO"
+repository-code: "https://github.com/luana-souza-hub/autopred"
+version: "1.0.0"
+doi: "10.5281/zenodo.24282924"
+date-released: "2026-11-16"
